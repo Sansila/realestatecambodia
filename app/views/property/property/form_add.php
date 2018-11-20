@@ -61,70 +61,26 @@
                 <form enctype="multipart/form-data" name="basic_validate" id="basic_validate" method="POST" action="" class="form-horizontal basic_validate">
                     
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Article Title</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Property Title</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
                                     <input type="text"  class="form-control input-sm required" name="title" value='<?php echo isset($row->article_title)?"$row->article_title":""; ?>' id="title">
-                                    <input type="text"  class="form-control input-sm hide" name="article_id" value='<?php echo isset($row->article_id)?$row->article_id:""; ?>' id="article_id">
+                                    <input type="text"  class="form-control input-sm hide" name="property_id" value='<?php echo isset($row->article_id)?$row->article_id:""; ?>' id="property_id">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Article Title</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Categories</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="title" value='<?php echo isset($row->article_title)?"$row->article_title":""; ?>' id="title">
-                                    <input type="text"  class="form-control input-sm hide" name="article_id" value='<?php echo isset($row->article_id)?$row->article_id:""; ?>' id="article_id">
-                                </div>                   
-                            </div>
-                            
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Article Title (Khmer)</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="title_kh" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="title_kh">
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Article Title (Khmer)</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="title_kh" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="title_kh">
-                                </div>                   
-                            </div>
-                            
-                        </div>
-                         
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Category Name</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                    <select class="form-control" id="location_id">
+                                    <select class="form-control rrequirede" id="category_id">
                                         <option value="0">Please Select</option>
                                         <?php
-                                        $locat=$this->db->query("SELECT * FROM tblmenus WHERE is_active='1'")->result();
+                                        $locat=$this->db->query("SELECT * FROM tblpropertytype WHERE type_status = '1' ")->result();
                                             foreach ($locat as $me) {
                                                 $se='';
-                                                if(isset($row->menu_id))
-                                                    if($row->menu_id==$me->menu_id)
+                                                if(isset($row->type_id))
+                                                    if($row->type_id==$me->typeid)
                                                         $se='selected';
-                                                echo "<option value='$me->menu_id' $se>$me->menu_name</option>";
-                                            }
-                                         ?>
-                                    </select>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Category Name</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                    <select class="form-control" id="location_id">
-                                        <option value="0">Please Select</option>
-                                        <?php
-                                        $locat=$this->db->query("SELECT * FROM tblmenus WHERE is_active='1'")->result();
-                                            foreach ($locat as $me) {
-                                                $se='';
-                                                if(isset($row->menu_id))
-                                                    if($row->menu_id==$me->menu_id)
-                                                        $se='selected';
-                                                echo "<option value='$me->menu_id' $se>$me->menu_name</option>";
+                                                echo "<option value='$me->typeid' $se>$me->typename</option>";
                                             }
                                          ?>
                                     </select>
@@ -132,70 +88,117 @@
                             </div>
                             
                         </div>
-
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Event Date</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Agent Name</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="article_date" value='<?php echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="article_date">
+                                    <select class="form-control required" id="agent_id">
+                                        <option value="0">Please Select</option>
+                                        <?php
+                                        $locat=$this->db->query("SELECT * FROM admin_user WHERE is_active='1'")->result();
+                                            foreach ($locat as $me) {
+                                                $se='';
+                                                if(isset($row->agent_id))
+                                                    if($row->agent_id==$me->userid)
+                                                        $se='selected';
+                                                echo "<option value='$me->userid' $se>$me->user_name</option>";
+                                            }
+                                         ?>
+                                    </select>
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Event Date</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Property Type</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="article_date" value='<?php echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="article_date">
+                                    <select class="form-control required" id="property_type">
+                                        <option value="0">Please Select</option>
+                                        <option value="1">Sale</option>
+                                        <option value="2">Rent</option>
+                                        <option value="3">Sale & Rent</option>
+                                    </select>
+                                </div>                   
+                            </div>
+                            
+                        </div>
+                         
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Price For Sale</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="price_sale" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="price_sale">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Price For Rent</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="price_rent" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="price_rent">
                                 </div>                   
                             </div>
                             
                         </div>
 
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Keyword</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>House Size</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_keyword"><?php echo isset($row->meta_keyword)?"$row->meta_keyword":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="house_size" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="house_size">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Keyword</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Land Size</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_keyword"><?php echo isset($row->meta_keyword)?"$row->meta_keyword":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="land_size" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="land_size">
+                                </div>                   
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Direction</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="direction" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="direction">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Bedroom</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="bedroom" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="bedroom">
                                 </div>                   
                             </div>
                             
                         </div>
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Bathroom</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="bathroom" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="bathroom">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Living Room</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="living_room" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="living_room">
                                 </div>                   
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Kitchen</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
-                                  
+                                    <input type="text"  class="form-control input-sm" name="kitchen" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="kitchen">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Dining Room</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
+                                    <input type="text"  class="form-control input-sm" name="dining_room" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="dining_room">
                                   
                                 </div>                   
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class='col-lg-2 control-label'>Is Active</label>
                             <div class=" col-lg-3"> 
                                 <div class="col-md-2">
@@ -208,180 +211,225 @@
                                     <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
                                 </div>                   
                             </div>
-                        </div>
-                         
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Is Marguee</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_marguee" id="is_marguee" <?php if (isset($row->is_marguee)){ if($row->is_marguee==1) echo 'checked'; }else{ echo "checked"; } ?> >
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                        </div>
-                         
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Is Marguee</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_marguee" id="is_marguee" <?php if (isset($row->is_marguee)){ if($row->is_marguee==1) echo 'checked'; }else{ echo "checked"; } ?> >
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Is Active</label>
-                            <div class=" col-lg-3"> 
-                                <div class="col-md-2">
-                                    <input type="checkbox"  class="form-control input-sm " name="is_active" id="is_active" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
-                                </div>                   
-                            </div>
-                        </div>
+                        </div> -->
                         
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Furniture</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="furniture" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="furniture">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Airconditioner</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="aircon" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="aircon">
                                 </div>                   
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Parking</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
+                                    <input type="text"  class="form-control input-sm" name="parking" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="parking">
                                   
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Steam & Sauna</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
+                                    <input type="text"  class="form-control input-sm" name="st_sa" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="st_sa">
                                   
                                 </div>                   
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Garden</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="garden" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="garden">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Balcony</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
-                                </div>                   
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="balcony" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="balcony">
                                 </div>                   
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Terrace</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="terrace" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="terrace">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Elevator</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
-                                </div>                   
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
-                                </div>                   
-                            </div>
-                            <label class='col-lg-2 control-label'>Meta Description</label>
-                            <div class="col-lg-3"> 
-                                <div class="col-md-12">
-                                  <textarea class="form-control" id="meta_description"><?php echo isset($row->meta_desc)?"$row->meta_desc":""; ?></textarea>
+                                    <input type="text"  class="form-control input-sm" name="elevator" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="elevator">
                                 </div>                   
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label'>Stairs</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
-                                  
+                                    <input type="text"  class="form-control input-sm" name="stairs" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="stairs">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Icon (example : fa fa-user)</label>
-                            <div class="col-lg-3"> 
+                            <label class='col-lg-2 control-label required'>Title</label>
+                            <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="icon" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="icon">
-                                  
+                                    <select class="form-control" id="pro_title">
+                                        <option value="0">Please Select</option>
+                                        <option value="1">Soft Title</option>
+                                        <option value="2">Hard Title</option>
+                                    </select>
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Contract Allowed</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="contract_allowed" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="contract_allowed">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Commission</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="commission" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="commission">
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Urgent Sale</label>
+                            <div class=" col-lg-4"> 
+                                <div class="col-md-2">
+                                    <input type="checkbox"  class="form-control input-sm " name="urgent" id="urgent" <?php if (isset($row->is_active)){ if($row->is_active==1) echo 'checked'; }else{ echo "checked"; } ?>>
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Service Provided</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="provider" value='<?php echo isset($row->icon)?"$row->icon":""; ?>' id="provider">
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Gym</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="gym" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="gym">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Advantage</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="advantage" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="advantage">
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Email Owner</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="email_owner" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="email_owner">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Owner Name</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="owner_name" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="owner_name">
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Contact Owner</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="owner_contact" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="owner_contact">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Address</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <textarea class="form-control" id="address"><?php echo isset($row->meta_keyword)?"$row->meta_keyword":""; ?></textarea>
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Location(auto select)</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <!-- <select class="form-control" id="location_id">
+                                        <option value="0">Please Select</option>
+                                        <?php
+                                        // $location=$this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
+                                        // foreach ($location as $menu) {
+                                        //     $sel='';
+                                        //     if(isset($row->parent_id))
+                                        //     if($row->parent_id==$menu->propertylocationid)
+                                        //     $sel='selected';
+                                        ?>
+                                        <option value="<?php echo $menu->propertylocationid;?>" <?php echo $sel; ?>><?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname.'('.$menu->parent_id.')';?></option>
+                                        <?php 
+                                        //}
+                                        ?>
+                                    </select> -->
+
+                                    <input list="location_id" class="form-control">
+                                    <datalist id="location_id">
+                                        <?php 
+                                            $location=$this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
+                                            foreach ($location as $menu) {
+                                        ?>
+                                            <option data = "<?php echo $menu->propertylocationid;?>" value="<?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname;?>">
+                                        <?php 
+                                            }
+                                        ?>
+                                    </datalist>
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Available Property</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <select class="form-control" id="available_pro">
+                                        <option value="0">Please Select</option>
+                                        <option value="1">Avialable</option>
+                                        <option value="2">Unavialable</option>
+                                    </select>
+                                </div>                   
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Start Date</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="start_date" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="start_date">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>End Date</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="end_date" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="end_date">
+                                </div>                   
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Latitude</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="latitude" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="latitude">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Longtitude</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm required" name="longtitude" value='<?php echo isset($row->article_title_kh)?"$row->article_title_kh":""; ?>' id="longtitude">
                                 </div>                   
                             </div>
                         </div>
@@ -490,7 +538,6 @@
                 data:{id:id },
                 success:function(data) {
                     // alert(data);
-                    
                 }
               })
         $(this).closest('.saouy').remove();
@@ -583,18 +630,46 @@
                 type:"POST",
                 datatype:"Json",
                 async:false,
-                data:{title:$("#title").val(),
-                    title_kh:$("#title_kh").val(),
-                    article_date:$("#article_date").val(),
-                    article_id:$("#article_id").val(),
-                    content:$("#contents").val(),
-                    content_kh:$("#contents_kh").val(),
-                    keyword:$("#meta_keyword").val(),
-                    meta_desc:$("#meta_description").val(),
-                    icon:$("#icon").val(),
-                    location_id:$("#location_id").val(),
-                    is_active:is_active,
-                    is_marguee:is_marguee
+                data:{
+                    title:$("#title").val(),
+                    category:$("#title_kh").val(),
+                    angent:$("#article_date").val(),
+                    type:$("#article_id").val(),
+                    sale_price:$("#contents").val(),
+                    rent_price:$("#contents_kh").val(),
+                    house_size:$("#meta_keyword").val(),
+                    land_size:$("#meta_description").val(),
+                    direction:$("#icon").val(),
+                    bedroom:$("#location_id").val(),
+                    bathroom:is_active,
+                    livingroom:is_marguee,
+                    kitchen: '',
+                    dining_room: '',
+                    funiture: '',
+                    aircond: '',
+                    parking: '',
+                    stam_suana: '',
+                    garden: '',
+                    balcony: '',
+                    terrace: '',
+                    elevator: '',
+                    stair: '',
+                    title: '',
+                    contract: '',
+                    commission: '',
+                    urgent: '',
+                    service_pro: '',
+                    gym: '',
+                    advantage: '',
+                    mail_owner: '',
+                    owner_name: '',
+                    contact_owner: '',
+                    address: '',
+                    location: '',
+                    available: '',
+                    start_date: '',
+                    end_date: '',
+                    content: '',
                 },
                 success:function(data) {
                     // $(".result_text").html(data.msg);
@@ -613,7 +688,6 @@
           }, 500);
         }
       });
-
 
     $("#is_active").on("click",function(){      
       if($(this).prop("checked")==true){

@@ -654,6 +654,76 @@
 			$ip=$this->getuserip();
 			$this->runSQL("UPDATE admin_user SET last_visit='".$date."', last_visit_ip='".$ip."'");
 		}
+		#===================== Create sub location ==========================
+		function lineages($field_name,$field_value,$parent_field,$parent_value,$table){
+			$lineages="";
+			if($field_value==$parent_value){
+				return $field_value;
+			}
+			$lineages=$field_value;
+			$row=$this->getOneRow("SELECT {$field_name},
+												$parent_field 
+											FROM {$table} 
+											WHERE $field_name ='".$parent_value."'");			
+			if(isset($row[$field_name]) AND $row[$field_name]!=""){							
+				$lineages=$this->lineages($field_name,$row[$field_name],$parent_field,$row[$parent_field],$table)."-".$field_value;
+			}
+			return $lineages;
+		}	
+		function lineage_levels($field_name,$field_value,$parent_field,$parent_value,$table){
+			$lineage_levels = array("lineage" => $field_value,"level" => 0);
+			$lineage_levels['lineage'] = $this->lineages($field_name,$field_value,$parent_field,$parent_value,$table);
+			$arr_level = explode('-',$lineage_levels['lineage']);
+			$lineage_levels['level'] = count($arr_level) - 1 ;
+			return $lineage_levels;
+		}
+		function updateCateLineAges($categoryid=""){
+			$w=$categoryid==""?"":" AND propertylocationid='".$categoryid."'";
+			$data=$this->getTable("SELECT propertylocationid,parent_id FROM tblpropertylocation WHERE 1=1 {$w}");
+			if(count($data)>0){
+				foreach ($data as $rows) {
+					$arr_lineage=$this->lineage_levels('propertylocationid',$rows['propertylocationid'],'parent_id',$rows['parent_id'],'tblpropertylocation');
+					$this->runSQL("UPDATE tblpropertylocation 
+											SET lineage='".$arr_lineage['lineage']."',
+												level='".$arr_lineage['level']."'
+											WHERE propertylocationid='".$rows['propertylocationid']."'
+										");
+				}
+			}
+		}
+		function getuserips() {
+		    $headers = array ('HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'HTTP_VIA', 'HTTP_X_COMING_FROM', 'HTTP_COMING_FROM', 'HTTP_CLIENT_IP' );
+		 
+		    foreach ( $headers as $header ) {
+		        if (isset ( $_SERVER [$header]  )) {
+		        
+		            if (($pos = strpos ( $_SERVER [$header], ',' )) != false) {
+		                $ip = substr ( $_SERVER [$header], 0, $pos );
+		            } else {
+		                $ip = $_SERVER [$header];
+		            }
+		            $ipnum = ip2long ( $ip );
+		            if ($ipnum !== - 1 && $ipnum !== false && (long2ip ( $ipnum ) === $ip)) {
+		                if (($ipnum - 184549375) && // Not in 10.0.0.0/8
+		                ($ipnum  - 1407188993) && // Not in 172.16.0.0/12
+		                ($ipnum  - 1062666241)) // Not in 192.168.0.0/16
+		                if (($pos = strpos ( $_SERVER [$header], ',' )) != false) {
+		                    $ip = substr ( $_SERVER [$header], 0, $pos );
+		                } else {
+		                    $ip = $_SERVER [$header];
+		                }
+		                return $ip;
+		            }
+		        }
+		        
+		    }
+		    return $_SERVER ['REMOTE_ADDR'];
+		}
+		function savelastlogins($userid){
+			$date=date('Y-m-d H:i:s');
+			$ip=$this->getuserips();
+			$this->runSQL("UPDATE admin_user SET last_visit='".$date."', last_visit_ip='".$ip."'");
+		}
 		#===================== End of sub catory stucture ===================	
 		function getsubcategory($cateid){
 			$id=$cateid;
