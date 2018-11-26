@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Nov 19, 2018 at 04:38 AM
+-- Generation Time: Nov 26, 2018 at 02:00 AM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -40,16 +40,17 @@ CREATE TABLE `admin_user` (
   `is_admin` int(11) DEFAULT '0',
   `is_active` int(11) DEFAULT '1',
   `def_storeid` int(11) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=1498 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1499 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin_user`
 --
 
 INSERT INTO `admin_user` (`userid`, `user_name`, `password`, `email`, `gender`, `dob`, `phone`, `last_visit`, `last_visit_ip`, `created_date`, `created_by`, `modified_by`, `modified_date`, `roleid`, `last_name`, `first_name`, `is_admin`, `is_active`, `def_storeid`) VALUES
-(4, 'admin', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', '', '0000-00-00', '', '2018-11-18 06:02:01', '::1', '2015-01-29 15:10:34', NULL, NULL, NULL, 1, 'System', 'Administrator', 1, 1, NULL),
-(5, 'chetra', '202cb962ac59075b964b07152d234b70', 'eing.chetra@gmail.com', '', '0000-00-00', '', '2018-11-18 06:02:01', '::1', '2015-02-02 17:26:36', NULL, NULL, NULL, 2, 'eing', 'chetra', 0, 0, NULL),
-(1497, 'store', 'e10adc3949ba59abbe56e057f20f883e', 'store@green.com', '', '0000-00-00', '', '2018-11-18 06:02:01', '::1', '2015-06-26 08:10:54', NULL, NULL, NULL, 21, 'Green', 'Store', 0, 0, NULL);
+(4, 'admin', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', '', '0000-00-00', '', '2018-11-20 04:55:15', '::1', '2015-01-29 15:10:34', NULL, NULL, NULL, 1, 'System', 'Administrator', 1, 1, NULL),
+(5, 'chetra', '202cb962ac59075b964b07152d234b70', 'eing.chetra@gmail.com', '', '0000-00-00', '', '2018-11-20 04:55:15', '::1', '2015-02-02 17:26:36', NULL, NULL, NULL, 2, 'eing', 'chetra', 0, 0, NULL),
+(1497, 'store', 'e10adc3949ba59abbe56e057f20f883e', 'store@green.com', '', '0000-00-00', '', '2018-11-20 04:55:15', '::1', '2015-06-26 08:10:54', NULL, NULL, NULL, 21, 'Green', 'Store', 0, 0, NULL),
+(1498, 'user', '202cb962ac59075b964b07152d234b70', 'user@gmail.com', '', '0000-00-00', '', '2018-11-20 04:55:15', '::1', '2018-11-20 04:42:55', NULL, NULL, NULL, 23, 'user', 'user', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('e271cd942aa5be7a46a82493a7c4cea8', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.3', 1542517984, 'a:13:{s:9:"user_data";s:0:"";s:6:"userid";s:1:"4";s:9:"user_name";s:5:"admin";s:8:"password";s:32:"202cb962ac59075b964b07152d234b70";s:6:"roleid";s:1:"1";s:9:"last_name";s:6:"System";s:10:"first_name";s:13:"Administrator";s:10:"last_visit";s:19:"2018-11-18 04:36:48";s:13:"last_visit_ip";s:3:"::1";s:9:"moduleids";a:7:{i:0;a:1:{s:8:"moduleid";s:2:"12";}i:1;a:1:{s:8:"moduleid";s:2:"11";}i:2;a:1:{s:8:"moduleid";s:1:"7";}i:3;a:1:{s:8:"moduleid";s:1:"1";}i:4;a:1:{s:8:"moduleid";s:2:"18";}i:5;a:1:{s:8:"moduleid";s:2:"19";}i:6;a:1:{s:8:"moduleid";s:2:"20";}}s:12:"ModuleInfors";a:7:{i:12;a:4:{s:8:"moduleid";s:2:"12";s:11:"module_name";s:6:"Banner";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:11;a:4:{s:8:"moduleid";s:2:"11";s:11:"module_name";s:7:"Article";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:7;a:4:{s:8:"moduleid";s:1:"7";s:11:"module_name";s:4:"Menu";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:1;a:4:{s:8:"moduleid";s:1:"1";s:11:"module_name";s:7:"Setting";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:18;a:4:{s:8:"moduleid";s:2:"18";s:11:"module_name";s:8:"Property";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:19;a:4:{s:8:"moduleid";s:2:"19";s:11:"module_name";s:12:"Propery Type";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}i:20;a:4:{s:8:"moduleid";s:2:"20";s:11:"module_name";s:17:"Property Location";s:8:"sort_mod";N;s:12:"mod_position";s:1:"2";}}s:10:"PageInfors";a:7:{i:12;a:2:{i:69;a:14:{s:6:"pageid";s:2:"69";s:9:"page_name";s:11:"Banner List";s:4:"link";s:20:"setup/setupads/index";s:8:"moduleid";s:2:"12";s:5:"order";s:1:"0";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2016-02-05 23:16:13";s:4:"icon";s:7:"fa-bars";}i:70;a:14:{s:6:"pageid";s:2:"70";s:9:"page_name";s:14:"Add New Banner";s:4:"link";s:18:"setup/setupads/add";s:8:"moduleid";s:2:"12";s:5:"order";s:1:"1";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2016-02-05 23:15:42";s:4:"icon";s:7:"fa-bars";}}i:11;a:2:{i:65;a:14:{s:6:"pageid";s:2:"65";s:9:"page_name";s:12:"Article List";s:4:"link";s:13:"article/index";s:8:"moduleid";s:2:"11";s:5:"order";s:1:"4";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-09-11 16:46:23";s:4:"icon";s:7:"fa-bars";}i:66;a:14:{s:6:"pageid";s:2:"66";s:9:"page_name";s:15:"Add New Article";s:4:"link";s:11:"article/add";s:8:"moduleid";s:2:"11";s:5:"order";s:1:"5";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-09-11 16:47:08";s:4:"icon";s:7:"fa-bars";}}i:7;a:4:{i:63;a:14:{s:6:"pageid";s:2:"63";s:9:"page_name";s:13:"Category List";s:4:"link";s:10:"menu/index";s:8:"moduleid";s:1:"7";s:5:"order";s:2:"10";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-09-11 15:53:36";s:4:"icon";s:7:"fa-bars";}i:64;a:14:{s:6:"pageid";s:2:"64";s:9:"page_name";s:16:"Add New Category";s:4:"link";s:8:"menu/add";s:8:"moduleid";s:1:"7";s:5:"order";s:2:"11";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-09-11 15:53:58";s:4:"icon";s:7:"fa-bars";}i:75;a:14:{s:6:"pageid";s:2:"75";s:9:"page_name";s:12:"Add New Menu";s:4:"link";s:12:"category/add";s:8:"moduleid";s:1:"7";s:5:"order";s:2:"12";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2017-12-22 13:42:09";s:4:"icon";s:7:"fa-bars";}i:76;a:14:{s:6:"pageid";s:2:"76";s:9:"page_name";s:9:"Menu List";s:4:"link";s:14:"category/index";s:8:"moduleid";s:1:"7";s:5:"order";s:2:"13";s:9:"is_insert";s:2:"11";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2017-12-22 13:42:54";s:4:"icon";s:7:"fa-bars";}}i:1;a:4:{i:5;a:14:{s:6:"pageid";s:1:"5";s:9:"page_name";s:4:"Page";s:4:"link";s:12:"setting/page";s:8:"moduleid";s:1:"1";s:5:"order";N;s:9:"is_insert";s:1:"0";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"0";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"0";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-02-05 17:00:01";s:4:"icon";s:9:"fa-file-o";}i:6;a:14:{s:6:"pageid";s:1:"6";s:9:"page_name";s:12:"User Profile";s:4:"link";s:12:"setting/user";s:8:"moduleid";s:1:"1";s:5:"order";N;s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"0";s:9:"is_export";s:1:"0";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-02-05 16:56:20";s:4:"icon";s:7:"fa-user";}i:7;a:14:{s:6:"pageid";s:1:"7";s:9:"page_name";s:9:"User Role";s:4:"link";s:12:"setting/role";s:8:"moduleid";s:1:"1";s:5:"order";N;s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-02-05 16:57:09";s:4:"icon";s:7:"fa-user";}i:8;a:14:{s:6:"pageid";s:1:"8";s:9:"page_name";s:11:"Role Access";s:4:"link";s:18:"setting/permission";s:8:"moduleid";s:1:"1";s:5:"order";N;s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"0";s:7:"is_show";s:1:"0";s:8:"is_print";s:1:"0";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2015-02-05 16:56:46";s:4:"icon";s:9:"fa-wrench";}}i:18;a:2:{i:78;a:14:{s:6:"pageid";s:2:"78";s:9:"page_name";s:16:"Add New Property";s:4:"link";s:21:"property/property/add";s:8:"moduleid";s:2:"18";s:5:"order";s:1:"0";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 04:36:42";s:4:"icon";s:7:"fa-bars";}i:79;a:14:{s:6:"pageid";s:2:"79";s:9:"page_name";s:13:"Property List";s:4:"link";s:23:"property/property/index";s:8:"moduleid";s:2:"18";s:5:"order";s:1:"1";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 04:36:26";s:4:"icon";s:7:"fa-bars";}}i:19;a:2:{i:80;a:14:{s:6:"pageid";s:2:"80";s:9:"page_name";s:21:"Add New Property Type";s:4:"link";s:25:"property/propertytype/add";s:8:"moduleid";s:2:"19";s:5:"order";s:1:"0";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 06:01:16";s:4:"icon";s:7:"fa-bars";}i:81;a:14:{s:6:"pageid";s:2:"81";s:9:"page_name";s:18:"Property Type List";s:4:"link";s:27:"property/propertytype/index";s:8:"moduleid";s:2:"19";s:5:"order";s:1:"1";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 06:00:59";s:4:"icon";s:7:"fa-bars";}}i:20;a:2:{i:82;a:14:{s:6:"pageid";s:2:"82";s:9:"page_name";s:25:"Add New Property Location";s:4:"link";s:29:"property/propertylocation/add";s:8:"moduleid";s:2:"20";s:5:"order";s:1:"0";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 06:01:37";s:4:"icon";s:7:"fa-bars";}i:83;a:14:{s:6:"pageid";s:2:"83";s:9:"page_name";s:22:"Property Location List";s:4:"link";s:31:"property/propertylocation/index";s:8:"moduleid";s:2:"20";s:5:"order";s:1:"1";s:9:"is_insert";s:1:"1";s:9:"is_update";s:1:"1";s:9:"is_delete";s:1:"1";s:7:"is_show";s:1:"1";s:8:"is_print";s:1:"1";s:9:"is_export";s:1:"1";s:10:"created_by";s:1:"1";s:12:"created_date";s:19:"2018-11-18 06:01:53";s:4:"icon";s:7:"fa-bars";}}}s:10:"PageAction";a:7:{i:12;a:2:{i:69;s:1:"1";i:70;s:1:"1";}i:11;a:2:{i:65;s:1:"1";i:66;s:1:"1";}i:7;a:4:{i:63;s:1:"1";i:64;s:1:"1";i:75;s:1:"1";i:76;s:1:"1";}i:1;a:4:{i:5;s:1:"1";i:6;s:1:"1";i:7;s:1:"1";i:8;s:1:"0";}i:18;a:2:{i:78;s:1:"1";i:79;s:1:"1";}i:19;a:2:{i:80;s:1:"1";i:81;s:1:"1";}i:20;a:2:{i:82;s:1:"1";i:83;s:1:"1";}}}');
+('592298587774f31ab9ffd1db90f084dd', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.3', 1542727095, '');
 
 -- --------------------------------------------------------
 
@@ -200,10 +201,22 @@ CREATE TABLE `tblgallery` (
   `url` varchar(255) DEFAULT NULL,
   `gallery_type` int(1) DEFAULT NULL,
   `article_id` int(11) DEFAULT NULL,
+  `pid` int(11) NOT NULL,
   `location_id` int(11) DEFAULT '0',
   `order` int(11) DEFAULT NULL,
   `home` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblgallery`
+--
+
+INSERT INTO `tblgallery` (`gallery_id`, `gallery_title`, `url`, `gallery_type`, `article_id`, `pid`, `location_id`, `order`, `home`) VALUES
+(1, NULL, 'property-1.jpg', 0, NULL, 1, 0, NULL, NULL),
+(2, NULL, 'property-3.jpg', 0, NULL, 2, 0, NULL, NULL),
+(3, NULL, 'property-4.jpg', 0, NULL, 2, 0, NULL, NULL),
+(4, NULL, 'property-5.jpg', 0, NULL, 2, 0, NULL, NULL),
+(5, NULL, 'property-6.jpg', 0, NULL, 2, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -269,14 +282,18 @@ CREATE TABLE `tblmenus` (
   `article_id` int(11) DEFAULT NULL,
   `location_id` int(11) DEFAULT NULL,
   `menu_type` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tblmenus`
 --
 
 INSERT INTO `tblmenus` (`menu_id`, `menu_name`, `description`, `lineage`, `parentid`, `level`, `order`, `is_active`, `created_date`, `created_by`, `layout_id`, `modified_by`, `modified_date`, `menu_name_kh`, `article_id`, `location_id`, `menu_type`) VALUES
-(84, 'k', NULL, '84', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, 'k', 0, 17, '17');
+(94, '3', NULL, '94', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '3', 0, 17, 'Please select'),
+(95, '1.1', NULL, '92-95', 92, 1, 1, 1, NULL, NULL, 1, NULL, NULL, '1.1', 0, 17, 'Please select'),
+(96, '2.2', NULL, '93-96', 93, 1, 1, 1, NULL, NULL, 1, NULL, NULL, '2.2', 0, 17, 'Please select'),
+(92, '1', NULL, '92', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '1', 0, 17, 'Please select'),
+(93, '2', NULL, '93', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '2', 0, 17, 'Please select');
 
 -- --------------------------------------------------------
 
@@ -304,7 +321,7 @@ CREATE TABLE `tblproperty` (
   `type_id` int(10) DEFAULT NULL,
   `agent_id` int(10) DEFAULT NULL,
   `lp_id` int(10) DEFAULT NULL,
-  `title` varchar(250) DEFAULT NULL,
+  `property_name` varchar(250) DEFAULT NULL,
   `price` int(10) DEFAULT NULL,
   `story` varchar(250) DEFAULT NULL,
   `p_type` varchar(250) DEFAULT NULL,
@@ -329,7 +346,7 @@ CREATE TABLE `tblproperty` (
   `elevator` varchar(50) DEFAULT NULL,
   `stairs` varchar(50) DEFAULT NULL,
   `img_source` text,
-  `contact` int(10) DEFAULT NULL,
+  `contract` int(10) DEFAULT NULL,
   `commision` varchar(50) DEFAULT NULL,
   `address` text,
   `advantage` text,
@@ -339,10 +356,21 @@ CREATE TABLE `tblproperty` (
   `email_owner` varchar(250) DEFAULT NULL,
   `service_provided` varchar(250) DEFAULT NULL,
   `description` text,
+  `description_kh` text NOT NULL,
   `p_status` int(1) DEFAULT NULL,
   `p_location` varchar(250) DEFAULT NULL,
-  `add_date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `add_date` date DEFAULT NULL,
+  `end_date` date NOT NULL,
+  `title` int(10) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblproperty`
+--
+
+INSERT INTO `tblproperty` (`pid`, `type_id`, `agent_id`, `lp_id`, `property_name`, `price`, `story`, `p_type`, `floor`, `landsize`, `housesize`, `direction`, `bedroom`, `bathroom`, `livingroom`, `kitchen`, `dinning_room`, `furniture`, `air_conditional`, `parking`, `pool`, `gym`, `steamandsouna`, `garden`, `balcony`, `terrace`, `elevator`, `stairs`, `img_source`, `contract`, `commision`, `address`, `advantage`, `contact_owner`, `ownername`, `remark`, `email_owner`, `service_provided`, `description`, `description_kh`, `p_status`, `p_location`, `add_date`, `end_date`, `title`) VALUES
+(1, 0, 0, 40, 'a', 0, '', '', 0, '', '', '', '', '', 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', NULL, 0, 'ss', 'ss', '', 'ss', 's', NULL, 's', '', '', '', 1, NULL, '0000-00-00', '0000-00-00', 0),
+(2, 0, 0, 51, 'dfdf', 0, '', '', 0, '', '', '', '', '', 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', NULL, 0, 'df', 'df', '', 'df', 'df', NULL, 'df', '', '<p>\n	dfdfdfd</p>\n', '', 1, NULL, '0000-00-00', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -353,10 +381,31 @@ CREATE TABLE `tblproperty` (
 CREATE TABLE `tblpropertylocation` (
   `propertylocationid` int(10) NOT NULL,
   `locationname` varchar(250) NOT NULL,
+  `lineage` varchar(250) NOT NULL,
   `parent_id` int(10) NOT NULL,
+  `level` int(11) NOT NULL,
   `note` text NOT NULL,
   `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tblpropertylocation`
+--
+
+INSERT INTO `tblpropertylocation` (`propertylocationid`, `locationname`, `lineage`, `parent_id`, `level`, `note`, `status`) VALUES
+(40, '1', '40', 0, 0, '', 1),
+(41, '2', '41', 0, 0, '', 1),
+(42, '3', '42', 0, 0, '', 1),
+(43, '4', '43', 0, 0, '', 1),
+(44, '5', '44', 0, 0, '', 1),
+(45, '6', '45', 0, 0, '', 1),
+(46, '7', '46', 0, 0, '', 1),
+(48, '8', '48', 0, 0, '', 1),
+(49, '9', '49', 0, 0, '', 1),
+(50, '10', '50', 0, 0, '', 1),
+(51, '1.1', '40-51', 40, 1, '', 1),
+(52, '2.2', '41-52', 41, 1, '', 1),
+(53, '1.1.1', '40-51-53', 51, 2, '', 1);
 
 -- --------------------------------------------------------
 
@@ -369,7 +418,7 @@ CREATE TABLE `tblpropertytype` (
   `typename` varchar(250) DEFAULT NULL,
   `type_note` text,
   `type_status` int(1) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpropertytype`
@@ -457,7 +506,7 @@ INSERT INTO `z_module` (`moduleid`, `module_name`, `sort_mod`, `order`, `is_acti
 (12, 'Banner', NULL, NULL, 1, '2'),
 (13, 'Contact', NULL, NULL, 0, '2'),
 (18, 'Property', NULL, NULL, 1, '2'),
-(19, 'Propery Type', NULL, NULL, 1, '2'),
+(19, 'Propery Category', NULL, NULL, 1, '2'),
 (20, 'Property Location', NULL, NULL, 1, '2');
 
 -- --------------------------------------------------------
@@ -517,8 +566,8 @@ INSERT INTO `z_page` (`pageid`, `page_name`, `link`, `moduleid`, `order`, `is_in
 (77, 'Module', 'setting/module', 1, 0, 1, 1, 1, 1, 1, 1, 1, '2018-11-17 11:53:41', 0, 'fa-bars', NULL),
 (78, 'Add New Property', 'property/property/add', 18, 0, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 04:36:42', 1, 'fa-bars', NULL),
 (79, 'Property List', 'property/property/index', 18, 1, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 04:36:26', 1, 'fa-bars', NULL),
-(80, 'Add New Property Type', 'property/propertytype/add', 19, 0, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 06:01:16', 1, 'fa-bars', NULL),
-(81, 'Property Type List', 'property/propertytype/index', 19, 1, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 06:00:59', 1, 'fa-bars', NULL),
+(80, 'Add New Property Category', 'property/propertytype/add', 19, 0, 1, 1, 1, 1, 1, 1, 1, '2018-11-20 02:26:36', 1, 'fa-bars', NULL),
+(81, 'Property Category Lists', 'property/propertytype/index', 19, 1, 1, 1, 1, 1, 1, 1, 1, '2018-11-20 02:26:15', 1, 'fa-bars', NULL),
 (82, 'Property Location', 'property/propertylocation/add', 20, 0, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 06:14:32', 1, 'fa-bars', NULL),
 (83, 'Property Location List', 'property/propertylocation/index', 20, 1, 1, 1, 1, 1, 1, 1, 1, '2018-11-18 06:01:53', 1, 'fa-bars', NULL);
 
@@ -533,7 +582,7 @@ CREATE TABLE `z_role` (
   `role` varchar(255) DEFAULT NULL,
   `is_admin` int(11) DEFAULT NULL,
   `is_active` int(11) DEFAULT '1'
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `z_role`
@@ -560,7 +609,8 @@ INSERT INTO `z_role` (`roleid`, `role`, `is_admin`, `is_active`) VALUES
 (19, 'VTC Officier', NULL, 0),
 (20, 'Product Posting', NULL, 0),
 (21, 'Store Managment', NULL, 0),
-(22, 'Product Authorization', NULL, 0);
+(22, 'Product Authorization', NULL, 0),
+(23, 'user', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -573,7 +623,7 @@ CREATE TABLE `z_role_module_detail` (
   `roleid` int(11) DEFAULT NULL,
   `moduleid` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `z_role_module_detail`
@@ -586,7 +636,9 @@ INSERT INTO `z_role_module_detail` (`mod_rol_id`, `roleid`, `moduleid`, `order`)
 (111, 1, 1, NULL),
 (115, 1, 18, NULL),
 (116, 1, 19, NULL),
-(117, 1, 20, NULL);
+(117, 1, 20, NULL),
+(118, 23, 7, NULL),
+(119, 23, 18, NULL);
 
 -- --------------------------------------------------------
 
@@ -608,7 +660,7 @@ CREATE TABLE `z_role_page` (
   `is_print` int(1) DEFAULT '1',
   `is_export` int(1) DEFAULT '1',
   `is_import` int(1) DEFAULT '1'
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `z_role_page`
@@ -619,7 +671,9 @@ INSERT INTO `z_role_page` (`role_page_id`, `roleid`, `pageid`, `moduleid`, `crea
 (26, 17, 25, 7, '2015-06-18 21:15:05', '1', 1, 1, 1, 1, 1, 1, 1),
 (27, 17, 26, 7, '2015-04-20 10:57:34', '1', 1, 1, 1, 1, 1, 1, 1),
 (28, 17, 27, 7, '2015-04-20 10:57:45', '1', 1, 1, 1, 1, 1, 1, 1),
-(29, 17, 28, 7, '2015-04-20 10:57:55', '1', 1, 1, 1, 1, 1, 1, 1);
+(29, 17, 28, 7, '2015-04-20 10:57:55', '1', 1, 1, 1, 1, 1, 1, 1),
+(40, 23, 63, 7, '2018-11-20 04:43:40', '1', 1, 1, 1, 1, 1, 1, 1),
+(41, 23, 75, 7, '2018-11-20 04:43:55', '1', 1, 1, 1, 1, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -766,7 +820,7 @@ ALTER TABLE `z_role_page`
 -- AUTO_INCREMENT for table `admin_user`
 --
 ALTER TABLE `admin_user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1498;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1499;
 --
 -- AUTO_INCREMENT for table `dashboard_item`
 --
@@ -796,7 +850,7 @@ ALTER TABLE `tblcontact`
 -- AUTO_INCREMENT for table `tblgallery`
 --
 ALTER TABLE `tblgallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbllayout`
 --
@@ -811,7 +865,7 @@ ALTER TABLE `tbllocation`
 -- AUTO_INCREMENT for table `tblmenus`
 --
 ALTER TABLE `tblmenus`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT for table `tblproduct`
 --
@@ -821,17 +875,17 @@ ALTER TABLE `tblproduct`
 -- AUTO_INCREMENT for table `tblproperty`
 --
 ALTER TABLE `tblproperty`
-  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `pid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tblpropertylocation`
 --
 ALTER TABLE `tblpropertylocation`
-  MODIFY `propertylocationid` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `propertylocationid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `tblpropertytype`
 --
 ALTER TABLE `tblpropertytype`
-  MODIFY `typeid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `typeid` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `z_blog`
 --
@@ -856,14 +910,14 @@ ALTER TABLE `z_page`
 -- AUTO_INCREMENT for table `z_role`
 --
 ALTER TABLE `z_role`
-  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `roleid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `z_role_module_detail`
 --
 ALTER TABLE `z_role_module_detail`
-  MODIFY `mod_rol_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=118;
+  MODIFY `mod_rol_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=120;
 --
 -- AUTO_INCREMENT for table `z_role_page`
 --
 ALTER TABLE `z_role_page`
-  MODIFY `role_page_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `role_page_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
