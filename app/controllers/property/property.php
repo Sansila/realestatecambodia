@@ -10,8 +10,9 @@ class Property extends CI_Controller {
 		//$this->lang->load('stock', 'english');
 		$this->load->model("property/modproperty","pro");			
 		$this->thead=array("No"=>'no',
-							"Images"=>'image',
-							 "Product Name"=>'name',
+							 "Property Name"=>'Property Name',
+							 "Category"=> "Category",
+							 "Property Type" => "Property Type",
 							 "Visibled"=>'visibled',
 							 "Action"=>'Action'							 	
 							);
@@ -21,7 +22,13 @@ class Property extends CI_Controller {
 	
 	function index()
 	{
-		echo "add new property";
+		$data['idfield']=$this->idfield;		
+		$data['thead']=	$this->thead;
+		$data['page_header']="List Property";
+
+		$this->parser->parse('greenadmin/header', $data);
+		$this->parser->parse('property/property/view',$data);
+		$this->parser->parse('greenadmin/footer', $data);
     }
     function add()
     {
@@ -39,12 +46,14 @@ class Property extends CI_Controller {
 			'address'=> $this->input->post('address'),
 			'advantage'=> $this->input->post('advantage'),
 			'add_date'=> $this->input->post('start_date'),
+			'end_date'=> $this->input->post('end_date'),
 			'agent_id'=> $this->input->post('angent'),
 			'air_conditional'=> $this->input->post('aircond'),
 			'balcony'=> $this->input->post('balcony'),
 			'bathroom'=> $this->input->post('bathroom'),
 			'bedroom'=> $this->input->post('bedroom'),
 			'commision'=> $this->input->post('commission'),
+			'urgent' => $this->input->post('urgent'),
 			'contact_owner'=> $this->input->post('contact_owner'),
 			'contract'=> $this->input->post('contract'),
 			'description'=> $this->input->post('content'),
@@ -52,7 +61,6 @@ class Property extends CI_Controller {
 			'dinning_room'=> $this->input->post('dining_room'),
 			'direction'=> $this->input->post('direction'),
 			'elevator'=> $this->input->post('elevator'),
-			'end_date'=> $this->input->post('end_date'),
 			'email_owner'=> $this->input->post('mail_owner'),
 			'floor'=> $this->input->post('floor'),
 			'furniture'=> $this->input->post('funiture'),
@@ -68,7 +76,8 @@ class Property extends CI_Controller {
 			'pool'=> $this->input->post('pool'),
 			'price'=> $this->input->post('price'),
 			'property_name'=> $this->input->post('property_name'),
-			'p_status'=> $this->input->post('available'),
+			'p_status'=> 1,
+			'available' => $this->input->post('available'),
 			'p_type'=> $this->input->post('type'),
 			'service_provided'=> $this->input->post('service_pro'),
 			'stairs'=> $this->input->post('stair'),
@@ -77,6 +86,8 @@ class Property extends CI_Controller {
 			'terrace'=> $this->input->post('terrace'),
 			'title'=> $this->input->post('title'),
 			'type_id'=> $this->input->post('category'),
+			'latitude'=> $this->input->post('latitude'),
+			'longtitude'=> $this->input->post('longtitude'),
 		);
 
 		$msg='';
@@ -177,5 +188,75 @@ class Property extends CI_Controller {
 			$this->db->insert('tblgallery',$data);
 		}
 	}
-	
+	function getdata(){
+		$perpage=$this->input->post('perpage');
+		$s_name=$this->input->post('s_name');
+		
+		$sql="SELECT *
+		FROM tblproperty pl
+		left join tblpropertytype pt
+		on pl.type_id = pt.typeid
+		WHERE pl.p_status=1 AND pl.property_name LIKE '%$s_name%' order by pl.pid asc";
+		$table='';
+		$pagina='';
+		$paging=$this->green->ajax_pagination(count($this->db->query($sql)->result()),site_url("menu/getdata"),$perpage);
+		$i=1;
+		$limit=" LIMIT {$paging['start']}, {$paging['limit']}";
+		$sql.=" {$limit}";
+		$this->green->setActiveRole($this->session->userdata('roleid'));
+        $this->green->setActiveModule($this->input->post('m'));
+        $this->green->setActivePage($this->input->post('p')); 
+		foreach($this->db->query($sql)->result() as $row){
+			$visibled='No';
+			$typ='';
+			$lay='';
+			$property_type;
+			if($row->p_status==1)
+				$visibled="Yes";
+			if($row->p_type == 1)
+				$property_type = "Sale";
+			if($row->p_type == 2)
+				$property_type = "Rent";
+			if($row->p_status == 3)
+				$property_type = "Rent & Sale";
+			
+			$table.= "<tr>
+				 <td class='no'>".$i."</td>
+				 <td class='name'>".$row->property_name."</td>	
+				 <td class='name'>".$row->typename."</td>	
+				 <td class='name'>".$property_type."</td>		
+				 <td class='type'>".$visibled."</td>
+				 <td class='remove_tag no_wrap'>";
+				 
+				 if($this->green->gAction("D")){
+					$table.= "<a><img rel=".$row->pid." onclick='deletestore(event);' src='".base_url('assets/images/icons/delete.png')."'/></a>";
+				 }
+				 if($this->green->gAction("U")){
+					$table.= "<a><img rel=".$row->pid." onclick='update(event);' src='".base_url('assets/images/icons/edit.png')."'/></a>";
+				 }
+			$table.= " </td>
+				 </tr>
+				 ";										 
+			$i++;	 
+		}
+		$arr['data']=$table;
+		$arr['pagina']=$paging;
+		header("Content-type:text/x-json");
+		echo json_encode($arr);
+	}
+	function edit($pid)
+	{
+		$datas['id'] = $pid;
+		$data['page_header']="New Property Type";			
+		$this->parser->parse('greenadmin/header', $data);
+		$this->parser->parse('property/property/form_add',$datas);
+		$this->parser->parse('greenadmin/footer', $data);
+	}
+	function delete($pid)
+	{
+		$data = array(
+			'p_status' => 0,
+		);
+		$this->db->where('pid',$pid)->update('tblproperty',$data);
+	}
 }
