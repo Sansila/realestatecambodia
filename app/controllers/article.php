@@ -197,7 +197,7 @@ class article extends CI_Controller {
 	function deletecontact($storeid){
 		$this->db->where('contact_id',$storeid)->delete('tblcontact');
 	}
-	 function upload($productid)
+	function upload($productid)
 	{       
 	    $this->load->library('upload');
 	    $orders=$this->input->post('order');
@@ -290,7 +290,9 @@ class article extends CI_Controller {
 		$is_active=$this->input->post('is_active');
 		$is_marguee=$this->input->post('is_marguee');
 		$msg='';
+
 		$article_id=$this->art->save($article_id,$title,$content,$is_active,$is_marguee,$content_kh,$keyword,$meta_desc,$location_id,$title_kh,$icon,$event_date);
+		
 		$msg="Article Has Created...!";
 		$arr=array('msg'=>$msg,'article_id'=>$article_id);
 		header("Content-type:text/x-json");

@@ -64,7 +64,7 @@
                             <label class='col-lg-2 control-label'>Property Title</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="title" value='<?php echo isset($row->article_title)?"$row->article_title":""; ?>' id="title">
+                                    <input type="text"  class="form-control input-sm required" name="property_name" value='<?php echo isset($row->article_title)?"$row->article_title":""; ?>' id="property_name">
                                     <input type="text"  class="form-control input-sm hide" name="property_id" value='<?php echo isset($row->article_id)?$row->article_id:""; ?>' id="property_id">
                                 </div>                   
                             </div>
@@ -122,16 +122,16 @@
                         </div>
                          
                         <div class="form-group">
-                            <label class='col-lg-2 control-label'>Price For Sale</label>
+                            <label class='col-lg-2 control-label'>Price</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="price_sale" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="price_sale">
+                                    <input type="text"  class="form-control input-sm" name="price" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="price">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label'>Price For Rent</label>
+                            <label class='col-lg-2 control-label'>Floor</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="price_rent" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="price_rent">
+                                    <input type="text"  class="form-control input-sm" name="floor" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="floor">
                                 </div>                   
                             </div>
                             
@@ -148,6 +148,21 @@
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
                                     <input type="text"  class="form-control input-sm" name="land_size" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="land_size">
+                                </div>                   
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class='col-lg-2 control-label'>Story</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="story" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="story">
+                                </div>                   
+                            </div>
+                            <label class='col-lg-2 control-label'>Pool</label>
+                            <div class="col-lg-4"> 
+                                <div class="col-md-12">
+                                    <input type="text"  class="form-control input-sm" name="pool" value='<?php //echo isset($row->article_date)?"$row->article_date":date('Y-m-d'); ?>' id="pool">
                                 </div>                   
                             </div>
                             
@@ -364,42 +379,29 @@
                             <label class='col-lg-2 control-label'>Location(auto select)</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <!-- <select class="form-control" id="location_id">
+                                    <select class="form-control select2-single" id="location_id">
                                         <option value="0">Please Select</option>
                                         <?php
-                                        // $location=$this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
-                                        // foreach ($location as $menu) {
-                                        //     $sel='';
-                                        //     if(isset($row->parent_id))
-                                        //     if($row->parent_id==$menu->propertylocationid)
-                                        //     $sel='selected';
-                                        ?>
-                                        <option value="<?php echo $menu->propertylocationid;?>" <?php echo $sel; ?>><?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname.'('.$menu->parent_id.')';?></option>
-                                        <?php 
-                                        //}
-                                        ?>
-                                    </select> -->
-
-                                    <input list="location_id" class="form-control">
-                                    <datalist id="location_id">
-                                        <?php 
                                             $location=$this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
                                             foreach ($location as $menu) {
+                                                $sel='';
+                                                if(isset($row->parent_id))
+                                                if($row->parent_id==$menu->propertylocationid)
+                                                $sel='selected';
                                         ?>
-                                            <option data = "<?php echo $menu->propertylocationid;?>" value="<?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname;?>">
+                                        <option value="<?php echo $menu->propertylocationid;?>" <?php echo $sel; ?>><?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname;?></option>
                                         <?php 
                                             }
                                         ?>
-                                    </datalist>
+                                    </select>
                                 </div>                   
                             </div>
                             <label class='col-lg-2 control-label'>Available Property</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
                                     <select class="form-control" id="available_pro">
-                                        <option value="0">Please Select</option>
                                         <option value="1">Avialable</option>
-                                        <option value="2">Unavialable</option>
+                                        <option value="0">Unavialable</option>
                                     </select>
                                 </div>                   
                             </div>
@@ -433,6 +435,7 @@
                                 </div>                   
                             </div>
                         </div>
+                        
 
                         <div class="form-group">
                             <label class='col-lg-2 control-label'>Content</label>
@@ -470,12 +473,12 @@
                                 <div class="col-md-12">
                                     <?php
                                     if(isset($row->article_id)){
-                                        $img=$this->db->query("SELECT * FROM tblgallery WHERE article_id='$row->article_id'")->result();
+                                        $img=$this->db->query("SELECT * FROM tblgallery WHERE pid='$row->pid'")->result();
                                         foreach ($img as $img) {
                                      ?>
                                              <div class="saouy">
                                                   <div data-fileindex="0" id="preview-1441024963117-0" class="file-preview-frame" style="margin:20px 0px;" >
-                                                     <img style="width:auto;height:160px;" alt="" title="" class="file-preview-image" src="<?php echo site_url('/assets/upload/article/thumb/'.$row->article_id.'_'.$img->url) ?>">
+                                                     <img style="width:auto;height:160px;" alt="" title="" class="file-preview-image" src="<?php echo site_url('/assets/upload/property/thumb/'.$row->pid.'_'.$img->url) ?>">
                                                      <div class="file-thumbnail-footer">
                                                       <div class="file-caption-name" style="width: 250px;" title=""><p><?php echo $img->url; ?></p><div><span class="hide realname"><?php echo $value?></span></div></div>
                                                       <div class="file-actions">
@@ -519,6 +522,11 @@
  
 <script type="text/javascript">
     
+    $(".select2-single").select2({
+        allowClear:true,
+        placeholder: 'Location'
+    });
+    
     function isNumberKey(evt){
         var e = window.event || evt; // for trans-browser compatibility 
         var charCode = e.which || e.keyCode; 
@@ -529,7 +537,7 @@
     } 
     $('.kv-file-remove').click(function(){
         var id=$(this).attr('rel');
-        var url="<?php echo site_url('article/removeimg')?>";
+        var url="<?php echo site_url('property/property/removeimg')?>";
         $.ajax({
                 url:url,
                 type:"POST",
@@ -542,11 +550,11 @@
               })
         $(this).closest('.saouy').remove();
     })
-    function uploads(article_id,formdata,msg){
+    function uploads(pid,formdata,msg){
         //alert(visitid+'/'+familyid);
         $.ajax({
             type:'POST',
-            url:"<?PHP echo site_url('article/upload');?>/"+article_id,
+            url:"<?PHP echo site_url('property/property/upload');?>/"+pid,
             data:formdata,
             cache:false,
             contentType: false,
@@ -554,7 +562,7 @@
             success:function(data){
                 toasmsg('success',msg);
                 //location.reload();
-                //location.href="<?php echo site_url('article/index/?m='.$m.'&p='.$p) ?>";
+                location.href="<?php echo site_url('property/property/index/?m='.$m.'&p='.$p) ?>";
                 console.log("success");
                 console.log(data);
             },
@@ -562,7 +570,7 @@
                 console.log("error");
                 console.log(data);
                 //location.reload();
-                //location.href="<?php echo site_url('article/index/?m='.$m.'&p='.$p) ?>";
+                location.href="<?php echo site_url('property/property/index/?m='.$m.'&p='.$p) ?>";
 
             }
         });
@@ -612,7 +620,8 @@
           $(element).parents('.form-group').removeClass('has-error').addClass('has-success');
         },        
         submitHandler: function(form) {
-          var url="<?php echo site_url('article/save')?>";
+
+          var url="<?php echo site_url('property/property/save')?>";
           var is_active=0;
           if($('#is_active').is(':checked'))
                 is_active=1;
@@ -631,54 +640,59 @@
                 datatype:"Json",
                 async:false,
                 data:{
-                    title:$("#title").val(),
-                    category:$("#title_kh").val(),
-                    angent:$("#article_date").val(),
-                    type:$("#article_id").val(),
-                    sale_price:$("#contents").val(),
-                    rent_price:$("#contents_kh").val(),
-                    house_size:$("#meta_keyword").val(),
-                    land_size:$("#meta_description").val(),
-                    direction:$("#icon").val(),
-                    bedroom:$("#location_id").val(),
-                    bathroom:is_active,
-                    livingroom:is_marguee,
-                    kitchen: '',
-                    dining_room: '',
-                    funiture: '',
-                    aircond: '',
-                    parking: '',
-                    stam_suana: '',
-                    garden: '',
-                    balcony: '',
-                    terrace: '',
-                    elevator: '',
-                    stair: '',
-                    title: '',
-                    contract: '',
-                    commission: '',
-                    urgent: '',
-                    service_pro: '',
-                    gym: '',
-                    advantage: '',
-                    mail_owner: '',
-                    owner_name: '',
-                    contact_owner: '',
-                    address: '',
-                    location: '',
-                    available: '',
-                    start_date: '',
-                    end_date: '',
-                    content: '',
+                    pro_id:$('#property_id').val(),
+                    property_name:$("#property_name").val(),
+                    category:$("#category_id").val(),
+                    angent:$("#agent_id").val(),
+                    type:$("#property_id").val(),
+                    price:$("#price").val(),
+                    floor:$("#floor").val(),
+                    house_size:$("#house_size").val(),
+                    land_size:$("#land_size").val(),
+                    direction:$("#direction").val(),
+                    bedroom:$("#bedroom").val(),
+                    bathroom:$('#bathroom').val(),
+                    livingroom:$('#living_room').val(),
+                    kitchen: $('#kitchen').val(),
+                    dining_room: $('#dining_room').val(),
+                    funiture: $('#furniture').val(),
+                    aircond: $('#aircon').val(),
+                    parking: $('#parking').val(),
+                    stam_suana: $('#st_sa').val(),
+                    garden: $('#garden').val(),
+                    balcony: $('#balcony').val(),
+                    terrace: $('#terrace').val(),
+                    elevator: $('#elevator').val(),
+                    stair: $('#stairs').val(),
+                    title: $('#pro_title').val(),
+                    contract: $('#contract_allowed').val(),
+                    commission: $('#commission').val(),
+                    urgent: $('#urgent').val(),
+                    service_pro: $('#provider').val(),
+                    gym: $('#gym').val(),
+                    advantage: $('#advantage').val(),
+                    mail_owner: $('#email_owner').val(),
+                    owner_name: $('#owner_name').val(),
+                    contact_owner: $('#owner_contact').val(),
+                    address: $('#address').val(),
+                    location: $('#location_id').val(),
+                    available: $('#available_pro').val(),
+                    start_date: $('#start_date').val(),
+                    end_date: $('#end_date').val(),
+                    content: $('#contents').val(),
+                    content_kh: $('#contents_kh').val(),
+                    story: $('#story').val(),
+                    pool: $('#pool').val(),
                 },
                 success:function(data) {
                     // $(".result_text").html(data.msg);
                     var formdata = new FormData(form);
 
-                    if(data.article_id!='' && data.article_id!=null){
-                        uploads(data.article_id,formdata,data.msg);
+                    if(data.pid!='' && data.pid!=null){
+                        uploads(data.pid,formdata,data.msg);
+
                         // toasmsg('success',data.msg);
-                        // location.href='<?php echo site_url("article/index?m=".$m.'&p='.$p) ?>';
+                        // location.href='<?php //echo site_url("article/index?m=".$m.'&p='.$p) ?>';
                     }else{
                         toasmsg('error',data.msg);
                     }
