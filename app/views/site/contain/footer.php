@@ -51,7 +51,7 @@
 					</div>
 				</div>
 				<div class="pgl-copyrights">
-					<p>Copyright © 2014 RealEstast. Designed by <a href="http://pixelgeeklab.com/">PixelGeekLab</a></p>
+					<p>Copyright © 2018 RealEstast. Designed by <a href="http://cambodiasoft.com/">CambodiaSoft</a></p>
 				</div>
 			</div>
 		</footer>

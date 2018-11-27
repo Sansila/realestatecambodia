@@ -31,7 +31,7 @@ a{
 </style>
 
 <div id="content-header" class="mini">
-  <h1>New Category</h1>
+  <h1>New Property Category</h1>
   <ul class="mini-stats box-3">
 
   </ul>

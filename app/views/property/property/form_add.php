@@ -1,5 +1,5 @@
 <?php
-    $categoryid=isset($cate['categoryid'])?$cate['categoryid']:"";
+  $categoryid=isset($cate['categoryid'])?$cate['categoryid']:"";
   $m='';
   $p='';
   $storeid='';
@@ -16,7 +16,7 @@
     {
       $row = $this->db->query(" SELECT * FROM tblproperty as p left join tblpropertytype as pt on p.type_id = pt.typeid WHERE p.pid = '$id' ")->row();
     }
-    
+    $var = $this->session->all_userdata();
 ?>
 
 <style type="text/css">
@@ -34,9 +34,8 @@
 </style>
 
     <div id="content-header" class="mini">
-        <h1>New Article</h1>
+        <h1>New Property</h1>
         <ul class="mini-stats box-3">
-            
         </ul>
     </div>  
     <div id="breadcrumb">
@@ -103,6 +102,8 @@
                                         $locat=$this->db->query("SELECT * FROM admin_user WHERE is_active='1'")->result();
                                             foreach ($locat as $me) {
                                                 $se='';
+                                                if($var['user_name'] == $me->user_name)
+                                                    $se='selected';
                                                 if(isset($row->agent_id))
                                                     if($row->agent_id==$me->userid)
                                                         $se='selected';
@@ -299,7 +300,7 @@
                                     <input type="text"  class="form-control input-sm" name="stairs" value='<?php echo isset($row->stairs)?"$row->stairs":""; ?>' id="stairs">
                                 </div>                   
                             </div>
-                            <label class='col-lg-2 control-label required'>Title</label>
+                            <label class='col-lg-2 control-label'>Title</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
                                     <select class="form-control" id="pro_title">
@@ -314,13 +315,13 @@
                             <label class='col-lg-2 control-label'>Contract Allowed</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="contract_allowed" value='<?php echo isset($row->contract)?"$row->contract":""; ?>' id="contract_allowed">
+                                    <input type="text" class="form-control input-sm" name="contract_allowed" value='<?php echo isset($row->contract)?"$row->contract":""; ?>' id="contract_allowed">
                                 </div>                   
                             </div>
                             <label class='col-lg-2 control-label'>Commission</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="commission" value='<?php echo isset($row->commision)?"$row->commision":""; ?>' id="commission">
+                                    <input type="text"  class="form-control input-sm" name="commission" value='<?php echo isset($row->commision)?"$row->commision":""; ?>' id="commission">
                                 </div>                   
                             </div>
                         </div>
@@ -362,7 +363,7 @@
                             <label class='col-lg-2 control-label'>Owner Name</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="owner_name" value='<?php echo isset($row->ownername)?"$row->ownername":""; ?>' id="owner_name">
+                                    <input type="text"  class="form-control input-sm" name="owner_name" value='<?php echo isset($row->ownername)?"$row->ownername":""; ?>' id="owner_name">
                                 </div>                   
                             </div>
                         </div>
@@ -370,7 +371,7 @@
                             <label class='col-lg-2 control-label'>Contact Owner</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm required" name="owner_contact" value='<?php echo isset($row->contact_owner)?"$row->contact_owner":""; ?>' id="owner_contact">
+                                    <input type="text"  class="form-control input-sm" name="owner_contact" value='<?php echo isset($row->contact_owner)?"$row->contact_owner":""; ?>' id="owner_contact">
                                 </div>                   
                             </div>
                             <label class='col-lg-2 control-label'>Available Property</label>

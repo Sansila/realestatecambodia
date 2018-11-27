@@ -114,51 +114,6 @@
 									<?php
 										}
 									?>
-									<!-- <li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-2.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-3.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-											<span class="label forrent">Rent</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-4.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-5.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-1.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-											<span class="label forrent">Rent</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-2.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-										</span>
-									</li>
-									<li>
-										<img src="<?php echo site_url('template')?>/images/properties/property-detail-3.jpg" alt="">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-											<span class="label forrent">Rent</span>
-										</span>
-									</li> -->
 								</ul>
 							</div>
 							<div id="carousel" class="flexslider">
@@ -170,13 +125,6 @@
 									<?php
 										}
 									?>
-									<!-- <li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-2.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-3.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-4.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-5.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-1.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-2.jpg" alt=""></li>
-									<li> <img src="<?php echo site_url('template')?>/images/properties/property-detail-s-3.jpg" alt=""></li> -->
 								</ul>
 							</div>
 							<div class="pgl-detail">
@@ -208,23 +156,61 @@
 											<div id="collapseOne" class="panel-collapse collapse in">
 												<div class="panel-body">
 													<ul>
-														<li><strong>Direction:</strong> <?php echo $detail->direction;?></li>
-														<li><strong>Area Size:</strong> <?php echo $detail->housesize;?><sup>m2</sup></li>
-														<li><strong>Bedrooms:</strong> <?php echo $detail->bedroom;?></li>
-														<li><strong>Bathrooms:</strong> <?php echo $detail->bathroom;?></li>
-														<li><strong>Furniture:</strong> <?php echo $detail->furniture;?></li>
-														<li><strong>Kitchen:</strong> <?php echo $detail->kitchen;?></li>
-														<li><strong>Living Room:</strong> <?php echo $detail->livingroom;?></li>
-														<li><strong>Dining Room:</strong> <?php echo $detail->dinning_room;?></li>
-														<li><strong>Airconditioner:</strong> <?php echo $detail->air_conditional;?></li>
-														<li><strong>Parking:</strong> <?php echo $detail->parking;?></li>
-														<li><strong>Steam & Sauna:</strong> <?php echo $detail->steamandsouna;?></li>
-														<li><strong>Garden:</strong> <?php echo $detail->garden;?></li>
-														<li><strong>Balcony:</strong> <?php echo $detail->balcony;?></li>
-														<li><strong>Terrace:</strong> <?php echo $detail->terrace;?></li>
-														<li><strong>Elevator:</strong> <?php echo $detail->elevator;?></li>
-														<li><strong>Stairs:</strong> <?php echo $detail->stairs;?></li>
-														<li><strong>Gym:</strong> <?php echo $detail->gym?></li>
+														<?php 
+															$direction = ""; $housesize = ""; $bedroom = ""; $bathroom = ""; $furniture = ""; $parking =""; $kitchen = ""; $livingroom = ""; $dinning = ""; $air = ""; $garden = ""; $balcony = ""; $terrace = ""; $elevator = ""; 
+															$stairs = ""; $gym =""; $steamandsouna = "";
+															if($detail->direction == "" || $detail->direction == 0)
+																$direction = "hide";
+															if($detail->housesize == "" || $detail->housesize == 0)
+																$housesize = "hide";
+															if($detail->bedroom == "" || $detail->bedroom == 0)
+																$bedroom = "hide";
+															if($detail->bathroom == "" || $detail->bathroom == 0)
+																$bathroom = "hide";
+															if($detail->furniture == "" || $detail->furniture == 0)
+																$furniture = "hide";
+															if($detail->kitchen == "" || $detail->kitchen == 0)
+																$kitchen = "hide";
+															if($detail->livingroom == "" || $detail->livingroom == 0)
+																$livingroom = "hide";
+															if($detail->dinning_room == "" || $detail->dinning_room == 0)
+																$dinning = "hide";
+															if($detail->air_conditional == "" || $detail->air_conditional == 0)
+																$air = "hide";
+															if($detail->parking == "" || $detail->parking == 0)
+																$parking = "hide";
+															if($detail->steamandsouna == "" || $detail->steamandsouna == 0)
+																$steamandsouna = "hide";
+															if($detail->garden == "" || $detail->garden == 0)
+																$garden = "hide";
+															if($detail->balcony == "" || $detail->balcony == 0)
+																$balcony = "hide";
+															if($detail->terrace == "" || $detail->terrace == 0)
+																$terrace = "hide";
+															if($detail->elevator == "" || $detail->elevator == 0)
+																$elevator = "hide";
+															if($detail->stairs == "" || $detail->stairs == 0)
+																$stairs = "hide";
+															if($detail->gym == "" || $detail->gym == 0)
+																$gym = "hide";
+														?>
+														<li class="<?php echo $direction?>"><strong>Direction:</strong> <?php echo $detail->direction;?></li>
+														<li class="<?php echo $housesize?>"><strong>Area Size:</strong> <?php echo $detail->housesize;?><sup>m2</sup></li>
+														<li class="<?php echo $bedroom?>"><strong>Bedrooms:</strong> <?php echo $detail->bedroom;?></li>
+														<li class="<?php echo $bathroom?>"><strong>Bathrooms:</strong> <?php echo $detail->bathroom;?></li>
+														<li class="<?php echo $furniture?>"><strong>Furniture:</strong> <?php echo $detail->furniture;?></li>
+														<li class="<?php echo $kitchen?>"><strong>Kitchen:</strong> <?php echo $detail->kitchen;?></li>
+														<li class="<?php echo $livingroom?>"><strong>Living Room:</strong> <?php echo $detail->livingroom;?></li>
+														<li class="<?php echo $dinning?>"><strong>Dining Room:</strong> <?php echo $detail->dinning_room;?></li>
+														<li class="<?php echo $air?>"><strong>Airconditioner:</strong> <?php echo $detail->air_conditional;?></li>
+														<li class="<?php echo $parking?>"><strong>Parking:</strong> <?php echo $detail->parking;?></li>
+														<li class="<?php echo $steamandsouna?>"><strong>Steam & Sauna:</strong> <?php echo $detail->steamandsouna;?></li>
+														<li class="<?php echo $garden?>"><strong>Garden:</strong> <?php echo $detail->garden;?></li>
+														<li class="<?php echo $balcony?>"><strong>Balcony:</strong> <?php echo $detail->balcony;?></li>
+														<li class="<?php echo $terrace?>"><strong>Terrace:</strong> <?php echo $detail->terrace;?></li>
+														<li class="<?php echo $elevator?>"><strong>Elevator:</strong> <?php echo $detail->elevator;?></li>
+														<li class="<?php echo $stairs?>"><strong>Stairs:</strong> <?php echo $detail->stairs;?></li>
+														<li class="<?php echo $gym?>"><strong>Gym:</strong> <?php echo $detail->gym?></li>
 													</ul>
 												</div>
 											</div>

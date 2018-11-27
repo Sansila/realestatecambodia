@@ -146,8 +146,8 @@ class Property extends CI_Controller {
             $config2['maintain_ratio'] = false;
             $config2['create_thumb'] = "$pid".'_'."$imagename";
             $config2['thumb_marker'] = false;
-            $config2['height'] = 280;
-            $config2['width'] = 380;
+            $config2['height'] = 268;
+            $config2['width'] = 359;
             $this->load->library('image_lib');
             $this->image_lib->initialize($config2); 
             if ( ! $this->image_lib->resize()){
@@ -174,6 +174,8 @@ class Property extends CI_Controller {
 	    $config['max_size']      = '0';
 	    $config['file_name']  	 = "$pid".'_'."$imagename";
 		$config['overwrite']	 = true;
+		$config['height'] = 267;
+        $config['width'] = 400;
 
 	    return $config;
 	}

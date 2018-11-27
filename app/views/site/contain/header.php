@@ -8,7 +8,7 @@
 	<meta name="description" content="Flatize - Shop HTML5 Responsive Template">
 	<meta name="author" content="pixelgeeklab.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>RealEstast - HTML5 Template</title>
+	<title>Estatecambodia</title>
 
 	<!-- Google Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Rochester' rel='stylesheet' type='text/css'>

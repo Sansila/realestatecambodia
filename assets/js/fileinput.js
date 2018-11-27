@@ -335,7 +335,7 @@
     '</div>';
     tActionDelete = '<button type="button" class="kv-file-remove {removeClass}" ' +
     'title="{removeTitle}"{dataUrl}{dataKey}>{removeIcon}</button>\n';
-    tActionUpload = '<button type="button" class="kv-file-upload {uploadClass}" title="{uploadTitle}">' +
+    tActionUpload = '<button type="button" class="hide kv-file-upload {uploadClass}" title="{uploadTitle}">' +
     '   {uploadIcon}\n</button>\n';
     tZoom = '<button type="button" class="btn btn-default btn-xs btn-block" title="{zoomTitle}: {caption}" onclick="{dialog}">\n' +
     '   {zoomInd}\n' +
