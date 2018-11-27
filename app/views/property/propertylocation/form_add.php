@@ -85,7 +85,7 @@ a{
                                 if($row->parent_id==$menu->propertylocationid)
                                   $sel='selected';
                             ?>
-                              <option value="<?php echo $menu->propertylocationid;?>" <?php echo $sel; ?>><?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname.'('.$menu->parent_id.')';?></option>
+                              <option value="<?php echo $menu->propertylocationid;?>" <?php echo $sel; ?>><?php echo str_repeat("---- &nbsp;",$menu->level).$menu->locationname;?></option>
                             <?php 
                             }
                             ?>                                       

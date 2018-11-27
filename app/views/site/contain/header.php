@@ -37,6 +37,10 @@
 
 	<!-- Theme Responsive-->
 	<link href="<?php echo site_url('template')?>/css/theme-responsive.css" rel="stylesheet">
+	<!-- <link href="<?php echo site_url('template')?>/css/multiple-select.css" rel="stylesheet"> -->
+	<!-- <link href="<?php echo site_url('template')?>/css/normalize.css" rel="stylesheet"> -->
+	<!-- <link href="<?php echo site_url('template')?>/css/stylesheet.css" rel="stylesheet"> -->
+
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

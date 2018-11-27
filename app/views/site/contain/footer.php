@@ -93,6 +93,10 @@
 	<!-- Theme Initializer -->
 	<script src="<?php echo site_url('template')?>/js/theme.plugins.js"></script>
 	<script src="<?php echo site_url('template')?>/js/theme.js"></script>
+	<!-- <script src="<?php echo site_url('template')?>/js/multiple-select.js"></script> -->
+	<!-- <script src="<?php echo site_url('template')?>/js/selectize.js"></script> -->
+	<!-- <script src="<?php echo site_url('template')?>/js/index.js"></script> -->
+	<!-- <script src="<?php echo site_url('template')?>/js/custumize.js"></script> -->
 	
 	<!-- Style Switcher -->
 	<script type="text/javascript" src="<?php echo site_url('template/')?>style-switcher/js/switcher.js"></script>

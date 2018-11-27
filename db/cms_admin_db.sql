@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 26, 2018 at 08:03 AM
+-- Generation Time: Nov 27, 2018 at 10:04 AM
 -- Server version: 5.7.21
 -- PHP Version: 7.0.29
 
@@ -57,10 +57,10 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
 --
 
 INSERT INTO `admin_user` (`userid`, `user_name`, `password`, `email`, `gender`, `dob`, `phone`, `last_visit`, `last_visit_ip`, `created_date`, `created_by`, `modified_by`, `modified_date`, `roleid`, `last_name`, `first_name`, `is_admin`, `is_active`, `def_storeid`) VALUES
-(4, 'admin', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', '', '0000-00-00', '', '2018-11-26 06:28:15', '192.168.0.102', '2015-01-29 15:10:34', NULL, NULL, NULL, 1, 'System', 'Administrator', 1, 1, NULL),
-(5, 'chetra', '202cb962ac59075b964b07152d234b70', 'eing.chetra@gmail.com', '', '0000-00-00', '', '2018-11-26 06:28:15', '192.168.0.102', '2015-02-02 17:26:36', NULL, NULL, NULL, 2, 'eing', 'chetra', 0, 0, NULL),
-(1497, 'store', 'e10adc3949ba59abbe56e057f20f883e', 'store@green.com', '', '0000-00-00', '', '2018-11-26 06:28:15', '192.168.0.102', '2015-06-26 08:10:54', NULL, NULL, NULL, 21, 'Green', 'Store', 0, 0, NULL),
-(1498, 'user', '202cb962ac59075b964b07152d234b70', 'user@gmail.com', '', '0000-00-00', '', '2018-11-26 06:28:15', '192.168.0.102', '2018-11-20 04:42:55', NULL, NULL, NULL, 23, 'user', 'user', 0, 1, NULL);
+(4, 'admin', '202cb962ac59075b964b07152d234b70', 'admin@gmail.com', '', '0000-00-00', '', '2018-11-27 08:56:00', '192.168.0.110', '2015-01-29 15:10:34', NULL, NULL, NULL, 1, 'System', 'Administrator', 1, 1, NULL),
+(5, 'chetra', '202cb962ac59075b964b07152d234b70', 'eing.chetra@gmail.com', '', '0000-00-00', '', '2018-11-27 08:56:00', '192.168.0.110', '2015-02-02 17:26:36', NULL, NULL, NULL, 2, 'eing', 'chetra', 0, 0, NULL),
+(1497, 'store', 'e10adc3949ba59abbe56e057f20f883e', 'store@green.com', '', '0000-00-00', '', '2018-11-27 08:56:00', '192.168.0.110', '2015-06-26 08:10:54', NULL, NULL, NULL, 21, 'Green', 'Store', 0, 0, NULL),
+(1498, 'user', '202cb962ac59075b964b07152d234b70', 'user@gmail.com', '', '0000-00-00', '', '2018-11-27 08:56:00', '192.168.0.110', '2018-11-20 04:42:55', NULL, NULL, NULL, 23, 'user', 'user', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -84,8 +84,10 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('2f366381e690f2ef1795771052801cca', '192.168.0.102', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.3', 1543213681, 'a:13:{s:9:\"user_data\";s:0:\"\";s:6:\"userid\";s:1:\"4\";s:9:\"user_name\";s:5:\"admin\";s:8:\"password\";s:32:\"202cb962ac59075b964b07152d234b70\";s:6:\"roleid\";s:1:\"1\";s:9:\"last_name\";s:6:\"System\";s:10:\"first_name\";s:13:\"Administrator\";s:10:\"last_visit\";s:19:\"2018-11-26 01:12:17\";s:13:\"last_visit_ip\";s:13:\"192.168.0.110\";s:9:\"moduleids\";a:7:{i:0;a:1:{s:8:\"moduleid\";s:2:\"12\";}i:1;a:1:{s:8:\"moduleid\";s:2:\"11\";}i:2;a:1:{s:8:\"moduleid\";s:1:\"7\";}i:3;a:1:{s:8:\"moduleid\";s:1:\"1\";}i:4;a:1:{s:8:\"moduleid\";s:2:\"18\";}i:5;a:1:{s:8:\"moduleid\";s:2:\"19\";}i:6;a:1:{s:8:\"moduleid\";s:2:\"20\";}}s:12:\"ModuleInfors\";a:7:{i:12;a:4:{s:8:\"moduleid\";s:2:\"12\";s:11:\"module_name\";s:6:\"Banner\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:11;a:4:{s:8:\"moduleid\";s:2:\"11\";s:11:\"module_name\";s:7:\"Article\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:7;a:4:{s:8:\"moduleid\";s:1:\"7\";s:11:\"module_name\";s:4:\"Menu\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:1;a:4:{s:8:\"moduleid\";s:1:\"1\";s:11:\"module_name\";s:7:\"Setting\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:18;a:4:{s:8:\"moduleid\";s:2:\"18\";s:11:\"module_name\";s:8:\"Property\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:19;a:4:{s:8:\"moduleid\";s:2:\"19\";s:11:\"module_name\";s:16:\"Propery Category\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:20;a:4:{s:8:\"moduleid\";s:2:\"20\";s:11:\"module_name\";s:17:\"Property Location\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}}s:10:\"PageInfors\";a:7:{i:12;a:2:{i:69;a:14:{s:6:\"pageid\";s:2:\"69\";s:9:\"page_name\";s:11:\"Banner List\";s:4:\"link\";s:20:\"setup/setupads/index\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:16:13\";s:4:\"icon\";s:7:\"fa-bars\";}i:70;a:14:{s:6:\"pageid\";s:2:\"70\";s:9:\"page_name\";s:14:\"Add New Banner\";s:4:\"link\";s:18:\"setup/setupads/add\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:15:42\";s:4:\"icon\";s:7:\"fa-bars\";}}i:11;a:2:{i:65;a:14:{s:6:\"pageid\";s:2:\"65\";s:9:\"page_name\";s:12:\"Article List\";s:4:\"link\";s:13:\"article/index\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"4\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:46:23\";s:4:\"icon\";s:7:\"fa-bars\";}i:66;a:14:{s:6:\"pageid\";s:2:\"66\";s:9:\"page_name\";s:15:\"Add New Article\";s:4:\"link\";s:11:\"article/add\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"5\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:47:08\";s:4:\"icon\";s:7:\"fa-bars\";}}i:7;a:4:{i:63;a:14:{s:6:\"pageid\";s:2:\"63\";s:9:\"page_name\";s:13:\"Category List\";s:4:\"link\";s:10:\"menu/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"10\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:64;a:14:{s:6:\"pageid\";s:2:\"64\";s:9:\"page_name\";s:16:\"Add New Category\";s:4:\"link\";s:8:\"menu/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"11\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:58\";s:4:\"icon\";s:7:\"fa-bars\";}i:75;a:14:{s:6:\"pageid\";s:2:\"75\";s:9:\"page_name\";s:12:\"Add New Menu\";s:4:\"link\";s:12:\"category/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"12\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:09\";s:4:\"icon\";s:7:\"fa-bars\";}i:76;a:14:{s:6:\"pageid\";s:2:\"76\";s:9:\"page_name\";s:9:\"Menu List\";s:4:\"link\";s:14:\"category/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"13\";s:9:\"is_insert\";s:2:\"11\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:54\";s:4:\"icon\";s:7:\"fa-bars\";}}i:1;a:4:{i:5;a:14:{s:6:\"pageid\";s:1:\"5\";s:9:\"page_name\";s:4:\"Page\";s:4:\"link\";s:12:\"setting/page\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"0\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 17:00:01\";s:4:\"icon\";s:9:\"fa-file-o\";}i:6;a:14:{s:6:\"pageid\";s:1:\"6\";s:9:\"page_name\";s:12:\"User Profile\";s:4:\"link\";s:12:\"setting/user\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:20\";s:4:\"icon\";s:7:\"fa-user\";}i:7;a:14:{s:6:\"pageid\";s:1:\"7\";s:9:\"page_name\";s:9:\"User Role\";s:4:\"link\";s:12:\"setting/role\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:57:09\";s:4:\"icon\";s:7:\"fa-user\";}i:8;a:14:{s:6:\"pageid\";s:1:\"8\";s:9:\"page_name\";s:11:\"Role Access\";s:4:\"link\";s:18:\"setting/permission\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"0\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:46\";s:4:\"icon\";s:9:\"fa-wrench\";}}i:18;a:2:{i:78;a:14:{s:6:\"pageid\";s:2:\"78\";s:9:\"page_name\";s:16:\"Add New Property\";s:4:\"link\";s:21:\"property/property/add\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:42\";s:4:\"icon\";s:7:\"fa-bars\";}i:79;a:14:{s:6:\"pageid\";s:2:\"79\";s:9:\"page_name\";s:13:\"Property List\";s:4:\"link\";s:23:\"property/property/index\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:26\";s:4:\"icon\";s:7:\"fa-bars\";}}i:19;a:2:{i:80;a:14:{s:6:\"pageid\";s:2:\"80\";s:9:\"page_name\";s:25:\"Add New Property Category\";s:4:\"link\";s:25:\"property/propertytype/add\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:81;a:14:{s:6:\"pageid\";s:2:\"81\";s:9:\"page_name\";s:23:\"Property Category Lists\";s:4:\"link\";s:27:\"property/propertytype/index\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:15\";s:4:\"icon\";s:7:\"fa-bars\";}}i:20;a:2:{i:82;a:14:{s:6:\"pageid\";s:2:\"82\";s:9:\"page_name\";s:17:\"Property Location\";s:4:\"link\";s:29:\"property/propertylocation/add\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:14:32\";s:4:\"icon\";s:7:\"fa-bars\";}i:83;a:14:{s:6:\"pageid\";s:2:\"83\";s:9:\"page_name\";s:22:\"Property Location List\";s:4:\"link\";s:31:\"property/propertylocation/index\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:01:53\";s:4:\"icon\";s:7:\"fa-bars\";}}}s:10:\"PageAction\";a:7:{i:12;a:2:{i:69;s:1:\"1\";i:70;s:1:\"1\";}i:11;a:2:{i:65;s:1:\"1\";i:66;s:1:\"1\";}i:7;a:4:{i:63;s:1:\"1\";i:64;s:1:\"1\";i:75;s:1:\"1\";i:76;s:1:\"1\";}i:1;a:4:{i:5;s:1:\"1\";i:6;s:1:\"1\";i:7;s:1:\"1\";i:8;s:1:\"0\";}i:18;a:2:{i:78;s:1:\"1\";i:79;s:1:\"1\";}i:19;a:2:{i:80;s:1:\"1\";i:81;s:1:\"1\";}i:20;a:2:{i:82;s:1:\"1\";i:83;s:1:\"1\";}}}'),
-('7e1564a69dc55362ead50ff0f19c921c', '192.168.0.110', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36', 1543219150, 'a:13:{s:9:\"user_data\";s:0:\"\";s:6:\"userid\";s:1:\"4\";s:9:\"user_name\";s:5:\"admin\";s:8:\"password\";s:32:\"202cb962ac59075b964b07152d234b70\";s:6:\"roleid\";s:1:\"1\";s:9:\"last_name\";s:6:\"System\";s:10:\"first_name\";s:13:\"Administrator\";s:10:\"last_visit\";s:19:\"2018-11-20 04:55:15\";s:13:\"last_visit_ip\";s:3:\"::1\";s:9:\"moduleids\";a:7:{i:0;a:1:{s:8:\"moduleid\";s:2:\"12\";}i:1;a:1:{s:8:\"moduleid\";s:2:\"11\";}i:2;a:1:{s:8:\"moduleid\";s:1:\"7\";}i:3;a:1:{s:8:\"moduleid\";s:1:\"1\";}i:4;a:1:{s:8:\"moduleid\";s:2:\"18\";}i:5;a:1:{s:8:\"moduleid\";s:2:\"19\";}i:6;a:1:{s:8:\"moduleid\";s:2:\"20\";}}s:12:\"ModuleInfors\";a:7:{i:12;a:4:{s:8:\"moduleid\";s:2:\"12\";s:11:\"module_name\";s:6:\"Banner\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:11;a:4:{s:8:\"moduleid\";s:2:\"11\";s:11:\"module_name\";s:7:\"Article\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:7;a:4:{s:8:\"moduleid\";s:1:\"7\";s:11:\"module_name\";s:4:\"Menu\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:1;a:4:{s:8:\"moduleid\";s:1:\"1\";s:11:\"module_name\";s:7:\"Setting\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:18;a:4:{s:8:\"moduleid\";s:2:\"18\";s:11:\"module_name\";s:8:\"Property\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:19;a:4:{s:8:\"moduleid\";s:2:\"19\";s:11:\"module_name\";s:16:\"Propery Category\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:20;a:4:{s:8:\"moduleid\";s:2:\"20\";s:11:\"module_name\";s:17:\"Property Location\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}}s:10:\"PageInfors\";a:7:{i:12;a:2:{i:69;a:14:{s:6:\"pageid\";s:2:\"69\";s:9:\"page_name\";s:11:\"Banner List\";s:4:\"link\";s:20:\"setup/setupads/index\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:16:13\";s:4:\"icon\";s:7:\"fa-bars\";}i:70;a:14:{s:6:\"pageid\";s:2:\"70\";s:9:\"page_name\";s:14:\"Add New Banner\";s:4:\"link\";s:18:\"setup/setupads/add\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:15:42\";s:4:\"icon\";s:7:\"fa-bars\";}}i:11;a:2:{i:65;a:14:{s:6:\"pageid\";s:2:\"65\";s:9:\"page_name\";s:12:\"Article List\";s:4:\"link\";s:13:\"article/index\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"4\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:46:23\";s:4:\"icon\";s:7:\"fa-bars\";}i:66;a:14:{s:6:\"pageid\";s:2:\"66\";s:9:\"page_name\";s:15:\"Add New Article\";s:4:\"link\";s:11:\"article/add\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"5\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:47:08\";s:4:\"icon\";s:7:\"fa-bars\";}}i:7;a:4:{i:63;a:14:{s:6:\"pageid\";s:2:\"63\";s:9:\"page_name\";s:13:\"Category List\";s:4:\"link\";s:10:\"menu/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"10\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:64;a:14:{s:6:\"pageid\";s:2:\"64\";s:9:\"page_name\";s:16:\"Add New Category\";s:4:\"link\";s:8:\"menu/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"11\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:58\";s:4:\"icon\";s:7:\"fa-bars\";}i:75;a:14:{s:6:\"pageid\";s:2:\"75\";s:9:\"page_name\";s:12:\"Add New Menu\";s:4:\"link\";s:12:\"category/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"12\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:09\";s:4:\"icon\";s:7:\"fa-bars\";}i:76;a:14:{s:6:\"pageid\";s:2:\"76\";s:9:\"page_name\";s:9:\"Menu List\";s:4:\"link\";s:14:\"category/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"13\";s:9:\"is_insert\";s:2:\"11\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:54\";s:4:\"icon\";s:7:\"fa-bars\";}}i:1;a:4:{i:5;a:14:{s:6:\"pageid\";s:1:\"5\";s:9:\"page_name\";s:4:\"Page\";s:4:\"link\";s:12:\"setting/page\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"0\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 17:00:01\";s:4:\"icon\";s:9:\"fa-file-o\";}i:6;a:14:{s:6:\"pageid\";s:1:\"6\";s:9:\"page_name\";s:12:\"User Profile\";s:4:\"link\";s:12:\"setting/user\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:20\";s:4:\"icon\";s:7:\"fa-user\";}i:7;a:14:{s:6:\"pageid\";s:1:\"7\";s:9:\"page_name\";s:9:\"User Role\";s:4:\"link\";s:12:\"setting/role\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:57:09\";s:4:\"icon\";s:7:\"fa-user\";}i:8;a:14:{s:6:\"pageid\";s:1:\"8\";s:9:\"page_name\";s:11:\"Role Access\";s:4:\"link\";s:18:\"setting/permission\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"0\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:46\";s:4:\"icon\";s:9:\"fa-wrench\";}}i:18;a:2:{i:78;a:14:{s:6:\"pageid\";s:2:\"78\";s:9:\"page_name\";s:16:\"Add New Property\";s:4:\"link\";s:21:\"property/property/add\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:42\";s:4:\"icon\";s:7:\"fa-bars\";}i:79;a:14:{s:6:\"pageid\";s:2:\"79\";s:9:\"page_name\";s:13:\"Property List\";s:4:\"link\";s:23:\"property/property/index\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:26\";s:4:\"icon\";s:7:\"fa-bars\";}}i:19;a:2:{i:80;a:14:{s:6:\"pageid\";s:2:\"80\";s:9:\"page_name\";s:25:\"Add New Property Category\";s:4:\"link\";s:25:\"property/propertytype/add\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:81;a:14:{s:6:\"pageid\";s:2:\"81\";s:9:\"page_name\";s:23:\"Property Category Lists\";s:4:\"link\";s:27:\"property/propertytype/index\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:15\";s:4:\"icon\";s:7:\"fa-bars\";}}i:20;a:2:{i:82;a:14:{s:6:\"pageid\";s:2:\"82\";s:9:\"page_name\";s:17:\"Property Location\";s:4:\"link\";s:29:\"property/propertylocation/add\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:14:32\";s:4:\"icon\";s:7:\"fa-bars\";}i:83;a:14:{s:6:\"pageid\";s:2:\"83\";s:9:\"page_name\";s:22:\"Property Location List\";s:4:\"link\";s:31:\"property/propertylocation/index\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:01:53\";s:4:\"icon\";s:7:\"fa-bars\";}}}s:10:\"PageAction\";a:7:{i:12;a:2:{i:69;s:1:\"1\";i:70;s:1:\"1\";}i:11;a:2:{i:65;s:1:\"1\";i:66;s:1:\"1\";}i:7;a:4:{i:63;s:1:\"1\";i:64;s:1:\"1\";i:75;s:1:\"1\";i:76;s:1:\"1\";}i:1;a:4:{i:5;s:1:\"1\";i:6;s:1:\"1\";i:7;s:1:\"1\";i:8;s:1:\"0\";}i:18;a:2:{i:78;s:1:\"1\";i:79;s:1:\"1\";}i:19;a:2:{i:80;s:1:\"1\";i:81;s:1:\"1\";}i:20;a:2:{i:82;s:1:\"1\";i:83;s:1:\"1\";}}}');
+('8da7c5e9906bfff4c7484ab114c0e6c0', '192.168.0.110', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36', 1543311326, 'a:13:{s:9:\"user_data\";s:0:\"\";s:6:\"userid\";s:1:\"4\";s:9:\"user_name\";s:5:\"admin\";s:8:\"password\";s:32:\"202cb962ac59075b964b07152d234b70\";s:6:\"roleid\";s:1:\"1\";s:9:\"last_name\";s:6:\"System\";s:10:\"first_name\";s:13:\"Administrator\";s:10:\"last_visit\";s:19:\"2018-11-27 08:46:35\";s:13:\"last_visit_ip\";s:13:\"192.168.0.110\";s:9:\"moduleids\";a:7:{i:0;a:1:{s:8:\"moduleid\";s:2:\"12\";}i:1;a:1:{s:8:\"moduleid\";s:2:\"11\";}i:2;a:1:{s:8:\"moduleid\";s:1:\"7\";}i:3;a:1:{s:8:\"moduleid\";s:1:\"1\";}i:4;a:1:{s:8:\"moduleid\";s:2:\"18\";}i:5;a:1:{s:8:\"moduleid\";s:2:\"19\";}i:6;a:1:{s:8:\"moduleid\";s:2:\"20\";}}s:12:\"ModuleInfors\";a:7:{i:12;a:4:{s:8:\"moduleid\";s:2:\"12\";s:11:\"module_name\";s:6:\"Banner\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:11;a:4:{s:8:\"moduleid\";s:2:\"11\";s:11:\"module_name\";s:7:\"Article\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:7;a:4:{s:8:\"moduleid\";s:1:\"7\";s:11:\"module_name\";s:4:\"Menu\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:1;a:4:{s:8:\"moduleid\";s:1:\"1\";s:11:\"module_name\";s:7:\"Setting\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:18;a:4:{s:8:\"moduleid\";s:2:\"18\";s:11:\"module_name\";s:8:\"Property\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:19;a:4:{s:8:\"moduleid\";s:2:\"19\";s:11:\"module_name\";s:16:\"Propery Category\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}i:20;a:4:{s:8:\"moduleid\";s:2:\"20\";s:11:\"module_name\";s:17:\"Property Location\";s:8:\"sort_mod\";N;s:12:\"mod_position\";s:1:\"2\";}}s:10:\"PageInfors\";a:7:{i:12;a:2:{i:69;a:14:{s:6:\"pageid\";s:2:\"69\";s:9:\"page_name\";s:11:\"Banner List\";s:4:\"link\";s:20:\"setup/setupads/index\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:16:13\";s:4:\"icon\";s:7:\"fa-bars\";}i:70;a:14:{s:6:\"pageid\";s:2:\"70\";s:9:\"page_name\";s:14:\"Add New Banner\";s:4:\"link\";s:18:\"setup/setupads/add\";s:8:\"moduleid\";s:2:\"12\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2016-02-05 23:15:42\";s:4:\"icon\";s:7:\"fa-bars\";}}i:11;a:2:{i:65;a:14:{s:6:\"pageid\";s:2:\"65\";s:9:\"page_name\";s:12:\"Article List\";s:4:\"link\";s:13:\"article/index\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"4\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:46:23\";s:4:\"icon\";s:7:\"fa-bars\";}i:66;a:14:{s:6:\"pageid\";s:2:\"66\";s:9:\"page_name\";s:15:\"Add New Article\";s:4:\"link\";s:11:\"article/add\";s:8:\"moduleid\";s:2:\"11\";s:5:\"order\";s:1:\"5\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 16:47:08\";s:4:\"icon\";s:7:\"fa-bars\";}}i:7;a:4:{i:63;a:14:{s:6:\"pageid\";s:2:\"63\";s:9:\"page_name\";s:13:\"Category List\";s:4:\"link\";s:10:\"menu/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"10\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:64;a:14:{s:6:\"pageid\";s:2:\"64\";s:9:\"page_name\";s:16:\"Add New Category\";s:4:\"link\";s:8:\"menu/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"11\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-09-11 15:53:58\";s:4:\"icon\";s:7:\"fa-bars\";}i:75;a:14:{s:6:\"pageid\";s:2:\"75\";s:9:\"page_name\";s:12:\"Add New Menu\";s:4:\"link\";s:12:\"category/add\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"12\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:09\";s:4:\"icon\";s:7:\"fa-bars\";}i:76;a:14:{s:6:\"pageid\";s:2:\"76\";s:9:\"page_name\";s:9:\"Menu List\";s:4:\"link\";s:14:\"category/index\";s:8:\"moduleid\";s:1:\"7\";s:5:\"order\";s:2:\"13\";s:9:\"is_insert\";s:2:\"11\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2017-12-22 13:42:54\";s:4:\"icon\";s:7:\"fa-bars\";}}i:1;a:4:{i:5;a:14:{s:6:\"pageid\";s:1:\"5\";s:9:\"page_name\";s:4:\"Page\";s:4:\"link\";s:12:\"setting/page\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"0\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 17:00:01\";s:4:\"icon\";s:9:\"fa-file-o\";}i:6;a:14:{s:6:\"pageid\";s:1:\"6\";s:9:\"page_name\";s:12:\"User Profile\";s:4:\"link\";s:12:\"setting/user\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"0\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:20\";s:4:\"icon\";s:7:\"fa-user\";}i:7;a:14:{s:6:\"pageid\";s:1:\"7\";s:9:\"page_name\";s:9:\"User Role\";s:4:\"link\";s:12:\"setting/role\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:57:09\";s:4:\"icon\";s:7:\"fa-user\";}i:8;a:14:{s:6:\"pageid\";s:1:\"8\";s:9:\"page_name\";s:11:\"Role Access\";s:4:\"link\";s:18:\"setting/permission\";s:8:\"moduleid\";s:1:\"1\";s:5:\"order\";N;s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"0\";s:7:\"is_show\";s:1:\"0\";s:8:\"is_print\";s:1:\"0\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2015-02-05 16:56:46\";s:4:\"icon\";s:9:\"fa-wrench\";}}i:18;a:2:{i:78;a:14:{s:6:\"pageid\";s:2:\"78\";s:9:\"page_name\";s:16:\"Add New Property\";s:4:\"link\";s:21:\"property/property/add\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:42\";s:4:\"icon\";s:7:\"fa-bars\";}i:79;a:14:{s:6:\"pageid\";s:2:\"79\";s:9:\"page_name\";s:13:\"Property List\";s:4:\"link\";s:23:\"property/property/index\";s:8:\"moduleid\";s:2:\"18\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 04:36:26\";s:4:\"icon\";s:7:\"fa-bars\";}}i:19;a:2:{i:80;a:14:{s:6:\"pageid\";s:2:\"80\";s:9:\"page_name\";s:25:\"Add New Property Category\";s:4:\"link\";s:25:\"property/propertytype/add\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:36\";s:4:\"icon\";s:7:\"fa-bars\";}i:81;a:14:{s:6:\"pageid\";s:2:\"81\";s:9:\"page_name\";s:23:\"Property Category Lists\";s:4:\"link\";s:27:\"property/propertytype/index\";s:8:\"moduleid\";s:2:\"19\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-20 02:26:15\";s:4:\"icon\";s:7:\"fa-bars\";}}i:20;a:2:{i:82;a:14:{s:6:\"pageid\";s:2:\"82\";s:9:\"page_name\";s:17:\"Property Location\";s:4:\"link\";s:29:\"property/propertylocation/add\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"0\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:14:32\";s:4:\"icon\";s:7:\"fa-bars\";}i:83;a:14:{s:6:\"pageid\";s:2:\"83\";s:9:\"page_name\";s:22:\"Property Location List\";s:4:\"link\";s:31:\"property/propertylocation/index\";s:8:\"moduleid\";s:2:\"20\";s:5:\"order\";s:1:\"1\";s:9:\"is_insert\";s:1:\"1\";s:9:\"is_update\";s:1:\"1\";s:9:\"is_delete\";s:1:\"1\";s:7:\"is_show\";s:1:\"1\";s:8:\"is_print\";s:1:\"1\";s:9:\"is_export\";s:1:\"1\";s:10:\"created_by\";s:1:\"1\";s:12:\"created_date\";s:19:\"2018-11-18 06:01:53\";s:4:\"icon\";s:7:\"fa-bars\";}}}s:10:\"PageAction\";a:7:{i:12;a:2:{i:69;s:1:\"1\";i:70;s:1:\"1\";}i:11;a:2:{i:65;s:1:\"1\";i:66;s:1:\"1\";}i:7;a:4:{i:63;s:1:\"1\";i:64;s:1:\"1\";i:75;s:1:\"1\";i:76;s:1:\"1\";}i:1;a:4:{i:5;s:1:\"1\";i:6;s:1:\"1\";i:7;s:1:\"1\";i:8;s:1:\"0\";}i:18;a:2:{i:78;s:1:\"1\";i:79;s:1:\"1\";}i:19;a:2:{i:80;s:1:\"1\";i:81;s:1:\"1\";}i:20;a:2:{i:82;s:1:\"1\";i:83;s:1:\"1\";}}}'),
+('e945c3f26a619f365f1f990cae083ae3', '192.168.0.110', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36', 1543312828, ''),
+('d5c371b3a68699e9dc5dbf9ff5ec7576', '192.168.0.110', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36', 1543312908, ''),
+('839c6eb4410287ad0b06d76aca0b6bfc', '192.168.0.110', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36', 1543305589, '');
 
 -- --------------------------------------------------------
 
@@ -231,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `tblgallery` (
   `order` int(11) DEFAULT NULL,
   `home` int(1) DEFAULT NULL,
   PRIMARY KEY (`gallery_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblgallery`
@@ -242,7 +244,20 @@ INSERT INTO `tblgallery` (`gallery_id`, `gallery_title`, `url`, `gallery_type`, 
 (2, NULL, 'property-3.jpg', 0, NULL, 2, 0, NULL, NULL),
 (3, NULL, 'property-4.jpg', 0, NULL, 2, 0, NULL, NULL),
 (4, NULL, 'property-5.jpg', 0, NULL, 2, 0, NULL, NULL),
-(5, NULL, 'property-6.jpg', 0, NULL, 2, 0, NULL, NULL);
+(5, NULL, 'property-6.jpg', 0, NULL, 2, 0, NULL, NULL),
+(6, NULL, '5.jpg', 0, NULL, 3, 0, NULL, NULL),
+(7, NULL, '6.jpg', 0, NULL, 3, 0, NULL, NULL),
+(8, NULL, '7.jpg', 0, NULL, 3, 0, NULL, NULL),
+(9, NULL, '5.jpg', 0, NULL, 4, 0, NULL, NULL),
+(10, NULL, '6.jpg', 0, NULL, 4, 0, NULL, NULL),
+(11, NULL, '7.jpg', 0, NULL, 4, 0, NULL, NULL),
+(12, NULL, 'property-1.jpg', 0, NULL, 5, 0, NULL, NULL),
+(13, NULL, 'property-2.jpg', 0, NULL, 5, 0, NULL, NULL),
+(14, NULL, 'property-3.jpg', 0, NULL, 5, 0, NULL, NULL),
+(15, NULL, 'property-4.jpg', 0, NULL, 5, 0, NULL, NULL),
+(16, NULL, 'property-5.jpg', 0, NULL, 5, 0, NULL, NULL),
+(17, NULL, 'property-detail-s-5.jpg', 0, NULL, 4, 0, NULL, NULL),
+(18, NULL, 'property-5.jpg', 0, NULL, 4, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -314,18 +329,18 @@ CREATE TABLE IF NOT EXISTS `tblmenus` (
   `location_id` int(11) DEFAULT NULL,
   `menu_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tblmenus`
 --
 
 INSERT INTO `tblmenus` (`menu_id`, `menu_name`, `description`, `lineage`, `parentid`, `level`, `order`, `is_active`, `created_date`, `created_by`, `layout_id`, `modified_by`, `modified_date`, `menu_name_kh`, `article_id`, `location_id`, `menu_type`) VALUES
-(94, '3', NULL, '94', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '3', 0, 17, 'Please select'),
 (95, '1.1', NULL, '92-95', 92, 1, 1, 1, NULL, NULL, 1, NULL, NULL, '1.1', 0, 17, 'Please select'),
-(96, '2.2', NULL, '93-96', 93, 1, 1, 1, NULL, NULL, 1, NULL, NULL, '2.2', 0, 17, 'Please select'),
 (92, '1', NULL, '92', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '1', 0, 17, 'Please select'),
-(93, '2', NULL, '93', 0, 0, 1, 1, NULL, NULL, 1, NULL, NULL, '2', 0, 17, 'Please select');
+(100, '1.2', NULL, '92-100', 92, 1, 1, 1, NULL, NULL, 1, NULL, NULL, '1.2', 0, 17, '17'),
+(101, '1.2.hi', NULL, '92-100-101', 100, 2, 1, 1, NULL, NULL, 1, NULL, NULL, '1.2.hi', 0, 17, '17'),
+(98, 'hii', NULL, '92-95-98', 95, 2, 1, 1, NULL, NULL, 1, NULL, NULL, 'hii', 0, 17, '17');
 
 -- --------------------------------------------------------
 
@@ -357,21 +372,21 @@ CREATE TABLE IF NOT EXISTS `tblproperty` (
   `agent_id` int(10) DEFAULT NULL,
   `lp_id` int(10) DEFAULT NULL,
   `property_name` varchar(250) DEFAULT NULL,
-  `price` int(10) DEFAULT NULL,
+  `price` int(10) NOT NULL,
   `story` varchar(250) DEFAULT NULL,
   `p_type` varchar(250) DEFAULT NULL,
-  `floor` int(10) DEFAULT NULL,
+  `floor` varchar(250) DEFAULT NULL,
   `landsize` varchar(250) DEFAULT NULL,
   `housesize` varchar(250) DEFAULT NULL,
   `direction` varchar(250) DEFAULT NULL,
   `bedroom` varchar(150) DEFAULT NULL,
   `bathroom` varchar(150) DEFAULT NULL,
-  `livingroom` int(10) DEFAULT NULL,
+  `livingroom` varchar(250) DEFAULT NULL,
   `kitchen` varchar(150) DEFAULT NULL,
   `dinning_room` varchar(150) DEFAULT NULL,
   `furniture` varchar(50) DEFAULT NULL,
   `air_conditional` varchar(50) DEFAULT NULL,
-  `parking` int(10) DEFAULT NULL,
+  `parking` varchar(250) DEFAULT NULL,
   `pool` varchar(50) DEFAULT NULL,
   `gym` varchar(10) DEFAULT NULL,
   `steamandsouna` varchar(50) DEFAULT NULL,
@@ -381,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `tblproperty` (
   `elevator` varchar(50) DEFAULT NULL,
   `stairs` varchar(50) DEFAULT NULL,
   `img_source` text,
-  `contract` int(10) DEFAULT NULL,
+  `contract` varchar(250) DEFAULT NULL,
   `commision` varchar(50) DEFAULT NULL,
   `urgent` int(1) NOT NULL,
   `address` text,
@@ -392,25 +407,28 @@ CREATE TABLE IF NOT EXISTS `tblproperty` (
   `email_owner` varchar(250) DEFAULT NULL,
   `service_provided` varchar(250) DEFAULT NULL,
   `description` text,
-  `description_kh` text NOT NULL,
+  `description_kh` text,
   `p_status` int(1) DEFAULT NULL,
   `available` int(1) NOT NULL,
   `p_location` varchar(250) DEFAULT NULL,
-  `add_date` date DEFAULT NULL,
+  `add_date` date NOT NULL,
   `end_date` date NOT NULL,
   `title` int(10) NOT NULL,
-  `latitude` varchar(250) NOT NULL,
-  `longtitude` varchar(250) NOT NULL,
+  `latitude` varchar(250) DEFAULT NULL,
+  `longtitude` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblproperty`
 --
 
 INSERT INTO `tblproperty` (`pid`, `type_id`, `agent_id`, `lp_id`, `property_name`, `price`, `story`, `p_type`, `floor`, `landsize`, `housesize`, `direction`, `bedroom`, `bathroom`, `livingroom`, `kitchen`, `dinning_room`, `furniture`, `air_conditional`, `parking`, `pool`, `gym`, `steamandsouna`, `garden`, `balcony`, `terrace`, `elevator`, `stairs`, `img_source`, `contract`, `commision`, `urgent`, `address`, `advantage`, `contact_owner`, `ownername`, `remark`, `email_owner`, `service_provided`, `description`, `description_kh`, `p_status`, `available`, `p_location`, `add_date`, `end_date`, `title`, `latitude`, `longtitude`) VALUES
-(1, 0, 0, 40, 'Poolside character home on a wide 422sqm', 358000, '', '1', 0, '', '450', '', '3', '3', 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', NULL, 0, 'ss', 0, 'Ferris Park, Jersey City Land in Sales', '', 'ss', 's', NULL, 's', '', '', '', 1, 0, NULL, '2011-11-01', '2011-11-01', 0, '', ''),
-(2, 0, 0, 51, 'Poolside2 character home on a wide 423sqm', 358000, '', '2', 0, '', '470', '', '3', '3', 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', NULL, 0, 'df', 0, 'Ferris Park, Jersey City Land in Sales', '', 'df', 'df', NULL, 'df', '', '<p>\n	<strong>Aliquam vel egestas turpis. Proin sollicitudin imperdiet nisi ac rutrum. Sed imperdiet libero malesuada erat cursus eu pulvinar tellus rhoncus. Ut eget tellus neque, faucibus ornare odio. Fusce sagittis hendrerit mi a sollicitudin.</strong></p>\n<p>\n	Mauris elementum tempus nisi, vitae ullamcorper sem ultricies vitae. Nullam consectetur lacinia nisi, quis laoreet magna pulvinar in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n<p>\n	Vivamus quis dui ac nulla molestie blandit eu in nunc. In justo erat, lacinia in vulputate non, tristique eu mi. Aliquam tristique dapibus tempor. Vivamus malesuada tempor urna, in convallis massa lacinia sed. Phasellus gravida auctor vestibulum. Suspendisse potenti. In tincidunt felis bibendum nunc tempus sagittis. Praesent elit dolor, ultricies interdum porta sit amet, iaculis in neque.</p>\n', '', 1, 0, NULL, '2011-11-01', '2011-11-01', 0, '1', '1');
+(1, 0, 0, 40, 'Poolside character home on a wide 422sqm', 358000, '', '1', '0', '', '450', '', '3', '3', '0', '', '', '', '', '0', '', '', '', '', '', '', '', '', NULL, '0', 'ss', 0, 'Ferris Park, Jersey City Land in Sales', '', 'ss', 's', NULL, 's', '', '', '', 0, 0, NULL, '2011-11-01', '2011-11-01', 0, '', ''),
+(2, 0, 0, 51, 'Poolside2 character home on a wide 423sqm', 358000, '', '2', '0', '', '470', '', '3', '3', '0', '', '', '', '', '0', '', '', '', '', '', '', '', '', NULL, '0', 'df', 0, 'Ferris Park, Jersey City Land in Sales', '', 'df', 'df', NULL, 'df', '', '<p>\n	<strong>Aliquam vel egestas turpis. Proin sollicitudin imperdiet nisi ac rutrum. Sed imperdiet libero malesuada erat cursus eu pulvinar tellus rhoncus. Ut eget tellus neque, faucibus ornare odio. Fusce sagittis hendrerit mi a sollicitudin.</strong></p>\n<p>\n	Mauris elementum tempus nisi, vitae ullamcorper sem ultricies vitae. Nullam consectetur lacinia nisi, quis laoreet magna pulvinar in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n<p>\n	Vivamus quis dui ac nulla molestie blandit eu in nunc. In justo erat, lacinia in vulputate non, tristique eu mi. Aliquam tristique dapibus tempor. Vivamus malesuada tempor urna, in convallis massa lacinia sed. Phasellus gravida auctor vestibulum. Suspendisse potenti. In tincidunt felis bibendum nunc tempus sagittis. Praesent elit dolor, ultricies interdum porta sit amet, iaculis in neque.</p>\n', '', 0, 0, NULL, '2011-11-01', '2011-11-01', 0, '1', '1'),
+(3, 5, 4, 0, 'test', 12, '', '1', '2018-11-27', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', 1, '', '', '', '', NULL, '', '', '', '', 0, 1, NULL, '2018-11-27', '2018-11-27', 0, '', ''),
+(4, 5, 4, 0, 'new', 12, '', '1', '2018-11-27', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', 1, '', '', '', '', NULL, '', '', '', '', 1, 1, NULL, '2018-11-27', '2018-11-27', 0, '', ''),
+(5, 5, 4, 0, 'Poolside character home on a wide 422sqm', 12324324, '', '1', '2018-11-27', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', 1, '', '', '', '', NULL, '', '', '', '', 1, 1, NULL, '2018-11-27', '2018-11-27', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -421,33 +439,43 @@ INSERT INTO `tblproperty` (`pid`, `type_id`, `agent_id`, `lp_id`, `property_name
 DROP TABLE IF EXISTS `tblpropertylocation`;
 CREATE TABLE IF NOT EXISTS `tblpropertylocation` (
   `propertylocationid` int(10) NOT NULL AUTO_INCREMENT,
-  `locationname` varchar(250) NOT NULL,
-  `lineage` varchar(250) NOT NULL,
-  `parent_id` int(10) NOT NULL,
-  `level` int(11) NOT NULL,
-  `note` text NOT NULL,
-  `status` int(1) NOT NULL,
+  `locationname` varchar(250) DEFAULT NULL,
+  `lineage` varchar(250) DEFAULT NULL,
+  `parent_id` int(10) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `note` text,
+  `status` int(1) DEFAULT NULL,
   PRIMARY KEY (`propertylocationid`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tblpropertylocation`
 --
 
 INSERT INTO `tblpropertylocation` (`propertylocationid`, `locationname`, `lineage`, `parent_id`, `level`, `note`, `status`) VALUES
-(40, '1', '40', 0, 0, '', 1),
-(41, '2', '41', 0, 0, '', 1),
-(42, '3', '42', 0, 0, '', 1),
-(43, '4', '43', 0, 0, '', 1),
-(44, '5', '44', 0, 0, '', 1),
-(45, '6', '45', 0, 0, '', 1),
-(46, '7', '46', 0, 0, '', 1),
-(48, '8', '48', 0, 0, '', 1),
-(49, '9', '49', 0, 0, '', 1),
-(50, '10', '50', 0, 0, '', 1),
-(51, '1.1', '40-51', 40, 1, '', 1),
-(52, '2.2', '41-52', 41, 1, '', 1),
-(53, '1.1.1', '40-51-53', 51, 2, '', 1);
+(40, 'Phnom Penh', '40', 0, 0, '', 1),
+(51, 'Chamkarmon', '40-51', 40, 1, '', 1),
+(53, 'BKK 1', '40-51-53', 51, 2, '', 1),
+(54, 'BKK 2', '40-51-54', 51, 2, NULL, 1),
+(55, '7 Makara', '40-55', 40, 1, NULL, 1),
+(56, 'Toul Kork', '40-56', 40, 1, NULL, 1),
+(57, 'Chroy Changvar', '40-57', 40, 1, NULL, 1),
+(58, 'Sen Sok', '40-58', 40, 1, NULL, 1),
+(59, 'Russey Keo', '40-59', 40, 1, NULL, 1),
+(60, 'Meanchey', '40-60', 40, 1, NULL, 1),
+(61, 'Dangkao', '40-61', 40, 1, NULL, 1),
+(62, 'Chbar Ampov', '40-62', 40, 1, NULL, 1),
+(63, 'Prek Pnov', '40-63', 40, 1, NULL, 1),
+(64, 'Por Sen Chey', '40-64', 40, 1, NULL, 1),
+(65, 'BKK 3', '40-51-65', 51, 2, NULL, 1),
+(66, 'Tonle Bassac', '40-51-66', 51, 2, NULL, 1),
+(67, 'Toul Tum Poung 1', '40-51-67', 51, 2, NULL, 1),
+(73, 'Daun Penh', '40-73', 40, 1, NULL, 1),
+(74, 'Chakto Mukh', '40-73-74', 73, 2, NULL, 1),
+(75, 'Phsar Chas', '40-73-75', 73, 2, NULL, 1),
+(76, 'Phsar Kandal I', '40-73-76', 73, 2, NULL, 1),
+(77, 'Phsar Thmei I', '40-73-77', 73, 2, NULL, 1),
+(78, 'Wat Phnom', '40-73-78', 73, 2, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -718,7 +746,7 @@ CREATE TABLE IF NOT EXISTS `z_role_page` (
   `is_export` int(1) DEFAULT '1',
   `is_import` int(1) DEFAULT '1',
   PRIMARY KEY (`role_page_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `z_role_page`
@@ -731,7 +759,8 @@ INSERT INTO `z_role_page` (`role_page_id`, `roleid`, `pageid`, `moduleid`, `crea
 (28, 17, 27, 7, '2015-04-20 10:57:45', '1', 1, 1, 1, 1, 1, 1, 1),
 (29, 17, 28, 7, '2015-04-20 10:57:55', '1', 1, 1, 1, 1, 1, 1, 1),
 (40, 23, 63, 7, '2018-11-20 04:43:40', '1', 1, 1, 1, 1, 1, 1, 1),
-(41, 23, 75, 7, '2018-11-20 04:43:55', '1', 1, 1, 1, 1, 1, 1, 1);
+(41, 23, 75, 7, '2018-11-20 04:43:55', '1', 1, 1, 1, 1, 1, 1, 1),
+(42, 23, 78, 18, '2018-11-27 02:13:14', '1', 1, 1, 1, 1, 1, 1, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

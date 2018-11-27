@@ -30,4 +30,14 @@
             $sql = $this->db->query("SELECT * FROM site_profile")->row();
             return $sql;
         }
+        function getPropertyType()
+        {
+            $sql = $this->db->query("SELECT * FROM tblpropertytype where type_status = 1 ")->result();
+            return $sql;
+        }
+        function getPropertyLocation()
+        {
+            $sql = $this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
+            return $sql;
+        }
     }
