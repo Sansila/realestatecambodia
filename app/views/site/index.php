@@ -1,77 +1,3 @@
-
-	<div id="page">
-		<header>
-			<div id="top">
-				<div class="container">
-					<p class="pull-left text-note hidden-xs"><i class="fa fa-phone"></i> Need Support? 1-800-666-8888</p>
-					<ul class="nav nav-pills nav-top navbar-right">
-						<li class="login"><a href="javascript:void(0);"><i class="fa fa-user"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Email"><i class="fa fa-envelope-o"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Google+"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			<nav class="navbar navbar-default pgl-navbar-main" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<a class="logo" href="<?php echo site_url()?>"><img src="<?php echo site_url('template')?>/images/logo.png" alt="Flatize"></a> </div>
-					
-					<div class="navbar-collapse collapse width">
-						<ul class="nav navbar-nav pull-right">
-							<li><a href="<?php echo site_url()?>">Home</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown"><a href="grid-fullwidth-3-column.html" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Grid full width 3 column</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown"><a class="dropdown-toggle" data-target="#" data-toggle="dropdown" href="grid-fullwidth-3-column.html">Submenu level 2</a>
-												<ul class="dropdown-menu">
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-												</ul>
-											</li>
-											<li><a href="grid-fullwidth-3-column.html">Submenu level 2</a></li>
-											<li><a href="grid-fullwidth-3-column.html">Submenu level 2</a></li>
-										</ul>
-									</li>
-									<li><a href="grid-fullwidth-4-column.html">Grid full width 4 column</a></li>
-									<li><a href="grid-masonry-4-column.html">Grid masonry 4 column</a></li>
-									<li><a href="grid-sidebar.html">Grid with sidebar</a></li>
-									<li><a href="list-fullwidth.html">List rows</a></li>
-									<li><a href="list-map.html">List map</a></li>
-									<li><a href="property-detail.html">Property Detail</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents</a>
-								<ul class="dropdown-menu">
-									<li><a href="ouragents.html">Our Agents</a></li>
-									<li><a href="agentprofile.html">Agent Profile</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="faq-sidebar.html">FAQs</a></li>
-									<li><a href="page-404.html">404-page</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-								<ul class="dropdown-menu">
-									<li><a href="blog.html">Blog Large With Sidebar</a></li>
-									<li><a href="blog-2-cols.html">Blog 2 Columns</a></li>
-									<li><a href="blog-2-cols-sidebar.html">Blog 2 Columns With Sidebar</a></li>
-									<li><a href="blog-single.html">Article detail</a></li>
-								</ul>
-							</li>
-							<li><a href="contact.html">Contact Us</a></li>
-						</ul>
-					</div><!--/.nav-collapse --> 
-				</div><!--/.container-fluid --> 
-			</nav>
-		</header>
 		
 		<!-- Begin Main -->
 		<div role="main" class="main">
@@ -503,7 +429,7 @@
 							</div>	
 							<div class="col-xs-6 col-sm-3">
 								<div class="form-group">
-									<button type="submit" class="btn btn-block btn-primary">Find your home</button>
+									<button type="submit" class="btn btn-block btn-primary">Search</button>
 								</div>
 							</div>	
 						</div>
@@ -518,7 +444,7 @@
 				<div class="container">
 					<h2>Properties</h2>
 					<!-- Nav tabs -->
-					<ul class="nav nav-tabs pgl-pro-tabs text-center animation" role="tablist">
+					<ul class="nav nav-tabs pgl-pro-tabs text-center animation hide" role="tablist">
 						<li class="active"><a href="#all" role="tab" data-toggle="tab">All</a></li>
 						<li><a href="#house" role="tab" data-toggle="tab">House</a></li>
 						<li><a href="#offices" role="tab" data-toggle="tab">Offices</a></li>
@@ -533,11 +459,13 @@
 								<?php 
 									foreach ($lists as $list) {
 								?>
-								<div class="col-xs-4 animation">
+								<div class="col-xs-3 animation">
 									<div class="pgl-property">
 										<div class="property-thumb-info">
 											<div class="property-thumb-info-image">
-												<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url)?>">
+												<a href="<?php echo site_url('site/site/detail/'.$list->pid)?>">
+													<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url)?>">
+												</a>
 												<span class="property-thumb-info-label">
 													<span class="label price">$<?php echo number_format($list->price) ?></span>
 													<span class="label forrent">
@@ -552,7 +480,7 @@
 													</span>
 												</span>
 											</div>
-											<div class="property-thumb-info-content" style="height: 150px;">
+											<div class="property-thumb-info-content" style="height: 120px;">
 												<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$list->pid)?>"><?php echo $list->property_name?></a></h3>
 												<address class="module line-clamp"><?php echo $list->address?></address>
 											</div>

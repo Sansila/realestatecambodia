@@ -25,4 +25,9 @@
                                     WHERE p.pid = '$pid' AND p.p_status = 1 ")->result();
             return $sql;
         }
+        function getSiteprofile()
+        {
+            $sql = $this->db->query("SELECT * FROM site_profile")->row();
+            return $sql;
+        }
     }

@@ -10,18 +10,20 @@ class Site extends CI_Controller {
 	}
 	public function index()
 	{	
-		$this->load->view('site/contain/header');
+		$datas['profile'] = $this->site->getSiteprofile();
 		$data['lists'] = $this->site->getPropertyLists();
+		$this->load->view('site/contain/header',$datas);
         $this->load->view('site/index',$data);
-        $this->load->view('site/contain/footer');
+        $this->load->view('site/contain/footer',$datas);
     }
     function detail($pid)
     {
-    	$this->load->view('site/contain/header');
-		$data['detail'] = $this->site->getPropertyByID($pid);
+    	$datas['profile'] = $this->site->getSiteprofile();
+    	$data['detail'] = $this->site->getPropertyByID($pid);
 		$data['image'] = $this->site->getImageByID($pid);
+    	$this->load->view('site/contain/header',$datas);
         $this->load->view('site/detail',$data);
-        $this->load->view('site/contain/footer');
+        $this->load->view('site/contain/footer',$datas);
     }
 }
 ?>

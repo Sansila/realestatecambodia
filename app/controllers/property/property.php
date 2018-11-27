@@ -145,9 +145,10 @@ class Property extends CI_Controller {
             $config2['new_image'] = './assets/upload/property/thumb';
             $config2['maintain_ratio'] = false;
             $config2['create_thumb'] = "$pid".'_'."$imagename";
+            $config2['max_size']      = '5048000';
             $config2['thumb_marker'] = false;
-            $config2['height'] = 268;
-            $config2['width'] = 359;
+            $config2['height'] = 267;
+            $config2['width'] = 400;
             $this->load->library('image_lib');
             $this->image_lib->initialize($config2); 
             if ( ! $this->image_lib->resize()){
@@ -174,8 +175,6 @@ class Property extends CI_Controller {
 	    $config['max_size']      = '0';
 	    $config['file_name']  	 = "$pid".'_'."$imagename";
 		$config['overwrite']	 = true;
-		$config['height'] = 267;
-        $config['width'] = 400;
 
 	    return $config;
 	}

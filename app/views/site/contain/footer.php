@@ -5,15 +5,15 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<h2>Contact detail</h2>
-							<p>Pellentesque nec erat. Aenean semper, neque non faucis. Malesuada, dui felis tempor felis, vel varius ante diam ut mauris.</p>
+							<p><?php echo $profile->address?></p>
 							<address>
-								<i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
-								<i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
-								<i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
-								<i class="fa fa-envelope-o"></i> Mail: <a href="mailto:pixelgeklab@gmail.com">Pixelgeklab@gmail.com</a>
+								<i class="fa fa-map-marker"></i> Office : <?php echo $profile->phone?><br>
+								<i class="fa fa-phone"></i> Mobile : <?php echo $profile->phone?><br>
+								<i class="fa fa-fax"></i> Fax : <?php echo $profile->phone?><br>
+								<i class="fa fa-envelope-o"></i> Mail: <?php echo $profile->email?><!-- <a href="mailto:pixelgeklab@gmail.com">Pixelgeklab@gmail.com</a> -->
 							</address>
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-2 hide">
 							<h2>Useful links</h2>
 							<ul class="list-unstyled">
 								<li><a href="#">Help and FAQs</a></li>
@@ -25,7 +25,7 @@
 								<li><a href="#">Community Guidelines</a></li>
 							</ul>
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-2 hide">
 							<h2>Pages</h2>
 							<ul class="list-unstyled">
 								<li><a href="#">Font &amp; Color</a></li>
@@ -37,7 +37,7 @@
 								<li><a href="#">Google Map</a></li>
 							</ul>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-4 hide">
 							<h2>Don’t miss out</h2>
 							<p>In venenatis neque a eros laoreet eu placerat erat suscipit. Fusce cursus, erat ut scelerisque condimentum, quam odio ultrices leo.</p>
 							<form class="form-inline pgl-form-newsletter" role="form">

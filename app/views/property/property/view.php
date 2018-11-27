@@ -30,7 +30,7 @@
 	}
  ?>
  <div id="content-header" class="mini">
-        <h1>Menu LIST</h1>
+        <h1>PROPERTY LIST</h1>
         <ul class="mini-stats box-3">
             
         </ul>

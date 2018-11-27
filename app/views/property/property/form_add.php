@@ -137,7 +137,7 @@
                             <label class='col-lg-2 control-label'>Floor</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="floor" value='<?php echo isset($row->floor)?"$row->floor":date('Y-m-d'); ?>' id="floor">
+                                    <input type="text"  class="form-control input-sm" name="floor" value='<?php echo isset($row->floor)?"$row->floor":""; ?>' id="floor">
                                 </div>                   
                             </div>
                             
@@ -417,13 +417,13 @@
                             <label class='col-lg-2 control-label'>Start Date</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="start_date" value='<?php echo isset($row->add_date)?"$row->add_date":""; ?>' id="start_date">
+                                    <input type="text"  class="form-control input-sm" name="start_date" value='<?php echo isset($row->add_date)?"$row->add_date":date('Y-m-d'); ?>' id="start_date">
                                 </div>                   
                             </div>
                             <label class='col-lg-2 control-label'>End Date</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <input type="text"  class="form-control input-sm" name="end_date" value='<?php echo isset($row->end_date)?"$row->end_date":""; ?>' id="end_date">
+                                    <input type="text"  class="form-control input-sm" name="end_date" value='<?php echo isset($row->end_date)?"$row->end_date":date('Y-m-d'); ?>' id="end_date">
                                 </div>                   
                             </div>
                         </div>

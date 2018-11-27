@@ -1,76 +1,41 @@
-<div id="page">
-		<header>
-			<div id="top">
-				<div class="container">
-					<p class="pull-left text-note hidden-xs"><i class="fa fa-phone"></i> Need Support? 1-800-666-8888</p>
-					<ul class="nav nav-pills nav-top navbar-right">
-						<li class="login"><a href="javascript:void(0);"><i class="fa fa-user"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Email"><i class="fa fa-envelope-o"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" title="" data-placement="bottom" data-toggle="tooltip" data-original-title="Google+"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-			</div>
-			<nav class="navbar navbar-default pgl-navbar-main" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-						<a class="logo" href="<?php echo site_url()?>"><img src="<?php echo site_url('template')?>/images/logo.png" alt="Flatize"></a> </div>
-					
-					<div class="navbar-collapse collapse width">
-						<ul class="nav navbar-nav pull-right">
-							<li><a href="<?php echo site_url()?>">Home</a></li>
-							<li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Properties</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown"><a href="grid-fullwidth-3-column.html" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Grid full width 3 column</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown"><a class="dropdown-toggle" data-target="#" data-toggle="dropdown" href="grid-fullwidth-3-column.html">Submenu level 2</a>
-												<ul class="dropdown-menu">
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-													<li><a href="grid-fullwidth-3-column.html">Submenu level 3</a></li>
-												</ul>
-											</li>
-											<li><a href="grid-fullwidth-3-column.html">Submenu level 2</a></li>
-											<li><a href="grid-fullwidth-3-column.html">Submenu level 2</a></li>
-										</ul>
-									</li>
-									<li><a href="grid-fullwidth-4-column.html">Grid full width 4 column</a></li>
-									<li><a href="grid-masonry-4-column.html">Grid masonry 4 column</a></li>
-									<li><a href="grid-sidebar.html">Grid with sidebar</a></li>
-									<li><a href="list-fullwidth.html">List rows</a></li>
-									<li><a href="list-map.html">List map</a></li>
-									<li class="active"><a href="property-detail.html">Property Detail</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Agents</a>
-								<ul class="dropdown-menu">
-									<li><a href="ouragents.html">Our Agents</a></li>
-									<li><a href="agentprofile.html">Agent Profile</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-								<ul class="dropdown-menu">
-									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="faq-sidebar.html">FAQs</a></li>
-									<li><a href="page-404.html">404-page</a></li>
-								</ul>
-							</li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-								<ul class="dropdown-menu">
-									<li><a href="blog.html">Blog Large With Sidebar</a></li>
-									<li><a href="blog-2-cols.html">Blog 2 Columns</a></li>
-									<li><a href="blog-2-cols-sidebar.html">Blog 2 Columns With Sidebar</a></li>
-									<li><a href="blog-single.html">Article detail</a></li>
-								</ul>
-							</li>
-							<li><a href="contact.html">Contact Us</a></li>
-						</ul>
-					</div><!--/.nav-collapse --> 
-				</div><!--/.container-fluid --> 
-			</nav>
-		</header>
+		<?php 
+			$direction = ""; $housesize = ""; $bedroom = ""; $bathroom = ""; $furniture = ""; $parking =""; $kitchen = ""; $livingroom = ""; $dinning = ""; $air = ""; $garden = ""; $balcony = ""; $terrace = ""; $elevator = ""; 
+			$stairs = ""; $gym =""; $steamandsouna = "";
+			if($detail->direction == "" || $detail->direction == 0)
+				$direction = "hide";
+			if($detail->housesize == "" || $detail->housesize == 0)
+				$housesize = "hide";
+			if($detail->bedroom == "" || $detail->bedroom == 0)
+				$bedroom = "hide";
+			if($detail->bathroom == "" || $detail->bathroom == 0)
+				$bathroom = "hide";
+			if($detail->furniture == "" || $detail->furniture == 0)
+				$furniture = "hide";
+			if($detail->kitchen == "" || $detail->kitchen == 0)
+				$kitchen = "hide";
+			if($detail->livingroom == "" || $detail->livingroom == 0)
+				$livingroom = "hide";
+			if($detail->dinning_room == "" || $detail->dinning_room == 0)
+				$dinning = "hide";
+			if($detail->air_conditional == "" || $detail->air_conditional == 0)
+				$air = "hide";
+			if($detail->parking == "" || $detail->parking == 0)
+				$parking = "hide";
+			if($detail->steamandsouna == "" || $detail->steamandsouna == 0)
+				$steamandsouna = "hide";
+			if($detail->garden == "" || $detail->garden == 0)
+				$garden = "hide";
+			if($detail->balcony == "" || $detail->balcony == 0)
+				$balcony = "hide";
+			if($detail->terrace == "" || $detail->terrace == 0)
+				$terrace = "hide";
+			if($detail->elevator == "" || $detail->elevator == 0)
+				$elevator = "hide";
+			if($detail->stairs == "" || $detail->stairs == 0)
+				$stairs = "hide";
+			if($detail->gym == "" || $detail->gym == 0)
+				$gym = "hide";
+		?>
 		
 		<!-- Begin Main -->
 		<div role="main" class="main pgl-bg-grey">
@@ -96,7 +61,7 @@
 										foreach ($image as $img) {
 									?>
 									<li>
-										<img src="<?php echo site_url('assets/upload/property/'.$img->pid.'_'.$img->url)?>" alt="">
+										<img src="<?php echo site_url('assets/upload/property/thumb/'.$img->pid.'_'.$img->url)?>" alt="">
 										<span class="property-thumb-info-label">
 											<span class="label price">$<?php echo number_format($img->price)?></span>
 											<span class="label forrent">
@@ -134,8 +99,8 @@
 											<li><strong>Type:</strong> <?php echo $detail->typename?></li>
 											<li><strong>Area:</strong> <?php echo $detail->housesize?><sup>m2</sup></li>
 											<li><address><i class="icons icon-location"></i> <?php echo $detail->address;?></address></li>
-											<li><i class="icons icon-bedroom"></i> <?php echo $detail->bedroom;?> Bedrooms</li>
-											<li><i class="icons icon-bathroom"></i> <?php echo $detail->bathroom;?> Bathrooms</li>
+											<li class="<?php echo $bedroom?>"><i class="icons icon-bedroom"></i> <?php echo $detail->bedroom;?> Bedrooms</li>
+											<li class="<?php echo $bathroom?>"><i class="icons icon-bathroom"></i> <?php echo $detail->bathroom;?> Bathrooms</li>
 										</ul>
 									</div>
 									<div class="col-sm-8">
@@ -156,44 +121,6 @@
 											<div id="collapseOne" class="panel-collapse collapse in">
 												<div class="panel-body">
 													<ul>
-														<?php 
-															$direction = ""; $housesize = ""; $bedroom = ""; $bathroom = ""; $furniture = ""; $parking =""; $kitchen = ""; $livingroom = ""; $dinning = ""; $air = ""; $garden = ""; $balcony = ""; $terrace = ""; $elevator = ""; 
-															$stairs = ""; $gym =""; $steamandsouna = "";
-															if($detail->direction == "" || $detail->direction == 0)
-																$direction = "hide";
-															if($detail->housesize == "" || $detail->housesize == 0)
-																$housesize = "hide";
-															if($detail->bedroom == "" || $detail->bedroom == 0)
-																$bedroom = "hide";
-															if($detail->bathroom == "" || $detail->bathroom == 0)
-																$bathroom = "hide";
-															if($detail->furniture == "" || $detail->furniture == 0)
-																$furniture = "hide";
-															if($detail->kitchen == "" || $detail->kitchen == 0)
-																$kitchen = "hide";
-															if($detail->livingroom == "" || $detail->livingroom == 0)
-																$livingroom = "hide";
-															if($detail->dinning_room == "" || $detail->dinning_room == 0)
-																$dinning = "hide";
-															if($detail->air_conditional == "" || $detail->air_conditional == 0)
-																$air = "hide";
-															if($detail->parking == "" || $detail->parking == 0)
-																$parking = "hide";
-															if($detail->steamandsouna == "" || $detail->steamandsouna == 0)
-																$steamandsouna = "hide";
-															if($detail->garden == "" || $detail->garden == 0)
-																$garden = "hide";
-															if($detail->balcony == "" || $detail->balcony == 0)
-																$balcony = "hide";
-															if($detail->terrace == "" || $detail->terrace == 0)
-																$terrace = "hide";
-															if($detail->elevator == "" || $detail->elevator == 0)
-																$elevator = "hide";
-															if($detail->stairs == "" || $detail->stairs == 0)
-																$stairs = "hide";
-															if($detail->gym == "" || $detail->gym == 0)
-																$gym = "hide";
-														?>
 														<li class="<?php echo $direction?>"><strong>Direction:</strong> <?php echo $detail->direction;?></li>
 														<li class="<?php echo $housesize?>"><strong>Area Size:</strong> <?php echo $detail->housesize;?><sup>m2</sup></li>
 														<li class="<?php echo $bedroom?>"><strong>Bedrooms:</strong> <?php echo $detail->bedroom;?></li>
@@ -749,7 +676,7 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<button type="submit" class="btn btn-block btn-primary">Find your home</button>
+									<button type="submit" class="btn btn-block btn-primary">Search</button>
 								</div>
 								
 							</form>
@@ -798,7 +725,7 @@
 						<!-- End Our Agents -->
 						
 						<!-- Begin Advanced Search -->
-						<aside class="block pgl-bg-dark pgl-testimonials">
+						<aside class="block pgl-bg-dark pgl-testimonials hide">
 							<div class="owl-carousel pgl-testimonial" data-plugin-options='{"items": 1, "pagination": false, "autoHeight": true}'>
 								<div class="col-md-12">
 									<div class="testimonial-author">

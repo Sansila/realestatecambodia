@@ -5,7 +5,7 @@
             $where='';
             if($pid !='')
                 $where.=" AND pid<>'$pid'";
-            return $this->db->query("SELECT COUNT(*) as count FROM tblproperty where property_name='$title' {$where}")->row()->count;
+            return $this->db->query("SELECT COUNT(*) as count FROM tblproperty where property_name='$title' {$where} and p_status = 1 ")->row()->count;
         }
         function save($data, $pro_id){
             if($pro_id != '') {
