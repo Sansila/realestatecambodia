@@ -312,6 +312,12 @@
   }
 
   /* line 285, ../sass/theme-responsive.scss */
+  .pgl-properties .col-xs-3 {
+    float: none;
+    width: 100%;
+  }
+
+  /* line 285, ../sass/theme-responsive.scss */
   .pgl-properties .col-xs-4 {
     float: none;
     width: 100%;

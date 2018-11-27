@@ -38,5 +38,11 @@ class Site extends CI_Controller {
         $this->load->view('site/search');
         $this->load->view('site/contain/footer',$datas);
     }
+    function test()
+    {
+        $data = $this->site->getItemExtrafood();
+        header('Content-Type: application/json');
+        echo json_encode($data);
+    }
 }
 ?>

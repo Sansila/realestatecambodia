@@ -87,19 +87,19 @@
 	<script src="<?php echo site_url('template')?>/vendor/chosen/chosen.jquery.min.js"></script>
 	<script type="<?php echo site_url('template')?>/text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true"></script>
 	<script src="<?php echo site_url('template')?>/vendor/gmap/gmap3.infobox.min.js"></script>
-	<script src="<?php echo site_url('templat')?>/vendor/masonry/imagesloaded.pkgd.min.js"></script>
+	<script src="<?php echo site_url('template')?>/vendor/masonry/imagesloaded.pkgd.min.js"></script>
 	<script src="<?php echo site_url('template')?>/vendor/masonry/masonry.pkgd.min.js"></script>
 	
 	<!-- Theme Initializer -->
 	<script src="<?php echo site_url('template')?>/js/theme.plugins.js"></script>
 	<script src="<?php echo site_url('template')?>/js/theme.js"></script>
-	<!-- <script src="<?php echo site_url('template')?>/js/multiple-select.js"></script> -->
+	<script src="<?php echo site_url('template')?>/js/body19c7.js"></script>
 	<!-- <script src="<?php echo site_url('template')?>/js/selectize.js"></script> -->
 	<!-- <script src="<?php echo site_url('template')?>/js/index.js"></script> -->
 	<!-- <script src="<?php echo site_url('template')?>/js/custumize.js"></script> -->
 	
 	<!-- Style Switcher -->
-	<script type="text/javascript" src="<?php echo site_url('template/')?>style-switcher/js/switcher.js"></script>
+	<script type="text/javascript" src="<?php echo site_url('template')?>/style-switcher/js/switcher.js"></script>
 	
 </body>
 

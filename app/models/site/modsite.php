@@ -40,4 +40,44 @@
             $sql = $this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
             return $sql;
         }
-    }
+        function getItemExtrafood()
+        {
+            $query = $this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc");
+            
+            $cat = array(
+                'items' => array(),
+                'parents' => array()
+            );
+
+            foreach ($query->result() as $cats) {
+                $cat['items'][$cats->propertylocationid] = $cats;
+                $cat['parents'][$cats->parent_id][] = $cats->propertylocationid;
+            }
+
+            if ($cat) {
+                $result = $this->getSubItemDetail(null, $cat);
+                return $result;
+            } else {
+                return FALSE;
+            }
+        }
+        function getSubItemDetail($parent, $menu)
+        {
+            $data = array();
+            if (isset($menu['parents'][$parent])) {
+
+                foreach ($menu['parents'][$parent] as $itemId) {
+
+                    if (!isset($menu['parents'][$itemId])) { 
+                        $menu['items'][$itemId]->locationname;
+                    }
+                    if (isset($menu['parents'][$itemId])) {
+                        $menu['items'][$itemId]->locationname;
+                        $this->getSubItemDetail($itemId, $menu);
+                    }
+                }
+                
+            }
+            return $data;
+        }
+}
