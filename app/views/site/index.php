@@ -70,38 +70,22 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="residential">Buy</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="rental">Rent</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="project">New Developments</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="borey">Borey</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
 	                                    <!--<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="condo">Condo</div>-->
-	                                </div>
-	                            </div>
-
-	                            <div class="search-field-wrapper listing-type desktop-listing-type">
-	                                <button data-toggle="listing-type-dropdown" class="search-field  expanded desktop-search-field">
-	                                    <span class="text-label">Buy</span>
-	                                    <span class="icon-down"></span>
-	                                </button>
-	                                <div class="dropdown-pane listing-type" id="listing-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-listing-type" data-target-field="#id_listing_type" data-target-value="sale">Buy</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-listing-type" data-target-field="#id_listing_type" data-target-value="lease">Rent</div>
 	                                </div>
 	                            </div>
 
 	                            <div class="search-field-wrapper search-location">
 	                                <div class="search-field">
-	                                    <span class="text-label"><input id="id_location_autocomplete" class="location-autocomplete" type="text" name="locations" placeholder="Enter any location, developer or agent name   " value=""></span>
+	                                    <span class="text-label"><input id="id_location_autocomplete" class="location-autocomplete" type="text" name="locations" placeholder="Enter any location" value=""></span>
 	                                    <button data-toggle="location-dropdown" class="float-right icon-down"></button>
 	                                </div>
 	                                <div class="dropdown-pane" id="location-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <!-- <ul class="tabs" data-tabs id="desktop-location-tabs">
-	                                        <li class="tabs-title is-active"><a href="#desktop-location-panel" aria-selected="true">Popular Locations</a></li>
-	                                        <li class="tabs-title"><a href="#desktop-landmark-panel">Landmarks</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="desktop-location-tabs">
 	                                        <div class="tabs-panel is-active location-panel" id="desktop-location-panel">
-											<div class="location-content"></div>
+											<div class="location-content"><?php echo $data;?></div>
 	                                        </div>
 	                                        <div class="tabs-panel landmark-panel" id="desktop-landmark-panel"></div>
 	                                    </div>
@@ -115,10 +99,6 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane" id="categories-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <!-- <ul class="tabs" data-tabs id="example-tabs">
-	                                        <li class="tabs-title is-active residential-tab"><a href="#residential-panel" aria-selected="true">Residential</a></li>
-	                                        <li class="tabs-title commercial-tab"><a href="#commercial-panel">Commercial</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="example-tabs">
 	                                        <div class="tabs-panel is-active residential-panel" id="residential-panel"></div>
 	                                        <div class="tabs-panel commercial-panel" id="commercial-panel"></div>
@@ -133,10 +113,6 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane" id="price-range" data-dropdown data-v-offset="10" data-close-on-click="true">
-	                                    <!-- <ul class="tabs" data-tabs id="desktop-price-tabs">
-	                                        <li class="tabs-title is-active"><a href="#desktop-price-panel" aria-selected="true">Total price</a></li>
-	                                        <li class="tabs-title"><a href="#desktop-area-panel">Price per m2</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="desktop-price-tabs">
 	                                        <div class="tabs-panel is-active price-panel" id="desktop-price-panel">
 	                                            <input type="text" name="minprice" placeholder="Min Price" data-price-min-changer data-target-list="#desktop-price-panel .price-min-list" data-target-button=".desktop-search-price"> -
@@ -496,13 +472,9 @@
 	                                    <button data-toggle="mobile-location-dropdown" class="float-right icon-down"></button>
 	                                </div>
 	                                <div class="dropdown-pane" id="mobile-location-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <!-- <ul class="tabs" data-tabs id="mobile-location-tabs">
-	                                        <li class="tabs-title is-active"><a href="#mobile-location-panel" aria-selected="true">Popular Locations</a></li>
-	                                        <li class="tabs-title"><a href="#mobile-landmark-panel">Landmarks</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="mobile-location-tabs">
 	                                        <div class="tabs-panel is-active location-panel" id="mobile-location-panel">
-												<div class="location-content"></div>
+												<div class="location-content"><?php echo $data;?></div>
 	                                        </div>
 	                                        <div class="tabs-panel landmark-panel" id="mobile-landmark-panel"></div>
 	                                    </div>
@@ -516,23 +488,10 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="mobile-search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="residential">Buy</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="rental">Rent</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="project">New Developments</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="borey">Borey</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
 	                                    <!--<div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="condo">Condo</div>-->
-	                                </div>
-	                            </div>
-
-	                            <div class="search-field-wrapper listing-type mobile-listing-type">
-	                                <button data-toggle="mobile-listing-type-dropdown" class="search-field hollow expanded mobile-search-field">
-	                                    <span class="text-label">Looking to</span>
-	                                    <span class="text-label-selected">Buy</span>
-	                                    <span class="icon-down"></span>
-	                                </button>
-	                                <div class="dropdown-pane listing-type" id="mobile-listing-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-listing-type" data-target-field="#id_listing_type" data-target-value="sale">Buy</div>
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-listing-type" data-target-field="#id_listing_type" data-target-value="lease">Rent</div>
 	                                </div>
 	                            </div>
 
@@ -543,10 +502,6 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane" id="mobile-categories-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <!-- <ul class="tabs" data-tabs id="example-tabs">
-	                                        <li class="tabs-title is-active residential-tab"><a href="#mobile-residential-panel" aria-selected="true">Residential</a></li>
-	                                        <li class="tabs-title commercial-tab"><a href="#mobile-commercial-panel">Commercial</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="example-tabs">
 	                                        <div class="tabs-panel is-active residential-panel" id="mobile-residential-panel"></div>
 	                                        <div class="tabs-panel commercial-panel" id="mobile-commercial-panel"></div>
@@ -561,10 +516,6 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane" id="mobile-price-range" data-dropdown data-v-offset="10" data-close-on-click="true">
-	                                    <!-- <ul class="tabs" data-tabs id="mobile-price-tabs">
-	                                        <li class="tabs-title is-active"><a href="#mobile-price-panel" aria-selected="true">Total price</a></li>
-	                                        <li class="tabs-title"><a href="#mobile-area-panel">Price per m2</a></li>
-	                                    </ul> -->
 	                                    <div class="tabs-content" data-tabs-content="mobile-price-tabs">
 	                                        <div class="tabs-panel is-active price-panel" id="mobile-price-panel">
 	                                            <input type="text" name="minprice" placeholder="Min Price" data-price-min-changer data-target-list="#mobile-price-panel .price-min-list" data-target-button=".mobile-search-price"> -
@@ -884,12 +835,6 @@
 	                                    </div>
 	                                </div>
 
-	                                <label class="checkbox">
-	                                    <input type="checkbox" name="certified"> Realestate.com.kh Certified Properties Only</label>
-	                                <label class="checkbox">
-	                                    <input type="checkbox" name="private"> Show Private user properties only</label>
-	                                <!--<label class="checkbox"><input type="checkbox" name="surrounding"> Include Surrounding Areas</label>-->
-
 	                                <div class="mobile-refine-buttons">
 	                                    <button type="button" class="button hollow mobile-reset" data-reset-button>Reset</button>
 	                                    <button type="button" class="button highlight mobile-find" data-search-button>Find</button>
@@ -909,62 +854,33 @@
 		    
 
 
-		    <form id="hidden-search-form" data-action-residential="/buy/" data-action-rental="/rent/" data-action-commercial="/commercial/" data-action-project="/new-developments/search/" data-action-condo="/condo/search/" data-action-borey="/boreys/search/" data-action-land="/land/search/" data-view-type="">
+		    <form id="hidden-search-form" action="<?php echo site_url('site/site/search')?>" data-view-type="">
 
-		        <select id="id_listing_type" name="listing_type">
+		        <!-- <select id="id_listing_type" name="listing_type">
 		            <option value="sale">Sale</option>
-		            <option value="lease">Lease</option>
+		            <option value="rent">Rent</option>
+		            <option value="both">Both</option>
+		        </select> -->
+
+
+		        <select multiple="multiple" id="id_property_type" name="status">
+		            <option value="">---------</option>
+		            <option value="sale">Sale</option>
+		            <option value="rent">Rent</option>
 		            <option value="both">Both</option>
 		        </select>
 
-		        <select multiple="multiple" id="id_property_type" name="property_type">
-		            <option value="">---------</option>
-		            <option value="residential">Residential</option>
-		            <option value="rental">Rental</option>
-		            <option value="holidayrental">Holiday Rental</option>
-		            <option value="rural">Rural</option>
-		            <option value="land">Land</option>
-		            <option value="commercial">Commercial</option>
-		            <option value="business">Business</option>
-		            <option value="project">Project</option>
-		            <option value="condo">Condo</option>
-		            <option value="borey">Borey</option>
-		        </select>
 
-		        <select multiple="multiple" id="id_commercial_listing_type" name="commercial_listing_type">
-		            <option value="">---------</option>
-		            <option value="sale">Sale</option>
-		            <option value="lease">Lease</option>
-		            <option value="both">Both</option>
-		        </select>
-
-		        <select multiple="multiple" id="id_categories" name="categories">
+		        <select multiple="multiple" id="id_categories" name="categories[]">
 		            <optgroup label="Residential">
-		                <option value="House">House</option>
-		                <option value="Villa">Villa</option>
-		                <option value="Alpine">Shophouse</option>
-		                <option value="Terrace">Twin Villa</option>
-		                <option value="Retreat">Flat House</option>
-		                <option value="Unit">Link House</option>
-		                <option value="Condo">Condo</option>
-		                <option value="Apartment">Apartment</option>
-		                <option value="ServicedApartment">Serviced Apartment</option>
-		                <option value="Flat">Flat</option>
-		                <option value="Studio">Studio</option>
-		                <option value="Land/Development">Land</option>
-		            </optgroup>
-		            <optgroup label="Commercial">
-		                <option value="Offices">Offices</option>
-		                <option value="Land/Development">Land</option>
-		                <option value="Warehouse">Warehouse</option>
-		                <option value="Alpine">Shophouse</option>
-		                <option value="Hotel">Hotel</option>
-		                <option value="Food/Hospitality">Restaurant</option>
-		                <option value="Leisure/Entertainment">Bars/Nightclubs</option>
-		                <option value="Retail">Retail</option>
-		                <option value="Motel">Factory</option>
-		                <option value="other">Other</option>
-		            </optgroup>
+			            <?php 
+							foreach ($type as $type) {
+						?>
+							<option value="<?php echo $type->typename?>"><?php echo $type->typename?></option>
+						<?php
+							}
+						?>
+					</optgroup>
 		        </select>
 
 		        <select multiple="multiple" id="id_features" name="features">
@@ -990,14 +906,6 @@
 		            <option value="firesprinkler">Fire sprinkler system</option>
 		            <option value="oceanviews">Ocean Views</option>
 		            <option value="cityviews">City Views</option>
-		        </select>
-
-		        <select id="id_order_by" name="order_by">
-		            <option value="relevance">Relevance</option>
-		            <option value="price-asc">Price (Low-High)</option>
-		            <option value="price-desc">Price (High-Low)</option>
-		            <option value="date-asc">Date (New-Old)</option>
-		            <option value="date-desc">Date (Old-New)</option>
 		        </select>
 
 		        <input id="id_car_spaces__lte" min="0" name="car_spaces__lte" type="number" />
@@ -1034,8 +942,7 @@
 
 		        <select id="id_land_title" name="land_title">
 		            <option value="" selected="selected">All</option>
-		            <option value="hard">Hard Title / Freehold</option>
-		            <option value="long">Long-Term Leasehold</option>
+		            <option value="hard">Hard Title</option>
 		            <option value="soft">Soft Title</option>
 		        </select>
 
@@ -1047,18 +954,6 @@
 
 		        <input id="id_address_floor_level__gte" name="address_floor_level__gte" type="number" />
 
-		        <select id="id_is_certified" name="is_certified">
-		            <option value="1" selected="selected">Unknown</option>
-		            <option value="2">Yes</option>
-		            <option value="3">No</option>
-		        </select>
-
-		        <select id="id_private_seller" name="private_seller">
-		            <option value="1" selected="selected">Unknown</option>
-		            <option value="2">Yes</option>
-		            <option value="3">No</option>
-		        </select>
-
 		        <input id="id_price_per_sqm__lte" name="price_per_sqm__lte" type="number" />
 
 		        <input id="id_price_per_sqm__gte" name="price_per_sqm__gte" type="number" />
@@ -1066,171 +961,6 @@
 		        <input id="id_q" name="q" type="text" />
 
 		    </form>
-
-
-		        
-			
-			<!-- Begin Advanced Search -->
-			<!-- <section class="pgl-advanced-search pgl-bg-light hide">
-				<div class="container">
-					<form name="advancedsearch" action="<?php echo site_url('site/site/search')?>">
-						<div class="row">
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<label class="sr-only" for="property-status">Property Status</label>
-									<select id="property-status" name="property-status" data-placeholder="Property Status" class="chosen-select">
-										<option selected="selected" value="">Property Status</option>
-										<option value="1">For Sale</option>
-										<option value="2">For Rent</option>
-										<option value="3">For Rent & Sale</option>
-									</select>
-								</div>
-							</div>	
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<label class="sr-only" for="location">Location</label>
-									<select id="location" name="location" data-placeholder="Location" class="chosen-select">
-										<?php 
-											foreach ($location as $loc) {
-										?>
-										<option value="<?php echo $loc->propertylocationid;?>"><?php echo str_repeat("---- &nbsp;",$loc->level).$loc->locationname;?></option>
-										<?php 
-											}
-										?>
-									</select>
-								</div>
-							</div>
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<label class="sr-only" for="property-types">Property Types</label>
-									<select id="property-types" name="property-types" data-placeholder="Property Types" class="chosen-select" multiple="multiple">
-										<?php 
-											foreach ($type as $type) {
-										?>
-											<option value="<?php echo $type->typeid?>"><?php echo $type->typename?></option>
-										<?php
-											}
-										?>
-									</select>
-								</div>
-							</div>
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<div class="row pgl-narrow-row">
-										<div class="col-xs-6">
-											<label class="sr-only" for="search-minprice">Area From</label>
-											<select id="area-from" name="area-from" data-placeholder="Area From" class="chosen-select">
-												<option selected="selected" value="Area From">Area From</option>
-												<option value="">any</option>
-												<option value="40">40<sup>m2</sup></option>
-												<option value="80">80<sup>m2</sup></option>
-												<option value="90">90<sup>m2</sup></option>
-												<option value="100">100<sup>m2</sup></option>
-												<option value="200">200<sup>m2</sup></option>
-												<option value="400">400<sup>m2</sup></option>
-												<option value="600">600<sup>m2</sup></option>
-											</select>
-										</div>
-										<div class="col-xs-6">
-											<label class="sr-only" for="search-maxprice">Area To</label>
-											<select id="area-from" name="area-from" data-placeholder="Area From" class="chosen-select">
-												<option selected="selected" value="Area From">Area To</option>
-												<option value="">any</option>
-												<option value="40">40<sup>m2</sup></option>
-												<option value="80">80<sup>m2</sup></option>
-												<option value="90">90<sup>m2</sup></option>
-												<option value="100">100<sup>m2</sup></option>
-												<option value="200">200<sup>m2</sup></option>
-												<option value="400">400<sup>m2</sup></option>
-												<option value="600">600<sup>m2</sup></option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>	
-						</div>
-						
-						<div class="row">
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<label class="sr-only" for="search-bedrooms">Bedrooms</label>
-									<select id="search-bedrooms" name="search-bedrooms" data-placeholder="Bedrooms" class="chosen-select">
-										<option selected="selected" value="Bedrooms">Bedrooms</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="5plus">5+</option>
-									</select>
-								</div>
-							</div>	
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<label class="sr-only" for="search-bathrooms">Bathrooms</label>
-									<select id="search-bathrooms" name="search-bathrooms" data-placeholder="Bathrooms" class="chosen-select">
-										<option selected="selected" value="Bathrooms">Bathrooms</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="4plus">4+</option>
-									</select>
-								</div>
-							</div>	
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<div class="row pgl-narrow-row">
-										<div class="col-xs-6">
-											<label class="sr-only" for="search-minprice">Price From</label>
-											<select id="search-minprice" name="search-minprice" data-placeholder="Price From" class="chosen-select">
-												<option selected="selected" value="Price From">Price From</option>
-												<option value="0">$0</option>
-												<option value="25000">$25000</option>
-												<option value="50000">$50000</option>
-												<option value="75000">$75000</option>
-												<option value="100000">$100000</option>
-												<option value="150000">$150000</option>
-												<option value="200000">$200000</option>
-												<option value="300000">$300000</option>
-												<option value="500000">$500000</option>
-												<option value="750000">$750000</option>
-												<option value="1000000">$1000000</option>
-											</select>
-										</div>
-										<div class="col-xs-6">
-											<label class="sr-only" for="search-maxprice">Price To</label>
-											<select id="search-maxprice" name="search-maxprice" data-placeholder="Price To" class="chosen-select">
-												<option selected="selected" value="Price To">Price To</option>
-												<option value="25000">$25000</option>
-												<option value="50000">$50000</option>
-												<option value="75000">$75000</option>
-												<option value="100000">$100000</option>
-												<option value="150000">$150000</option>
-												<option value="200000">$200000</option>
-												<option value="300000">$300000</option>
-												<option value="500000">$500000</option>
-												<option value="750000">$750000</option>
-												<option value="1000000">$1000000</option>
-												<option value="1000000plus">>$1000000</option>
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>	
-							<div class="col-xs-6 col-sm-3">
-								<div class="form-group">
-									<button type="submit" class="btn btn-block btn-primary">Search</button>
-								</div>
-							</div>	
-						</div>
-						
-					</form>
-				</div>
-			</section> -->
-			<!-- End Advanced Search -->
 			
 			<!-- Begin Properties -->
 			<section class="pgl-properties pgl-bg-grey">
@@ -1302,165 +1032,7 @@
 				</div>
 			</section>
 			<!-- End Properties -->
-			
-			<!-- Begin Agents -->
-			<!-- <section class="pgl-agents hide">
-				<div class="container">
-					<h2>Our Agents</h2>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="pgl-agent-item pgl-bg-light">
-								<div class="row pgl-midnarrow-row">
-									<div class="col-xs-5">
-										<div class="img-thumbnail-medium">
-											<a href="agentprofile.html"><img src="<?php echo site_url('template')?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
-										</div>
-									</div>
-									<div class="col-xs-7">
-										<div class="pgl-agent-info">
-											<small>NO.1</small>
-											<h4><a href="agentprofile.html">John Smith</a></h4>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nisi eu ante mattis.</p>
-											<address>
-												<i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
-												<i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
-												<i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
-												<i class="fa fa-envelope-o"></i> Mail: <a href="mailto:JohnSmith@gmail.com">JohnSmith@gmail.com</a>
-											</address>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="pgl-agent-item pgl-bg-light">
-								<div class="row pgl-midnarrow-row">
-									<div class="col-xs-5">
-										<div class="img-thumbnail-medium">
-											<a href="agentprofile.html"><img src="<?php echo site_url('template')?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
-										</div>
-									</div>
-									<div class="col-xs-7">
-										<div class="pgl-agent-info">
-											<small>NO.2.1</small>
-											<h4><a href="agentprofile.html">Andrew MCCarthy</a></h4>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum nisi eu ante mattis.</p>
-											<address>
-												<i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
-												<i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
-												<i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
-												<i class="fa fa-envelope-o"></i> Mail: <a href="mailto:MCCarthy@gmail.com">MCCarthy@gmail.com</a>
-											</address>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<hr class="top-tall">
-				</div>
-			</section> -->
-			<!-- End Agents -->
-			
-			<!-- Begin About -->
-			<!-- <section class="pgl-about hide">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 animation about-item">
-							<h2>Who We Are</h2>
-							<p><img src="<?php echo site_url('template')?>/images/content/demo-1.jpg" alt="" class="img-responsive"></p>
-							<p>We have a total of 25+ years combined experience dealing exclusively with New York buyers and sellers ipsum dolor sit amet, consectetur adipiscing elit.</p>
-							<a href="about-us.html" class="btn btn-lg btn-default">View more</a>
-						</div>
-						<div class="col-md-4 animation about-item">
-							<h2>Why Choose Us</h2>
-							<div class="panel-group" id="accordion">
-								<div class="panel panel-default pgl-panel">
-									<div class="panel-heading">
-										<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Designed for your business</a> </h4>
-									</div>
-									<div id="collapseOne" class="panel-collapse collapse in">
-										<div class="panel-body"> 
-											<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default pgl-panel">
-									<div class="panel-heading">
-										<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">Fully responsive</a> </h4>
-									</div>
-									<div id="collapseTwo" class="panel-collapse collapse">
-										<div class="panel-body"> <p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p> </div>
-									</div>
-								</div>
-								<div class="panel panel-default pgl-panel">
-									<div class="panel-heading">
-										<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">Ample customizations</a> </h4>
-									</div>
-									<div id="collapseThree" class="panel-collapse collapse">
-										<div class="panel-body">
-											<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default pgl-panel">
-									<div class="panel-heading">
-										<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFouth" class="collapsed">Bootstrap Compatible</a> </h4>
-									</div>
-									<div id="collapseFouth" class="panel-collapse collapse">
-										<div class="panel-body">
-											<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
-										</div>
-									</div>
-								</div>
-								<div class="panel panel-default pgl-panel">
-									<div class="panel-heading">
-										<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed">Unique Design</a> </h4>
-									</div>
-									<div id="collapseFive" class="panel-collapse collapse">
-										<div class="panel-body">
-											<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 animation about-item">
-							<h2>Happy Clients</h2>
-							<div class="owl-carousel pgl-bg-dark pgl-testimonial" data-plugin-options='{"items": 1, "pagination": false, "autoHeight": true}'>
-								<div class="col-md-12">
-									<div class="testimonial-author">
-										<div class="img-thumbnail-small img-circle">
-											<img src="<?php echo site_url('template')?>/images/agents/agent-1.jpg" class="img-circle" alt="Andrew MCCarthy">
-										</div>
-										<h4>Andrew MCCarthy</h4>
-										<p><strong>Selller</strong></p>
-									</div>
-									<div class="divider-quote-sign"><span>“</span></div>
-									<blockquote class="testimonial">
-										<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium totam rem.</p>
-									</blockquote>
-								</div>
-								<div class="col-md-12">
-									<div class="testimonial-author">
-										<div class="img-thumbnail-small img-circle">
-											<img src="<?php echo site_url('template')?>/images/agents/agent-1.jpg" class="img-circle" alt="John Smith">
-										</div>
-										<h4>John Smith</h4>
-										<p><strong>Selller</strong></p>
-									</div>
-									<div class="divider-quote-sign"><span>“</span></div>
-									<blockquote class="testimonial">
-										<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium totam rem.</p>
-									</blockquote>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> -->
-			<!-- End About -->
-			
+
 		</div>
 		<!-- End Main -->
 		

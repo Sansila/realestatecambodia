@@ -26052,33 +26052,33 @@ var render_listings = function(template, listings) {
             var listing_card_html = template(listings[i]);
             $(".listings-container").append(listing_card_html)
         }
-    },
-    get_office_listings = function(listing_type, sort_options, listing_total) {
-        $(".listings-container").html(ajaxloader), $.ajax({
-            url: "/api/listing",
-            dataType: "json",
-            data: {
-                format: "json",
-                client: client_id,
-                listing_type: listing_type,
-                sortby: sort_options,
-                page_size: listing_total
-            },
-            success: function(data) {
-                $(".listings-container").html(""), render_listings(listing_template, data.results)
-            }
-        })
     };
-$("[data-listing-type-selector]").click(function() {
-    $(this).parent().siblings().children().removeClass("active"), $(this).addClass("active");
-    var listing_type = $(this).data("listing-type");
-    get_office_listings(listing_type, sort_options)
-}), $(".content-mask-button").click(function() {
-    var mask_message = $(this).data("mask-message"),
-        unmask_message = $(this).data("unmask-message"),
-        masked_content = $(this).data("masked-content");
-    $("#" + masked_content).hasClass("unmasked") ? ($(this).text(unmask_message), $("#" + masked_content).removeClass("unmasked")) : ($(this).text(mask_message), $("#" + masked_content).addClass("unmasked"))
-});
+    // get_office_listings = function(listing_type, sort_options, listing_total) {
+    //     $(".listings-container").html(ajaxloader), $.ajax({
+    //         url: "/api/listing",
+    //         dataType: "json",
+    //         data: {
+    //             format: "json",
+    //             client: client_id,
+    //             listing_type: listing_type,
+    //             sortby: sort_options,
+    //             page_size: listing_total
+    //         },
+    //         success: function(data) {
+    //             $(".listings-container").html(""), render_listings(listing_template, data.results)
+    //         }
+    //     })
+    // };
+// $("[data-listing-type-selector]").click(function() {
+//     $(this).parent().siblings().children().removeClass("active"), $(this).addClass("active");
+//     var listing_type = $(this).data("listing-type");
+//     get_office_listings(listing_type, sort_options)
+// }), $(".content-mask-button").click(function() {
+//     var mask_message = $(this).data("mask-message"),
+//         unmask_message = $(this).data("unmask-message"),
+//         masked_content = $(this).data("masked-content");
+//     $("#" + masked_content).hasClass("unmasked") ? ($(this).text(unmask_message), $("#" + masked_content).removeClass("unmasked")) : ($(this).text(mask_message), $("#" + masked_content).addClass("unmasked"))
+// });
 var WEBITISCallbacks = function() {
     return this.list = [], this.fireStack = [], this.isFiring = !1, this.isDisabled = !1, this.fire = function(a) {
         var b = a[0],
@@ -28204,7 +28204,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
             syncFormData: function(el, options) {
                 var currentData = $("#hidden-search-form").serializeArray(),
                     propertyType = $("#id_property_type").val();
-                propertyType && (propertyType = propertyType.toString()), $(".search-completed-year").hide(), $(".search-completion-year").hide(), $(".search-field-wrapper.listing-type").hide(), propertyType || (propertyType = "residential"), propertyType && ("residential" == propertyType && ($(el).hasClass("js-mobile-search") ? $(".mobile-search-type .text-label-selected").text(gettext("Buy")) : $(".desktop-search-type .text-label").text(gettext("Buy")), formState = "residential"), "rental" == propertyType && ($(el).hasClass("js-mobile-search") ? $(".mobile-search-type .text-label-selected").text(gettext("Rent")) : $(".desktop-search-type .text-label").text(gettext("Rent")), formState = "rental", $("#id_listing_type").val("lease")), "project" == propertyType && ($(".search-field-wrapper.listing-type").hide(), $(".search-field-wrapper.search-type").hide(), $(".search-land-area").hide(), $(".search-completed-year").hide(), $(".search-categories").hide(), $(".search-completion-year").show(), formState = "project", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".desktop-search-year .text-label-selected").text(gettext("Any"))), "condo" == propertyType && ($(".search-land-area").hide(), $(".search-completion-year").hide(), $(".search-completed-year").show(), $(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "condo-lease" : "condo-sale", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".search-year .text-label-selected").text(gettext("Any"))), "borey" == propertyType && ($(".search-land-area").hide(), $(".search-completion-year").hide(), $(".search-completed-year").show(), $(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "borey-lease" : "borey-sale", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".search-year .text-label-selected").text(gettext("Any"))), "commercial" == propertyType && ($(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "commercial-lease" : "commercial-sale", $(".residential-tab").hide(), $(".residential-panel").hide(), $(".commercial-tab").addClass("is-active"), $(".commercial-panel").addClass("is-active")));
+                propertyType && (propertyType = propertyType.toString()), $(".search-completed-year").hide(), $(".search-completion-year").hide(), $(".search-field-wrapper.listing-type").hide(), propertyType || (propertyType = "residential"), propertyType && ("residential" == propertyType && ($(el).hasClass("js-mobile-search") ? $(".mobile-search-type .text-label-selected").text(gettext("Property Status")) : $(".desktop-search-type .text-label").text(gettext("Property Status")), formState = "residential"), "rental" == propertyType && ($(el).hasClass("js-mobile-search") ? $(".mobile-search-type .text-label-selected").text(gettext("Rent")) : $(".desktop-search-type .text-label").text(gettext("Rent")), formState = "rental", $("#id_listing_type").val("lease")), "project" == propertyType && ($(".search-field-wrapper.listing-type").hide(), $(".search-field-wrapper.search-type").hide(), $(".search-land-area").hide(), $(".search-completed-year").hide(), $(".search-categories").hide(), $(".search-completion-year").show(), formState = "project", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".desktop-search-year .text-label-selected").text(gettext("Any"))), "condo" == propertyType && ($(".search-land-area").hide(), $(".search-completion-year").hide(), $(".search-completed-year").show(), $(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "condo-lease" : "condo-sale", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".search-year .text-label-selected").text(gettext("Any"))), "borey" == propertyType && ($(".search-land-area").hide(), $(".search-completion-year").hide(), $(".search-completed-year").show(), $(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "borey-lease" : "borey-sale", $(el).hasClass("js-mobile-search") ? $(".mobile-search-year .text-label-selected").text(gettext("Any")) : $(".search-year .text-label-selected").text(gettext("Any"))), "commercial" == propertyType && ($(".search-field-wrapper.listing-type").show(), $(".search-field-wrapper.search-type").hide(), formState = "lease" == $("#id_listing_type").val() ? "commercial-lease" : "commercial-sale", $(".residential-tab").hide(), $(".residential-panel").hide(), $(".commercial-tab").addClass("is-active"), $(".commercial-panel").addClass("is-active")));
                 for (key in currentData) switch (currentData[key].name) {
                     case "price__gte":
                         "" != currentData[key].value && $("[data-price-min-changer]").val(currentData[key].value).trigger("change");
@@ -28423,12 +28423,14 @@ if ("function" != typeof gettext) var gettext = function(str) {
                 }), $("[data-list-search]").on("click", function() {
                     return run.updateFormAction(el, options), $(options.hiddenForm).attr("action", $(options.hiddenForm).attr("action").replace(gettext("map") + "/", "")), $(options.hiddenForm).attr("action", $(options.hiddenForm).attr("action").replace(gettext("grid") + "/", "")), $(options.hiddenForm).submit(), !1
                 }), $("#id_location_autocomplete").on("change", function() {
-                    $("#id_location_autocomplete").val().match(/^project:.+/) && ($(".selectize-dropdown").hide(), $("#search-submit-button").click())
+                    $("#id_location_autocomplete").val().match(/^project:.+/) && ($(".selectize-dropdown").hide(),$("#search-submit-button").click())
                 }), $(el).hasClass("js-mobile-search") && $(".mobile-refine-search").on("click", function() {
                     $(this).children("span").hasClass("icon-up") ? ($(".mobile-additional-options").slideUp(), $(this).children("span").removeClass("icon-up").addClass("icon-down")) : ($(".mobile-additional-options").slideDown(), $(this).children("span").removeClass("icon-down").addClass("icon-up"))
-                }), $(el).on("click", "[data-search-button]", function() {
+                }), 
+                $(el).on("click", "[data-search-button]", function() {
                     run.updateFormAction(el, options), $(options.hiddenForm).submit()
-                }), $(el).on("click", "[data-reset-button]", function(e) {
+                }), 
+                $(el).on("click", "[data-reset-button]", function(e) {
                     e.preventDefault(), $(options.hiddenForm + " :input").each(function() {
                         var type = this.type,
                             tag = this.tagName.toLowerCase();
@@ -28522,52 +28524,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                 })
             },
             setupLocations: function(el, options) {
-                if (//$.ajax({
-                //         url: "site/site/getlocation",
-                //         type: "GET",
-                //         dataType: "json",
-                //         success: function(locations) {
-                //             var key, obj, prop, owns = Object.prototype.hasOwnProperty,
-                //                 checkboxes = '<div class="location-content"><ul>';
-                //             for (key in locations) {
-                //                 if (checkboxes += '<li><label><input type="checkbox" name="location" value="location:' + key + '" data-checkbox-changer data-target-field="#id_location_autocomplete" data-target-value="location:' + key + '">' + gettext(key) + "</label>", owns.call(locations, key)) {
-                //                     obj = locations[key], checkboxes += "<ul>";
-                //                     for (prop in obj) {
-                //                         if (checkboxes += '<li><label><input type="checkbox" name="location" value="location:' + prop + '" data-checkbox-changer data-target-field="#id_location_autocomplete" data-target-value="location:' + key + " > " + prop + '">' + gettext(prop) + "</label>", owns.call(obj, prop)) {
-                //                             checkboxes += "<ul>";
-                //                             for (val in obj[prop]) checkboxes += '<li><label><input type="checkbox" name="location" value="location:' + obj[prop][val] + '" data-checkbox-changer data-target-field="#id_location_autocomplete" data-target-value="location:' + key + " > " + prop + " > " + obj[prop][val] + '">' + gettext(obj[prop][val]) + "</label></li>";
-                //                             checkboxes += "</ul>"
-                //                         }
-                //                         checkboxes += "</li>"
-                //                     }
-                //                     checkboxes += "</ul>"
-                //                 }
-                //                 checkboxes += "</li>"
-                //             }
-                //             checkboxes += "</ul></div>", $(el).hasClass("js-mobile-search") ? $(checkboxes).appendTo($("#mobile-location-dropdown .location-panel")) : $(checkboxes).appendTo($("#location-dropdown .location-panel"))
-                //         }
-                //     }), $.ajax({
-                //         url: "site/site/getlocation",
-                //         type: "GET",
-                //         dataType: "json",
-                //         success: function(locations) {
-                //             var city = "",
-                //                 radiobuttons = '<div class="location-content"><ul>';
-                //             for (key in locations) locations[key].get_city_display != city && (city = locations[key].get_city_display, radiobuttons += "<li><b>" + gettext(city) + "</b></li>"), radiobuttons += '<li><label><input type="radio" name="landmark:" value="landmark:' + locations[key].name + '" data-radiobutton-changer data-target-field="#id_location_autocomplete" data-target-value="landmark:' + locations[key].name + '">' + gettext(locations[key].name) + "</label>", radiobuttons += "</li>";
-                //             radiobuttons += "</ul></div>", $(el).hasClass("js-mobile-search") ? $(radiobuttons).appendTo($("#mobile-location-dropdown .landmark-panel")) : $(radiobuttons).appendTo($("#location-dropdown .landmark-panel"))
-                //         }
-                //     }),
-                
-                $.ajax({
-                    url: "site/site/getlocation",
-                    type: "GET",
-                    dataType: "json",
-                    success: function(locations) { 
-                        var key, obj, prop, owns = Object.prototype.hasOwnProperty;
-                        $(el).hasClass("js-mobile-search") ? $(locations).appendTo($("#mobile-location-dropdown .location-panel div.location-content")) : $(locations).appendTo($("#location-dropdown .location-panel div.location-content"));
-                    }
-                }),
-                $("body").on("change", "[data-checkbox-changer]", function() {
+                if ($("body").on("change", "[data-checkbox-changer]", function() {
                         var targetField = $(this).data("target-field"),
                             targetValue = $(this).data("target-value"),
                             targetLabel = $(this).text(),
@@ -28660,59 +28617,6 @@ if ("function" != typeof gettext) var gettext = function(str) {
                                 this._updating = !0, this.setValue(value), this._updating = !1
                             };
                             /landmark:/.test(value) && this.items.length > 0 && !this._updating && window.setTimeout(clear.bind(this), 10)
-                        },
-                        load: function(h, g) {
-                            $.ajax({
-                                url: "/buy/",
-                                type: "GET",
-                                headers: {
-                                    Accept: "application/json",
-                                    "Content-Type": "application/json"
-                                },
-                                dataType: "json",
-                                data: {
-                                    q: h,
-                                    autocomplete: 1
-                                },
-                                error: function() {
-                                    g()
-                                },
-                                success: function(locations) {
-                                    var key, obj, prop, owns = Object.prototype.hasOwnProperty,
-                                        choices = [];
-                                    for (key in locations)
-                                        if (owns.call(locations, key)) {
-                                            obj = locations[key];
-                                            for (prop in obj) {
-                                                switch (choiceVal = obj[prop].full_name, choiceName = obj[prop].full_name, key) {
-                                                    case "locations":
-                                                        choiceVal = "location:" + obj[prop].full_name;
-                                                        break;
-                                                    case "agents":
-                                                        choiceVal = "agent:" + obj[prop].full_name;
-                                                        break;
-                                                    case "offices":
-                                                        choiceVal = "office:" + obj[prop].full_name;
-                                                        break;
-                                                    case "landmarks":
-                                                        choiceVal = "landmark:" + obj[prop].name, choiceName = obj[prop].name;
-                                                        break;
-                                                    case "condos":
-                                                    case "boreys":
-                                                    case "plot_land":
-                                                    case "projects":
-                                                        choiceVal = "project:" + obj[prop].full_name, choiceName = obj[prop].full_name
-                                                }
-                                                choices.push({
-                                                    Name: choiceName,
-                                                    Value: choiceVal,
-                                                    Group: key
-                                                })
-                                            }
-                                        }
-                                    0 == choices.length && (choices[0] = "No results found"), g(choices)
-                                }
-                            })
                         }
                     };
                     if ($("#id_location_autocomplete").length > 0) {

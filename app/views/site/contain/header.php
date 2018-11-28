@@ -33,7 +33,7 @@
 	
 	<!-- Style Switcher-->
 	<link rel="stylesheet" href="<?php echo site_url('template')?>/style-switcher/css/style-switcher.css">
-	<link href="css/colors/red/style.html" rel="stylesheet" id="layoutstyle">
+	<!-- <link href="css/colors/red/style.html" rel="stylesheet" id="layoutstyle"> -->
 
 	<!-- Theme Responsive-->
 	<link href="<?php echo site_url('template')?>/css/theme-responsive.css" rel="stylesheet">

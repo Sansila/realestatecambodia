@@ -55,7 +55,7 @@
             }
 
             if ($cat) {
-                $result = $this->getSubItem(0,$cat);
+                $result = $this->getSubItem(null,$cat);
                 return $result;
             } else {
                 return FALSE;
@@ -69,11 +69,11 @@
                 $html.= '<ul>';
                 foreach ($menu['parents'][$parent] as $itemId) {
                     if (!isset($menu['parents'][$itemId])) {
-                        $html.= '<label><input type="checkbox" name="location" value="location:'.'>'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="location:'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
+                        $html.= '<label><input type="checkbox" name="location" value="'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
                     }
                     if (isset($menu['parents'][$itemId])) {
                         $html.= '<li>';
-                        $html.= '<label><input type="checkbox" name="location" value="location:'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="location:'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
+                        $html.= '<label><input type="checkbox" name="location" value="'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
                         $html.= '<ul></ul>';
                         $html.= $this->getSubItem($itemId,$menu);
                         $html.= '</li>';
@@ -82,5 +82,67 @@
                 $html.= '</ul>';
             }
             return $html;
+        }
+        // function get_items()
+        // {
+        //     $this->db->select('*');
+        //     $this->db->from('tblpropertylocation');
+        //     $this->db->order_by('lineage');
+        //     $query = $this->db->get();
+        //     return $query->result_array();
+        // }
+        // function generateTree($items = array(), $parent_id = null)
+        // {
+        //     $tree = array();
+        //     for($i=0, $ni=count($items); $i < $ni; $i++){
+        //         if($items[$i]['parent_id'] == $parent_id){
+
+        //             $tree[]= $items[$i]['locationname'];
+        //             $tree[]= $this->generateTree($items, $items[$i]['propertylocationid']);
+        //         }
+        //     }
+        //     return $tree;
+        // }
+        function getResultSearch($status,$location,$category,$firstprice,$lastprice)
+        {
+            $where = "";
+
+            if($firstprice !="" && $lastprice !="")
+                $where.= "AND p.price BETWEEN $firstprice AND $lastprice";
+
+            if($status !="")
+            {
+                if($status == "rent")
+                    $where.= " OR p.p_type = 1 ";
+                if($status == "sale")
+                    $where.= " OR p.p_type = 2 ";
+                if($status == "both")
+                    $where.= " OR p.p_type = 3 ";
+            }
+            if($location != "")
+            {
+                $location = trim($location, ';');
+                $arr = explode(';', $location);
+                foreach ($arr as $arr) {
+                    $where.= " OR lp.locationname = '$arr'";
+                }
+            }
+
+            if($category !="")
+            {
+                foreach ($category as $cat) {
+                    $where.= " OR pt.typename = '$cat'";
+                }
+            }
+
+            $query = $this->db->query("SELECT * FROM tblproperty as p
+                                       LEFT JOIN tblpropertylocation as lp 
+                                        ON p.lp_id = lp.propertylocationid
+                                       LEFT JOIN tblpropertytype as pt
+                                        ON p.type_id = pt.typeid
+                                       WHERE p.p_status = 1 AND (1=1 {$where})
+                ")->result();
+
+            return $query;
         }
 }

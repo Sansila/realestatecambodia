@@ -85,8 +85,6 @@
 	<script src="<?php echo site_url('template')?>/vendor/owl-carousel/owl.carousel.js"></script>
 	<script src="<?php echo site_url('template')?>/vendor/flexslider/jquery.flexslider-min.js"></script>
 	<script src="<?php echo site_url('template')?>/vendor/chosen/chosen.jquery.min.js"></script>
-	<script type="<?php echo site_url('template')?>/text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=true"></script>
-	<script src="<?php echo site_url('template')?>/vendor/gmap/gmap3.infobox.min.js"></script>
 	<script src="<?php echo site_url('template')?>/vendor/masonry/imagesloaded.pkgd.min.js"></script>
 	<script src="<?php echo site_url('template')?>/vendor/masonry/masonry.pkgd.min.js"></script>
 	
@@ -96,9 +94,6 @@
 	<script src="<?php echo site_url('template')?>/js/body19c7.js"></script>
 	<!-- <script src="<?php echo site_url('template')?>/js/selectize.js"></script> -->
 	<!-- <script src="<?php echo site_url('template')?>/js/index.js"></script> -->
-	<!-- <script src="<?php echo site_url('template')?>/js/custumize.js"></script> -->
-	
-	<!-- Style Switcher -->
 	<script type="text/javascript" src="<?php echo site_url('template')?>/style-switcher/js/switcher.js"></script>
 	
 </body>

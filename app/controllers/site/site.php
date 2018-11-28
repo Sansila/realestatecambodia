@@ -14,6 +14,7 @@ class Site extends CI_Controller {
 		$data['lists'] = $this->site->getPropertyLists();
         $data['type'] = $this->site->getPropertyType();
         $data['location'] = $this->site->getPropertyLocation();
+        $data['data'] = $this->site->getItemLocation();
 		$this->load->view('site/contain/header',$datas);
         $this->load->view('site/index',$data);
         $this->load->view('site/contain/footer',$datas);
@@ -32,10 +33,26 @@ class Site extends CI_Controller {
     function search()
     {
     	$datas['profile'] = $this->site->getSiteprofile();
+        $data['lists'] = $this->site->getPropertyLists();
         $data['type'] = $this->site->getPropertyType();
         $data['location'] = $this->site->getPropertyLocation();
+        $data['data'] = $this->site->getItemLocation();
+
+        $status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = '';
+        if(isset($_GET['status']))
+            $status = $_GET['status'];
+        if(isset($_GET['q']))
+            $location = $_GET['q'];
+        if(isset($_GET['categories']))
+            $category = $_GET['categories'];
+        if(isset($_GET['price__gte']))
+            $firstprice = $_GET['price__gte'];
+        if(isset($_GET['price__lte']))
+            $lastprice = $_GET['price__lte'];
+
+        $data['result'] = $this->site->getResultSearch($status,$location,$category,$firstprice,$lastprice);
 		$this->load->view('site/contain/header',$datas);
-        $this->load->view('site/search');
+        $this->load->view('site/search',$data);
         $this->load->view('site/contain/footer',$datas);
     }
     function getlocation()
@@ -44,5 +61,16 @@ class Site extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($data);
     }
+    // function test()
+    // {
+    //     $items  = $this->site->get_items();
+    //     $menu   = $this->site->generateTree($items); 
+    //     $data = array(
+    //         $menu,
+    //     );
+
+    //     header('Content-Type: application/json');
+    //     echo json_encode($menu);
+    // }
 }
 ?>
