@@ -2921,7 +2921,7 @@ ul,
 ul ol,
 ul ul {
     margin-left: 20px;
-    margin-left: 1.25rem
+    margin-left: 0.25rem
 }
 
 ol ol,
@@ -14024,7 +14024,7 @@ input.range {
 
 .dropdown-pane .location-content>ul {
     margin-left: 2px;
-    margin-left: .125rem
+    margin-left: -1.255rem
 }
 
 .dropdown-pane .location-content label {

@@ -682,10 +682,10 @@
 			$data=$this->getTable("SELECT propertylocationid,parent_id FROM tblpropertylocation WHERE 1=1 {$w}");
 			if(count($data)>0){
 				foreach ($data as $rows) {
-					$arr_lineage=$this->lineage_levels('propertylocationid',$rows['propertylocationid'],'parent_id',$rows['parent_id'],'tblpropertylocation');
+					$arr_lineage=$this->lineage_levels('propertylocationid',$rows['propertylocationid'],'locationname',$rows['locationname'],'parent_id',$rows['parent_id'],'tblpropertylocation');
 					$this->runSQL("UPDATE tblpropertylocation 
 											SET lineage='".$arr_lineage['lineage']."',
-												level='".$arr_lineage['level']."'
+												level='".$arr_lineage['level']."',
 											WHERE propertylocationid='".$rows['propertylocationid']."'
 										");
 				}

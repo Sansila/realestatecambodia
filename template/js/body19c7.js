@@ -28523,7 +28523,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
             },
             setupLocations: function(el, options) {
                 if (//$.ajax({
-                //         url: "site/site/test",
+                //         url: "site/site/getlocation",
                 //         type: "GET",
                 //         dataType: "json",
                 //         success: function(locations) {
@@ -28547,7 +28547,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                 //             checkboxes += "</ul></div>", $(el).hasClass("js-mobile-search") ? $(checkboxes).appendTo($("#mobile-location-dropdown .location-panel")) : $(checkboxes).appendTo($("#location-dropdown .location-panel"))
                 //         }
                 //     }), $.ajax({
-                //         url: "site/site/test",
+                //         url: "site/site/getlocation",
                 //         type: "GET",
                 //         dataType: "json",
                 //         success: function(locations) {
@@ -28556,7 +28556,17 @@ if ("function" != typeof gettext) var gettext = function(str) {
                 //             for (key in locations) locations[key].get_city_display != city && (city = locations[key].get_city_display, radiobuttons += "<li><b>" + gettext(city) + "</b></li>"), radiobuttons += '<li><label><input type="radio" name="landmark:" value="landmark:' + locations[key].name + '" data-radiobutton-changer data-target-field="#id_location_autocomplete" data-target-value="landmark:' + locations[key].name + '">' + gettext(locations[key].name) + "</label>", radiobuttons += "</li>";
                 //             radiobuttons += "</ul></div>", $(el).hasClass("js-mobile-search") ? $(radiobuttons).appendTo($("#mobile-location-dropdown .landmark-panel")) : $(radiobuttons).appendTo($("#location-dropdown .landmark-panel"))
                 //         }
-                //     }), 
+                //     }),
+                
+                $.ajax({
+                    url: "site/site/getlocation",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(locations) { 
+                        var key, obj, prop, owns = Object.prototype.hasOwnProperty;
+                        $(el).hasClass("js-mobile-search") ? $(locations).appendTo($("#mobile-location-dropdown .location-panel div.location-content")) : $(locations).appendTo($("#location-dropdown .location-panel div.location-content"));
+                    }
+                }),
                 $("body").on("change", "[data-checkbox-changer]", function() {
                         var targetField = $(this).data("target-field"),
                             targetValue = $(this).data("target-value"),

@@ -38,9 +38,9 @@ class Site extends CI_Controller {
         $this->load->view('site/search');
         $this->load->view('site/contain/footer',$datas);
     }
-    function test()
+    function getlocation()
     {
-        $data = $this->site->getItemExtrafood();
+        $data = $this->site->getItemLocation();
         header('Content-Type: application/json');
         echo json_encode($data);
     }

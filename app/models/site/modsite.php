@@ -40,7 +40,7 @@
             $sql = $this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc")->result();
             return $sql;
         }
-        function getItemExtrafood()
+        function getItemLocation()
         {
             $query = $this->db->query("SELECT * FROM tblpropertylocation where status='1' ORDER BY lineage asc");
             
@@ -55,29 +55,32 @@
             }
 
             if ($cat) {
-                $result = $this->getSubItemDetail(null, $cat);
+                $result = $this->getSubItem(0,$cat);
                 return $result;
             } else {
                 return FALSE;
             }
         }
-        function getSubItemDetail($parent, $menu)
+        function getSubItem($parent,$menu)
         {
-            $data = array();
+            $html = "";
+            $title = ""; $gettitle = "";
             if (isset($menu['parents'][$parent])) {
-
+                $html.= '<ul>';
                 foreach ($menu['parents'][$parent] as $itemId) {
-
-                    if (!isset($menu['parents'][$itemId])) { 
-                        $menu['items'][$itemId]->locationname;
+                    if (!isset($menu['parents'][$itemId])) {
+                        $html.= '<label><input type="checkbox" name="location" value="location:'.'>'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="location:'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
                     }
                     if (isset($menu['parents'][$itemId])) {
-                        $menu['items'][$itemId]->locationname;
-                        $this->getSubItemDetail($itemId, $menu);
+                        $html.= '<li>';
+                        $html.= '<label><input type="checkbox" name="location" value="location:'.$menu['items'][$itemId]->locationname.'" data-checkbox-changer="" data-target-field="#id_location_autocomplete" data-target-value="location:'.$menu['items'][$itemId]->locationname.'">'.$menu['items'][$itemId]->locationname.'</label>';
+                        $html.= '<ul></ul>';
+                        $html.= $this->getSubItem($itemId,$menu);
+                        $html.= '</li>';
                     }
                 }
-                
+                $html.= '</ul>';
             }
-            return $data;
+            return $html;
         }
 }
