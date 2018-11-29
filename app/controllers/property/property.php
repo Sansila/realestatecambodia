@@ -88,6 +88,7 @@ class Property extends CI_Controller {
 			'type_id'=> $this->input->post('category'),
 			'latitude'=> $this->input->post('latitude'),
 			'longtitude'=> $this->input->post('longtitude'),
+			'create_date'=> date('Y-m-d'),
 		);
 
 		$msg='';

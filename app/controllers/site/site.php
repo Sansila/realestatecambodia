@@ -37,7 +37,7 @@ class Site extends CI_Controller {
         $data['location'] = $this->site->getPropertyLocation();
         $data['data'] = $this->site->getItemLocation();
 
-        $status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = '';
+        $status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = ''; $order =''; $short='';
         if(isset($_GET['status']))
             $status = $_GET['status'];
         if(isset($_GET['q']))
@@ -50,8 +50,12 @@ class Site extends CI_Controller {
             $lastprice = $_GET['price__lte'];
         if(isset($_GET['available']))
             $available = $_GET['available'];
+        if(isset($_GET['order']))
+            $order = $_GET['order'];
+        if(isset($_GET['sort']))
+            $short = $_GET['sort'];
 
-        $data['result'] = $this->site->getResultSearch($status,$location,$category,$firstprice,$lastprice,$available);
+        $data['result'] = $this->site->getResultSearch($status,$location,$category,$firstprice,$lastprice,$available,$order,$short);
 		$this->load->view('site/contain/header',$datas);
         $this->load->view('site/search',$data);
         $this->load->view('site/contain/footer',$datas);

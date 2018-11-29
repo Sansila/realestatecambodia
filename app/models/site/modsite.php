@@ -55,7 +55,7 @@
             }
 
             if ($cat) {
-                $result = $this->getSubItem(0,$cat);
+                $result = $this->getSubItem(null,$cat);
                 return $result;
             } else {
                 return FALSE;
@@ -103,43 +103,65 @@
         //     }
         //     return $tree;
         // }
-        function getResultSearch($status,$location,$category,$firstprice,$lastprice,$available)
+        function getResultSearch($status,$location,$category,$firstprice,$lastprice,$available,$order,$short)
         {
-            $where = "";
-            $where.= "AND (p.property_name LIKE '%$available%' ";
-            if($firstprice !="" && $lastprice !=""){
-                $where.= " OR p.price BETWEEN $firstprice AND $lastprice";
-            }else if($firstprice !=""){
-                $where.= " OR p.price BETWEEN 0 AND $firstprice";
-            }else if($lastprice !=""){
-                $where.= " OR p.price BETWEEN 0 AND $lastprice";
-            }
-            if($status !="")
+            $where = ""; $order_by = "";
+
+            if($status !="" || $location !="" || $category !="" || $firstprice !="" ||$lastprice !="")
             {
-                if($status == "rent")
-                    $where.= " OR p.p_type = 1 ";
-                if($status == "sale")
-                    $where.= " OR p.p_type = 2 ";
-                if($status == "both")
-                    $where.= " OR p.p_type = 3 ";
-            }
-            if($location != "")
-            {
-                $location = trim($location, ';');
-                $arr = explode(';', $location);
-                foreach ($arr as $arr) {
-                    $where.= " OR lp.locationname = '$arr'";
+                 $where.= "AND (p.remark LIKE '%$available%' ";
+                if($firstprice !="" && $lastprice !=""){
+                    $where.= " OR p.price BETWEEN $firstprice AND $lastprice";
+                }else if($firstprice !=""){
+                    $where.= " OR p.price BETWEEN 0 AND $firstprice";
+                }else if($lastprice !=""){
+                    $where.= " OR p.price BETWEEN 0 AND $lastprice";
                 }
-            }
-            if($category !="")
-            {
-                foreach ($category as $cat) {
-                    $where.= " OR pt.typename = '$cat'";
+                if($status !="")
+                {
+                    if($status == "rent")
+                        $where.= " OR p.p_type = 2 ";
+                    if($status == "sale")
+                        $where.= " OR p.p_type = 1 ";
+                    if($status == "both")
+                        $where.= " OR p.p_type = 3 ";
+                    if($status == "all")
+                        $where.= " OR p.p_type <> 0 ";
                 }
+                if($location != "")
+                {
+                    $location = trim($location, ';');
+                    $arr = explode(';', $location);
+                    foreach ($arr as $arr) {
+                        $where.= " OR lp.locationname = '$arr'";
+                    }
+                }
+                if($category !="")
+                {
+                    foreach ($category as $cat) {
+                        $where.= " OR pt.typename = '$cat'";
+                    }
+                }
+
+                $where.= ")";
+            }else{
+                $where.= "";
             }
 
-            $where.= ")";
-            
+            // ============= Order by =============//
+
+            if($order != "" && $short == null)
+            {
+                $order_by.= " ORDER BY p.pid $order";
+            }else if($short !="" && $order != ""){
+                if($short == "Name")
+                    $order_by.= " ORDER BY p.property_name $order ";
+                if($short == "Area")
+                    $order_by.= " ORDER BY p.housesize $order ";
+                if($short == "Date")
+                    $order_by.= " ORDER BY p.create_date $order ";
+            }
+
             $query = $this->db->query("SELECT * FROM tblproperty as p
                                        LEFT JOIN tblpropertylocation as lp 
                                         ON p.lp_id = lp.propertylocationid
@@ -147,7 +169,7 @@
                                         ON p.type_id = pt.typeid
                                        LEFT JOIN tblgallery as g 
                                         on p.pid = g.pid
-                                       WHERE p.p_status = 1 {$where} GROUP bY p.pid
+                                       WHERE p.p_status = 1 {$where} GROUP BY p.pid {$order_by}
                 ")->result();
 
             return $query;

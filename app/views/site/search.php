@@ -1,5 +1,5 @@
 <?php 
-	$status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = '';
+	$status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = ''; $order = ''; $sort ='';
 	if(isset($_GET['status']))
 		$status = $_GET['status'];
 	if(isset($_GET['q']))
@@ -12,6 +12,10 @@
 		$lastprice = $_GET['price__lte'];
 	if(isset($_GET['available']))
 		$available = $_GET['available'];
+	if(isset($_GET['order']))
+		$order = $_GET['order'];
+	if(isset($_GET['sort']))
+		$sort = $_GET['sort'];
 ?>
 		<div role="main" class="main pgl-bg-grey">
 			<!-- Begin page top -->
@@ -38,6 +42,7 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
+	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="all">All</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -456,6 +461,7 @@
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="mobile-search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
+	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="all">all</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -823,7 +829,7 @@
 		    
 
 
-		    <form id="hidden-search-form" action="<?php echo site_url('site/site/search')?>" data-view-type="">
+		    <form id="hidden-search-form" class="search_all_form" action="<?php echo site_url('site/site/search')?>" data-view-type="">
 
 				<select id="available" name="available">
 		            <option value="0">Sale</option>
@@ -831,6 +837,7 @@
 
 		        <select multiple="multiple" method="get" id="id_property_type" name="status">
 		            <option value="">---------</option>
+		            <option <?php if($status == "all") echo "selected"; else echo "";?> value="all">All</option>
 		            <option <?php if($status == "sale") echo "selected"; else echo "";?> value="sale">Sale</option>
 		            <option <?php if($status == "rent") echo "selected"; else echo "";?> value="rent">Rent</option>
 		            <option <?php if($status == "both") echo "selected"; else echo "";?> value="both">Both</option>
@@ -856,7 +863,7 @@
 					</optgroup>
 		        </select>
 
-		        <select multiple="multiple" id="id_features" name="features">
+		        <!-- <select multiple="multiple" id="id_features" name="features">
 		            <option value="swimmingpool">Swimming Pool</option>
 		            <option value="gym">Gym/Fitness center</option>
 		            <option value="lift">Lift</option>
@@ -879,9 +886,9 @@
 		            <option value="firesprinkler">Fire sprinkler system</option>
 		            <option value="oceanviews">Ocean Views</option>
 		            <option value="cityviews">City Views</option>
-		        </select>
+		        </select> -->
 
-		        <input id="id_car_spaces__lte" min="0" name="car_spaces__lte" type="number" />
+		        <!-- <input id="id_car_spaces__lte" min="0" name="car_spaces__lte" type="number" />
 
 		        <input id="id_car_spaces__gte" min="0" name="car_spaces__gte" type="number" />
 
@@ -891,13 +898,13 @@
 
 		        <input id="id_rent__lte" name="rent__lte" type="number" />
 
-		        <input id="id_rent__gte" name="rent__gte" type="number" />
+		        <input id="id_rent__gte" name="rent__gte" type="number" /> -->
 
 		        <input id="id_price__lte" name="price__lte" type="number" value="<?php echo $lastprice;?>"/>
 
 		        <input id="id_price__gte" name="price__gte" type="number" value="<?php echo $firstprice;?>"/>
 
-		        <input id="id_bedrooms__lte" min="0" name="bedrooms__lte" type="number" />
+		        <!-- <input id="id_bedrooms__lte" min="0" name="bedrooms__lte" type="number" />
 
 		        <input id="id_bedrooms__gte" min="0" name="bedrooms__gte" type="number" />
 
@@ -911,9 +918,9 @@
 
 		        <input id="id_land_area_total__lte" name="land_area_total__lte" step="any" type="number" />
 
-		        <input id="id_land_area_total__gte" name="land_area_total__gte" step="any" type="number" />
+		        <input id="id_land_area_total__gte" name="land_area_total__gte" step="any" type="number" /> -->
 
-		        <select id="id_land_title" name="land_title">
+		        <!-- <select id="id_land_title" name="land_title">
 		            <option value="" selected="selected">All</option>
 		            <option value="hard">Hard Title</option>
 		            <option value="soft">Soft Title</option>
@@ -931,8 +938,22 @@
 
 		        <input id="id_price_per_sqm__gte" name="price_per_sqm__gte" type="number" />
 
-		        <input id="id_q" name="q" type="text" />
+		        <input id="id_q" name="q" type="text" /> -->
 
+		        <select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_bys">
+		        	<option value="">-Select-</option>
+					<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
+					<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
+				</select>
+
+		        <select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_bys">
+		        	<option value="">-Select-</option>
+					<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
+					<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
+					<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
+				</select>
+
+		        
 		    </form>
 			<!-- End Advanced Search -->
 			
@@ -940,12 +961,6 @@
 			<section class="pgl-properties pgl-bg-grey">
 				<div class="container">
 					<h2>Cambodia Rent Search</h2>
-					<?php 
-						// foreach ($_GET['categories'] as $cat) {
-						// 	echo$cat."OR";
-						// }
-						//print_r($result);
-					?>
 					<div class="properties-full properties-listing properties-listfull">
 						<div class="listing-header clearfix">
 							<ul class="list-inline list-icons pull-left">
@@ -953,23 +968,27 @@
 								<li class="active"><a href="list-fullwidth.html"><i class="fa fa-th-list"></i></a></li>
 								<li><a href="list-map.html"><i class="fa fa-map-marker"></i></a></li>
 							</ul>
-							<ul class="list-inline list-sort pull-right">
-								<li><label for="order-status">Order</label></li>
-								<li>
-									<select id="order-status" name="order-status" data-placeholder="Order" class="chosen-select">
-										<option value="Descending">Descending</option>
-										<option value="Ascending">Ascending</option>
-									</select>
-								</li>
-								<li><label for="sortby-status">Sort by</label></li>
-								<li>
-									<select id="sortby-status" name="sortby-status" data-placeholder="Sort by" class="chosen-select">
-										<option value="Name">Name</option>
-										<option value="Area">Area</option>
-										<option value="Date">Date</option>
-									</select>
-								</li>
-							</ul>
+
+								<ul class="list-inline list-sort pull-right">
+
+									<li><label for="order-status">Order</label></li>
+									<li>
+										<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_by">
+											<option value="">-Select-</option>
+											<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
+											<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
+										</select>
+									</li>
+									<li><label for="sortby-status">Sort by</label></li>
+									<li>
+										<select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_by">
+											<option value="">-Select-</option>
+											<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
+											<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
+											<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
+										</select>
+									</li>
+								</ul>
 						</div>
 
 						<?php 
@@ -1035,4 +1054,5 @@
 			<!-- End Properties -->
 			
 		</div>
-		<!-- End Main
+	
+

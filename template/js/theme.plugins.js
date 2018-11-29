@@ -51,4 +51,27 @@
 		}
 
 	});
+	//========= Order By ==========//
+	$('.order_by').on('change', function(){
+		var order = $(this).val();
+		$('.order_bys option').each(function(){
+			var o = $(this).val();
+			if(order == o)
+				$(this).prop("selected", true);
+		});
+		$('.search_all_form').submit();
+	});
+	$('.short_by').on('change', function(){
+		// var order = $(".order_by").val();
+		var short = $(this).val();
+		$('.short_bys option').each(function(){
+			var s = $(this).val();
+			if(short == s)
+				$(this).prop("selected", true);
+		});
+
+		$('.search_all_form').submit();
+	});
+
 })(jQuery);
+
