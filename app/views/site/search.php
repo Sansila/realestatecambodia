@@ -1,5 +1,7 @@
 <?php 
-	$status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = ''; $order = ''; $sort ='';
+	$status = ''; $location = ''; $category = ''; $firstprice = ''; 
+	$lastprice = ''; $available = ''; $order = ''; $sort =''; $return_cat = ''; 
+	$return_loc = ''; $list_type = ""; $activelist = ''; $activegrid = ''; $hideg =""; $hidel = "hide";
 	if(isset($_GET['status']))
 		$status = $_GET['status'];
 	if(isset($_GET['q']))
@@ -16,6 +18,48 @@
 		$order = $_GET['order'];
 	if(isset($_GET['sort']))
 		$sort = $_GET['sort'];
+	if(isset($_GET['list_type']))
+		$list_type = $_GET['list_type'];
+
+	if($location != "")
+	{
+		$location = trim($location, ';');
+		$arr = explode(';', $location);
+		$num = count($arr);$i=0;
+		foreach ($arr as $arr) {
+			$comma = urlencode(";");
+			if(++$i == $num)
+			{
+				$comma = "";
+			}
+			$return_loc.= $arr.''.$comma;
+		}
+	}
+
+	if($list_type !="")
+	{
+		if($list_type == "grid")
+		{
+			$activegrid = "active";
+			$hideg = "";
+			$hidel = "hide";
+		}
+		if($list_type == "lists")
+		{
+			$activelist = "active";
+			$hidel = "";
+			$hideg = "hide";
+		}
+	}
+	
+	if($category !="")
+	{
+		foreach ($category as $cat) {
+			$return_cat .= "categories[]=".$cat."&";
+		}
+	}else{
+		$return_cat .= "categories=&";
+	}
 ?>
 		<div role="main" class="main pgl-bg-grey">
 			<!-- Begin page top -->
@@ -886,9 +930,9 @@
 		            <option value="firesprinkler">Fire sprinkler system</option>
 		            <option value="oceanviews">Ocean Views</option>
 		            <option value="cityviews">City Views</option>
-		        </select> -->
+		        </select>
 
-		        <!-- <input id="id_car_spaces__lte" min="0" name="car_spaces__lte" type="number" />
+		        <input id="id_car_spaces__lte" min="0" name="car_spaces__lte" type="number" />
 
 		        <input id="id_car_spaces__gte" min="0" name="car_spaces__gte" type="number" />
 
@@ -918,9 +962,9 @@
 
 		        <input id="id_land_area_total__lte" name="land_area_total__lte" step="any" type="number" />
 
-		        <input id="id_land_area_total__gte" name="land_area_total__gte" step="any" type="number" /> -->
+		        <input id="id_land_area_total__gte" name="land_area_total__gte" step="any" type="number" />
 
-		        <!-- <select id="id_land_title" name="land_title">
+		        <select id="id_land_title" name="land_title">
 		            <option value="" selected="selected">All</option>
 		            <option value="hard">Hard Title</option>
 		            <option value="soft">Soft Title</option>
@@ -936,9 +980,11 @@
 
 		        <input id="id_price_per_sqm__lte" name="price_per_sqm__lte" type="number" />
 
-		        <input id="id_price_per_sqm__gte" name="price_per_sqm__gte" type="number" />
+		        <input id="id_price_per_sqm__gte" name="price_per_sqm__gte" type="number" /> -->
 
-		        <input id="id_q" name="q" type="text" /> -->
+				<input id="id_q" name="q" type="text" value="<?php echo $location?>"/>
+				
+				<input id="list_type" name="list_type" value="<?php echo $list_type?>"/>
 
 		        <select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_bys">
 		        	<option value="">-Select-</option>
@@ -964,53 +1010,60 @@
 					<div class="properties-full properties-listing properties-listfull">
 						<div class="listing-header clearfix">
 							<ul class="list-inline list-icons pull-left">
-								<li><a href="grid-fullwidth-4-column.html"><i class="fa fa-th"></i></a></li>
-								<li class="active"><a href="list-fullwidth.html"><i class="fa fa-th-list"></i></a></li>
+								<li class="<?php echo $activegrid;?>">
+									<a href="<?php echo site_url('site/site/search?available='.$available.'&status='.$status.'&'.$return_cat.'price__lte='.$lastprice.'&price__gte='.$firstprice.'&q='.$return_loc.'&order='.$order.'&sort='.$sort.'&list_type=grid');?>">
+										<i class="fa fa-th"></i>
+									</a>
+								</li>
+								<li class="<?php echo $activelist;?>">
+									<a href="<?php echo site_url('site/site/search?available='.$available.'&status='.$status.'&'.$return_cat.'price__lte='.$lastprice.'&price__gte='.$firstprice.'&q='.$return_loc.'&order='.$order.'&sort='.$sort.'&list_type=lists');?>">
+										<i class="fa fa-th-list"></i>
+									</a>
+								</li>
 								<li><a href="list-map.html"><i class="fa fa-map-marker"></i></a></li>
 							</ul>
 
-								<ul class="list-inline list-sort pull-right">
+							<ul class="list-inline list-sort pull-right">
 
-									<li><label for="order-status">Order</label></li>
-									<li>
-										<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_by">
-											<option value="">-Select-</option>
-											<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
-											<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
-										</select>
-									</li>
-									<li><label for="sortby-status">Sort by</label></li>
-									<li>
-										<select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_by">
-											<option value="">-Select-</option>
-											<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
-											<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
-											<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
-										</select>
-									</li>
-								</ul>
+								<li><label for="order-status">Order</label></li>
+								<li>
+									<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_by">
+										<option value="">-Select-</option>
+										<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
+										<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
+									</select>
+								</li>
+								<li><label for="sortby-status">Sort by</label></li>
+								<li>
+									<select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_by">
+										<option value="">-Select-</option>
+										<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
+										<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
+										<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
+									</select>
+								</li>
+							</ul>
 						</div>
 
 						<?php 
-							foreach ($result as $result) {
+							foreach ($result as $list) {
 						?>
-						<div class="pgl-property animation">
+						<div class="pgl-property animation <?php echo $hidel?>">
 							<div class="row">
 								<div class="col-sm-6 col-md-4">
 									<div class="property-thumb-info-image">
-										<!-- <img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-1.jpg"> -->
-										<a href="<?php echo site_url('site/site/detail/'.$result->pid)?>">
-											<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$result->pid.'_'.$result->url)?>">
+										<a href="<?php echo site_url('site/site/detail/'.$list->pid)?>">
+											<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url)?>">
 										</a>
 										<span class="property-thumb-info-label">
-											<span class="label price">$<?php echo number_format($result->price) ?></span>
+											<span class="label price">$<?php echo number_format($list->price) ?></span>
 											<span class="label forrent">
 												<?php 
-													if($result->p_type == 1)
+													if($list->p_type == 1)
 														echo "Sale";
-													if($result->p_type == 2)
+													if($list->p_type == 2)
 														echo "Rent";
-													if($result->p_type == 3)
+													if($list->p_type == 3)
 														echo "Rent & Sale";	
 												?>
 											</span>
@@ -1021,17 +1074,17 @@
 									<div class="property-thumb-info">
 											
 										<div class="property-thumb-info-content">
-											<h3><a class="module line-clamp" href="property-detail.html"><?php echo $result->property_name;?></a></h3>
-											<address class="module line-clamp"><?php echo $result->address?></address>
-											<p><?php echo $result->description;?></p>
+											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$list->pid)?>"><?php echo $list->property_name;?></a></h3>
+											<address class="module line-clamp"><?php echo $list->address?></address>
+											<p><?php echo $list->description;?></p>
 										</div>
 										<div class="amenities clearfix">
 											<ul class="pull-left">
-												<li><strong>Area:</strong> <?php if($result->housesize !="") echo $result->housesize; else echo 0;?><sup>m2</sup></li>
+												<li><strong>Area:</strong> <?php if($list->housesize !="") echo $list->housesize; else echo 0;?><sup>m2</sup></li>
 											</ul>
 											<ul class="pull-right">
-												<li><i class="icons icon-bedroom"></i> <?php if($result->bedroom !="") echo $result->bedroom; else echo 0;?></li>
-												<li><i class="icons icon-bathroom"></i> <?php if($result->bathroom !="") echo $result->bathroom; else echo 0;?></li>
+												<li><i class="icons icon-bedroom"></i> <?php if($list->bedroom !="") echo $list->bedroom; else echo 0;?></li>
+												<li><i class="icons icon-bathroom"></i> <?php if($list->bathroom !="") echo $list->bathroom; else echo 0;?></li>
 											</ul>
 										</div>
 									</div>
@@ -1041,14 +1094,59 @@
 						<?php 
 							}
 						?>
-						
-						<ul class="pagination">
-							<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-					   </ul>
 					</div>
+					<div class="properties-full <?php echo $hideg?>">
+						<div class="row">
+							<?php 
+								foreach($result as $grid)
+								{
+							?>
+							<div class="col-xs-6 col-md-3 animation">
+								<div class="pgl-property">
+									<div class="property-thumb-info">
+										<div class="property-thumb-info-image">
+											<a href="<?php echo site_url('site/site/detail/'.$grid->pid)?>">
+												<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$grid->pid.'_'.$grid->url)?>">
+											</a>
+											<span class="property-thumb-info-label">
+												<span class="label price">$<?php echo number_format($grid->price) ?></span>
+												<span class="label forrent">
+													<?php 
+														if($grid->p_type == 1)
+															echo "Sale";
+														if($grid->p_type == 2)
+															echo "Rent";
+														if($grid->p_type == 3)
+															echo "Rent & Sale";	
+													?>
+												</span>
+											</span>
+										</div>
+										<div class="property-thumb-info-content">
+											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$grid->pid)?>"><?php echo $grid->property_name;?></a></h3>
+											<address class="module line-clamp"><?php echo $grid->address;?></address>
+										</div>
+										<div class="amenities clearfix">
+											<ul class="pull-left">
+												<li><strong>Area:</strong> <?php if($grid->housesize !="") echo $grid->housesize; else echo 0;?><sup>m2</sup></li>
+											</ul>
+											<ul class="pull-right">
+												<li><i class="icons icon-bedroom"></i> <?php if($grid->bedroom !="") echo $grid->bedroom; else echo 0;?></li>
+												<li><i class="icons icon-bathroom"></i> <?php if($grid->bedroom !="") echo $grid->bedroom; else echo 0;?></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php 
+								}
+							?>
+						</div>
+						
+					</div>
+					<?php 
+						echo $this->pagination->create_links();
+					?>
 				</div>
 			</section>
 			<!-- End Properties -->

@@ -862,7 +862,6 @@
 		            <option value="0">Sale</option>
 		        </select>
 
-
 		        <select multiple="multiple" id="id_property_type" name="status">
 		            <option value="">---------</option>
 		            <option value="all">All</option>
@@ -959,7 +958,9 @@
 
 		        <input id="id_price_per_sqm__gte" name="price_per_sqm__gte" type="number" />
 
-		        <input id="id_q" name="q" type="text" />
+				<input id="id_q" name="q" type="text" />
+				
+				<input id="list_type" name="list_type" value="lists"/>
 
 		    </form>
 			
@@ -1024,12 +1025,10 @@
 									}
 								?>
 						</div>
-						<ul class="pagination">
-							<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-					   	</ul>
+
+						<?php 
+							echo $this->pagination->create_links();
+						?>
 				</div>
 			</section>
 			<!-- End Properties -->
