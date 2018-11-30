@@ -55,7 +55,7 @@
             }
 
             if ($cat) {
-                $result = $this->getSubItem(null,$cat);
+                $result = $this->getSubItem(0,$cat);
                 return $result;
             } else {
                 return FALSE;
@@ -103,13 +103,17 @@
         //     }
         //     return $tree;
         // }
-        function getResultSearch($status,$location,$category,$firstprice,$lastprice)
+        function getResultSearch($status,$location,$category,$firstprice,$lastprice,$available)
         {
             $where = "";
-
-            if($firstprice !="" && $lastprice !="")
-                $where.= "AND p.price BETWEEN $firstprice AND $lastprice";
-
+            $where.= "AND (p.property_name LIKE '%$available%' ";
+            if($firstprice !="" && $lastprice !=""){
+                $where.= " OR p.price BETWEEN $firstprice AND $lastprice";
+            }else if($firstprice !=""){
+                $where.= " OR p.price BETWEEN 0 AND $firstprice";
+            }else if($lastprice !=""){
+                $where.= " OR p.price BETWEEN 0 AND $lastprice";
+            }
             if($status !="")
             {
                 if($status == "rent")
@@ -127,7 +131,6 @@
                     $where.= " OR lp.locationname = '$arr'";
                 }
             }
-
             if($category !="")
             {
                 foreach ($category as $cat) {
@@ -135,12 +138,16 @@
                 }
             }
 
+            $where.= ")";
+            
             $query = $this->db->query("SELECT * FROM tblproperty as p
                                        LEFT JOIN tblpropertylocation as lp 
                                         ON p.lp_id = lp.propertylocationid
                                        LEFT JOIN tblpropertytype as pt
                                         ON p.type_id = pt.typeid
-                                       WHERE p.p_status = 1 AND (1=1 {$where})
+                                       LEFT JOIN tblgallery as g 
+                                        on p.pid = g.pid
+                                       WHERE p.p_status = 1 {$where} GROUP bY p.pid
                 ")->result();
 
             return $query;

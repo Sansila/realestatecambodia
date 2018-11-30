@@ -856,11 +856,9 @@
 
 		    <form id="hidden-search-form" action="<?php echo site_url('site/site/search')?>" data-view-type="">
 
-		        <!-- <select id="id_listing_type" name="listing_type">
-		            <option value="sale">Sale</option>
-		            <option value="rent">Rent</option>
-		            <option value="both">Both</option>
-		        </select> -->
+		        <select id="id_listing_type" name="available">
+		            <option value="0">Sale</option>
+		        </select>
 
 
 		        <select multiple="multiple" id="id_property_type" name="status">
@@ -1009,11 +1007,11 @@
 											</div>
 											<div class="amenities clearfix">
 												<ul class="pull-left">
-													<li><strong>Area:</strong> <?php echo $list->housesize?><sup>m2</sup></li>
+													<li><strong>Area:</strong> <?php if($list->housesize !="") echo $list->housesize; else echo 0;?><sup>m2</sup></li>
 												</ul>
 												<ul class="pull-right">
-													<li><i class="icons icon-bedroom"></i> <?php echo $list->bedroom;?></li>
-													<li><i class="icons icon-bathroom"></i> <?php echo $list->bathroom?></li>
+													<li><i class="icons icon-bedroom"></i> <?php if($list->bedroom !="") echo $list->bedroom; else echo 0;?></li>
+													<li><i class="icons icon-bathroom"></i> <?php if($list->bathroom !="") echo $list->bathroom; else echo 0;?></li>
 												</ul>
 											</div>
 										</div>

@@ -27299,7 +27299,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
             getPriceRange: function() {
                 var priceRangeResidential = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "25000",
@@ -27333,7 +27333,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$1,000,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "25000",
@@ -27369,7 +27369,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeRental = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "300",
@@ -27400,7 +27400,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$5,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "300",
@@ -27433,7 +27433,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeComSale = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "25000",
@@ -27473,7 +27473,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$2,000,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "25000",
@@ -27515,7 +27515,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeComLease = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "300",
@@ -27558,7 +27558,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$40,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "300",
@@ -27603,7 +27603,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeCondoSale = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "50000",
@@ -27634,7 +27634,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$1,000,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "50000",
@@ -27667,7 +27667,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeCondoLease = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "300",
@@ -27698,7 +27698,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$5,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "300",
@@ -27731,7 +27731,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeBoreySale = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "25000",
@@ -27765,7 +27765,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$1,000,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "25000",
@@ -27801,7 +27801,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeBoreyLease = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "300",
@@ -27832,7 +27832,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$5,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "300",
@@ -27865,7 +27865,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeLand = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "2500",
@@ -27905,7 +27905,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$500,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "2500",
@@ -27947,7 +27947,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     priceRangeProject = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "50000",
@@ -27972,7 +27972,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$500,000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "50000",
@@ -27999,7 +27999,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     areaRange = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "50",
@@ -28027,7 +28027,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$6000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "50",
@@ -28057,7 +28057,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     areaRangeLease = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "5",
@@ -28079,7 +28079,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$30"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "5",
@@ -28103,7 +28103,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                     },
                     areaRangeProject = {
                         min: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No minimum")
                         }, {
                             value: "50",
@@ -28131,7 +28131,7 @@ if ("function" != typeof gettext) var gettext = function(str) {
                             label: "$6000"
                         }],
                         max: [{
-                            value: "",
+                            value: "0",
                             label: gettext("No maximum")
                         }, {
                             value: "50",

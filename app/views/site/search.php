@@ -1,4 +1,18 @@
-
+<?php 
+	$status = ''; $location = ''; $category = ''; $firstprice = ''; $lastprice = ''; $available = '';
+	if(isset($_GET['status']))
+		$status = $_GET['status'];
+	if(isset($_GET['q']))
+		$location = $_GET['q'];
+	if(isset($_GET['categories']))
+		$category = $_GET['categories'];
+	if(isset($_GET['price__gte']))
+		$firstprice = $_GET['price__gte'];
+	if(isset($_GET['price__lte']))
+		$lastprice = $_GET['price__lte'];
+	if(isset($_GET['available']))
+		$available = $_GET['available'];
+?>
 		<div role="main" class="main pgl-bg-grey">
 			<!-- Begin page top -->
 			<!-- <section class="page-top">
@@ -20,7 +34,7 @@
 
 	                            <div class="search-field-wrapper search-type desktop-search-type">
 	                                <button data-toggle="search-type-dropdown" class="search-field  expanded desktop-search-field">
-	                                    <span class="text-label">Buy</span>
+	                                    <span class="text-label"><?php echo $status;?></span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
@@ -438,7 +452,7 @@
 	                             <div class="search-field-wrapper search-type mobile-search-type">
 	                                <button data-toggle="mobile-search-type-dropdown" class="search-field hollow expanded mobile-search-field">
 	                                    <span class="text-label">Looking to</span>
-	                                    <span class="text-label-selected">Buy</span>
+	                                    <span class="text-label-selected"><?php echo $status;?></span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="mobile-search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
@@ -810,26 +824,32 @@
 
 
 		    <form id="hidden-search-form" action="<?php echo site_url('site/site/search')?>" data-view-type="">
-		    	
-		    	<!-- <select id="id_listing_type" name="listing_type">
-		            <option value="sale">Sale</option>
-		            <option value="rent">Rent</option>
-		            <option value="both">Both</option>
-		        </select> -->
+
+				<select id="available" name="available">
+		            <option value="0">Sale</option>
+		        </select>
 
 		        <select multiple="multiple" method="get" id="id_property_type" name="status">
 		            <option value="">---------</option>
-		            <option value="sale">Sale</option>
-		            <option value="rent">Rent</option>
-		            <option value="both">Both</option>
+		            <option <?php if($status == "sale") echo "selected"; else echo "";?> value="sale">Sale</option>
+		            <option <?php if($status == "rent") echo "selected"; else echo "";?> value="rent">Rent</option>
+		            <option <?php if($status == "both") echo "selected"; else echo "";?> value="both">Both</option>
 		        </select>
 
 		        <select multiple="multiple" id="id_categories" name="categories[]">
 		            <optgroup label="Residential">
-			            <?php 
+						<?php
+							$title = array(); $sel = "";
+							foreach ($category as $arr) {
+								$title[$arr] = $arr;
+							}
 							foreach ($type as $type) {
+								if($title[$type->typename] == $type->typename)
+									$sel = "selected";
+								else
+									$sel = "";
 						?>
-							<option value="<?php echo $type->typename?>"><?php echo $type->typename?></option>
+							<option <?php echo $sel;?> value="<?php echo $type->typename?>"><?php echo $type->typename?></option>
 						<?php
 							}
 						?>
@@ -873,9 +893,9 @@
 
 		        <input id="id_rent__gte" name="rent__gte" type="number" />
 
-		        <input id="id_price__lte" name="price__lte" type="number" />
+		        <input id="id_price__lte" name="price__lte" type="number" value="<?php echo $lastprice;?>"/>
 
-		        <input id="id_price__gte" name="price__gte" type="number" />
+		        <input id="id_price__gte" name="price__gte" type="number" value="<?php echo $firstprice;?>"/>
 
 		        <input id="id_bedrooms__lte" min="0" name="bedrooms__lte" type="number" />
 
@@ -959,9 +979,22 @@
 							<div class="row">
 								<div class="col-sm-6 col-md-4">
 									<div class="property-thumb-info-image">
-										<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-1.jpg">
+										<!-- <img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-1.jpg"> -->
+										<a href="<?php echo site_url('site/site/detail/'.$result->pid)?>">
+											<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$result->pid.'_'.$result->url)?>">
+										</a>
 										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
+											<span class="label price">$<?php echo number_format($result->price) ?></span>
+											<span class="label forrent">
+												<?php 
+													if($result->p_type == 1)
+														echo "Sale";
+													if($result->p_type == 2)
+														echo "Rent";
+													if($result->p_type == 3)
+														echo "Rent & Sale";	
+												?>
+											</span>
 										</span>
 									</div>
 								</div>
@@ -969,17 +1002,17 @@
 									<div class="property-thumb-info">
 											
 										<div class="property-thumb-info-content">
-											<h3><a href="property-detail.html"><?php echo $result->property_name;?></a></h3>
-											<address>Ferris Park, Jersey City Land in Sales</address>
-											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+											<h3><a class="module line-clamp" href="property-detail.html"><?php echo $result->property_name;?></a></h3>
+											<address class="module line-clamp"><?php echo $result->address?></address>
+											<p><?php echo $result->description;?></p>
 										</div>
 										<div class="amenities clearfix">
 											<ul class="pull-left">
-												<li><strong>Area:</strong> 450<sup>m2</sup></li>
+												<li><strong>Area:</strong> <?php if($result->housesize !="") echo $result->housesize; else echo 0;?><sup>m2</sup></li>
 											</ul>
 											<ul class="pull-right">
-												<li><i class="icons icon-bedroom"></i> 3</li>
-												<li><i class="icons icon-bathroom"></i> 2</li>
+												<li><i class="icons icon-bedroom"></i> <?php if($result->bedroom !="") echo $result->bedroom; else echo 0;?></li>
+												<li><i class="icons icon-bathroom"></i> <?php if($result->bathroom !="") echo $result->bathroom; else echo 0;?></li>
 											</ul>
 										</div>
 									</div>
@@ -989,37 +1022,6 @@
 						<?php 
 							}
 						?>
-						<!-- <div class="pgl-property animation">
-							<div class="row">
-								<div class="col-sm-6 col-md-4">
-									<div class="property-thumb-info-image">
-										<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-2.jpg">
-										<span class="property-thumb-info-label">
-											<span class="label price">$358,000</span>
-										</span>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-8">
-									<div class="property-thumb-info">
-											
-										<div class="property-thumb-info-content">
-											<h3><a href="property-detail.html">Poolside character home on a wide 422sqm</a></h3>
-											<address>Ferris Park, Jersey City Land in Sales</address>
-											<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-										</div>
-										<div class="amenities clearfix">
-											<ul class="pull-left">
-												<li><strong>Area:</strong> 450<sup>m2</sup></li>
-											</ul>
-											<ul class="pull-right">
-												<li><i class="icons icon-bedroom"></i> 3</li>
-												<li><i class="icons icon-bathroom"></i> 2</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div> -->
 						
 						<ul class="pagination">
 							<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
