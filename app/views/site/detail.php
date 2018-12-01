@@ -212,114 +212,48 @@
 							<div class="row">
 								<div class="owl-carousel pgl-pro-slide" data-plugin-options='{"items": 3, "itemsDesktop": 3, "singleItem": false, "autoPlay": false, "pagination": false}'>
 									<?php 
-										foreach($this->getRelatedProperty($detail->pid,$detail->agent_id) as $related){
-
-										}
+										foreach($this->site->getRelatedProperty($detail->pid,$detail->agent_id) as $related){
 									?>
 									<div class="col-md-12 animation">
 										<div class="pgl-property">
 											<div class="property-thumb-info">
 												<div class="property-thumb-info-image">
-													<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-1.jpg">
-													<span class="property-thumb-info-label">
-														<span class="label price">$358,000</span>
-														<span class="label forrent">Rent</span>
+													<a href="<?php echo site_url('site/site/detail/'.$related->pid)?>">
+														<img aly="" class="img-responsive" src="<?php if(@ file_get_contents(base_url('assets/upload/property/thumb/'.$related->pid.'_'.$related->url))) echo base_url('assets/upload/property/thumb/'.$related->pid.'_'.$related->url); else echo base_url('assets/upload/noimage.jpg')?>"/>
+													</a>
+													<span class="property-thumb-info-label" >
+													<span class="label price">$<?php echo number_format($related->price) ?></span>
+													<span class="label forrent">
+														<?php 
+															if($related->p_type == 1)
+																echo "Sale";
+															if($related->p_type == 2)
+																echo "Rent";
+															if($related->p_type == 3)
+																echo "Rent & Sale";	
+														?>
 													</span>
+												</span>
 												</div>
-												<div class="property-thumb-info-content">
-													<h3><a href="property-detail.html">Poolside character home on a wide 422sqm</a></h3>
-													<address>Ferris Park, Jersey City Land in Sales</address>
+												<div class="property-thumb-info-content" style="height: 120px;">
+													<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$related->pid)?>"><?php echo $related->property_name;?></a></h3>
+													<address class="module line-clamp"><?php echo $related->address;?></address>
 												</div>
 												<div class="amenities clearfix">
 													<ul class="pull-left">
-														<li><strong>Area:</strong> 450<sup>m2</sup></li>
+														<li><strong>Area:</strong> <?php if($related->housesize !="") echo $related->housesize; else echo 0;?><sup>m2</sup></li>
 													</ul>
 													<ul class="pull-right">
-														<li><i class="icons icon-bedroom"></i> 3</li>
-														<li><i class="icons icon-bathroom"></i> 2</li>
+														<li><i class="icons icon-bedroom"></i> <?php if($related->bedroom !="") echo $related->bedroom; else echo 0;?></li>
+														<li><i class="icons icon-bathroom"></i> <?php if($related->bedroom !="") echo $related->bedroom; else echo 0;?></li>
 													</ul>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-md-12 animation">
-										<div class="pgl-property">
-											<div class="property-thumb-info">
-												<div class="property-thumb-info-image">
-													<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-2.jpg">
-													<span class="property-thumb-info-label">
-														<span class="label price">$358,000</span>
-														<span class="label forrent">Rent</span>
-													</span>
-												</div>
-												<div class="property-thumb-info-content">
-													<h3><a href="property-detail.html">Poolside character home on a wide 422sqm</a></h3>
-													<address>Ferris Park, Jersey City Land in Sales</address>
-												</div>
-												<div class="amenities clearfix">
-													<ul class="pull-left">
-														<li><strong>Area:</strong> 450<sup>m2</sup></li>
-													</ul>
-													<ul class="pull-right">
-														<li><i class="icons icon-bedroom"></i> 3</li>
-														<li><i class="icons icon-bathroom"></i> 2</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-12 animation">
-										<div class="pgl-property">
-											<div class="property-thumb-info">
-												<div class="property-thumb-info-image">
-													<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-3.jpg">
-													<span class="property-thumb-info-label">
-														<span class="label price">$358,000</span>
-														<span class="label forrent">Rent</span>
-													</span>
-												</div>
-												<div class="property-thumb-info-content">
-													<h3><a href="property-detail.html">Poolside character home on a wide 422sqm</a></h3>
-													<address>Ferris Park, Jersey City Land in Sales</address>
-												</div>
-												<div class="amenities clearfix">
-													<ul class="pull-left">
-														<li><strong>Area:</strong> 450<sup>m2</sup></li>
-													</ul>
-													<ul class="pull-right">
-														<li><i class="icons icon-bedroom"></i> 3</li>
-														<li><i class="icons icon-bathroom"></i> 2</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-12 animation">
-										<div class="pgl-property">
-											<div class="property-thumb-info">
-												<div class="property-thumb-info-image">
-													<img alt="" class="img-responsive" src="<?php echo site_url('template')?>/images/properties/property-4.jpg">
-													<span class="property-thumb-info-label">
-														<span class="label price">$358,000</span>
-														<span class="label forrent">Rent</span>
-													</span>
-												</div>
-												<div class="property-thumb-info-content">
-													<h3><a href="property-detail.html">Poolside character home on a wide 422sqm</a></h3>
-													<address>Ferris Park, Jersey City Land in Sales</address>
-												</div>
-												<div class="amenities clearfix">
-													<ul class="pull-left">
-														<li><strong>Area:</strong> 450<sup>m2</sup></li>
-													</ul>
-													<ul class="pull-right">
-														<li><i class="icons icon-bedroom"></i> 3</li>
-														<li><i class="icons icon-bathroom"></i> 2</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
+								<?php 
+									}
+								?>
 								</div>
 							</div>
 						</section>

@@ -73,6 +73,15 @@
             }
             return $html;
         }
+        function getRelatedProperty($pid,$agent_id)
+        {
+            $query = $this->db->query(" SELECT * FROM tblproperty as p
+                left join tblpropertytype as pt on p.type_id = pt.typeid 
+                left join tblgallery as g on p.pid = g.pid
+                WHERE p.p_status = 1 AND p.agent_id = $agent_id AND p.pid <> $pid GROUP bY p.pid
+                ")->result();
+            return $query;
+        }
         // function get_items()
         // {
         //     $this->db->select('*');

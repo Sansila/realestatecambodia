@@ -240,9 +240,5 @@ class Site extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($data);
     }
-    function getRelatedProperty($pid,$agent_id)
-    {
-        echo "hello";
-    }
 }
 ?>

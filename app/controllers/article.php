@@ -111,8 +111,6 @@ class article extends CI_Controller {
 		unlink("./assets/upload/article/thumb/".$row->article_id.'_'.$row->url);
 		unlink("./assets/upload/article/".$row->article_id.'_'.$row->url);
 		$this->db->where('gallery_id',$id)->delete('tblgallery');
-
-
 	}
 	function contactdata(){
 		$perpage=$this->input->post('perpage');

@@ -261,4 +261,12 @@ class Property extends CI_Controller {
 		);
 		$this->db->where('pid',$pid)->update('tblproperty',$data);
 	}
+	function removeimg()
+	{
+		$id = $this->input->post('id');
+		$row=$this->db->where('gallery_id',$id)->get('tblgallery')->row();
+		unlink("./assets/upload/property/thumb/".$row->pid.'_'.$row->url);
+		unlink("./assets/upload/property/".$row->pid.'_'.$row->url);
+		$this->db->where('gallery_id',$id)->delete('tblgallery');
+	}
 }
