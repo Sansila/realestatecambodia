@@ -211,6 +211,11 @@
 							<h2>Related Properties</h2>
 							<div class="row">
 								<div class="owl-carousel pgl-pro-slide" data-plugin-options='{"items": 3, "itemsDesktop": 3, "singleItem": false, "autoPlay": false, "pagination": false}'>
+									<?php 
+										foreach($this->getRelatedProperty($detail->pid,$detail->agent_id) as $related){
+
+										}
+									?>
 									<div class="col-md-12 animation">
 										<div class="pgl-property">
 											<div class="property-thumb-info">
