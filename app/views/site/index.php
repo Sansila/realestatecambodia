@@ -989,7 +989,7 @@
 										<div class="property-thumb-info">
 											<div class="property-thumb-info-image">
 												<a href="<?php echo site_url('site/site/detail/'.$list->pid)?>">
-													<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url)?>">
+													<img aly="" class="img-responsive" src="<?php if(@ file_get_contents(base_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url))) echo base_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url); else echo base_url('assets/upload/noimage.jpg')?>"/>
 												</a>
 												<span class="property-thumb-info-label">
 													<span class="label price">$<?php echo number_format($list->price) ?></span>

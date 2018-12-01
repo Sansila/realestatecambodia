@@ -55,9 +55,9 @@
 	if($category !="")
 	{
 		$ar = urlencode('[]');
-		foreach ($category as $cat) {
-			$return_cat .= "categories".$ar."=".$cat."&";
-		}
+        foreach ($category as $cat) {
+            $return_cat .= "categories".$ar."=".$cat."&";
+        }
 	}else{
 		$return_cat .= "categories=&";
 	}
@@ -1054,7 +1054,7 @@
 								<div class="col-sm-6 col-md-4">
 									<div class="property-thumb-info-image">
 										<a href="<?php echo site_url('site/site/detail/'.$list->pid)?>">
-											<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url)?>">
+											<img aly="" class="img-responsive" src="<?php if(@ file_get_contents(base_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url))) echo base_url('assets/upload/property/thumb/'.$list->pid.'_'.$list->url); else echo base_url('assets/upload/noimage.jpg')?>"/>
 										</a>
 										<span class="property-thumb-info-label">
 											<span class="label price">$<?php echo number_format($list->price) ?></span>
@@ -1077,7 +1077,7 @@
 										<div class="property-thumb-info-content">
 											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$list->pid)?>"><?php echo $list->property_name;?></a></h3>
 											<address class="module line-clamp"><?php echo $list->address?></address>
-											<p class="module line-clamps"><?php echo $list->description;?></p>
+											<p><?php echo $list->description;?></p>
 										</div>
 										<div class="amenities clearfix">
 											<ul class="pull-left">
@@ -1107,7 +1107,7 @@
 									<div class="property-thumb-info">
 										<div class="property-thumb-info-image">
 											<a href="<?php echo site_url('site/site/detail/'.$grid->pid)?>">
-												<img alt="" class="img-responsive" src="<?php echo site_url('assets/upload/property/thumb/'.$grid->pid.'_'.$grid->url)?>">
+												<img aly="" class="img-responsive" src="<?php if(@ file_get_contents(base_url('assets/upload/property/thumb/'.$grid->pid.'_'.$grid->url))) echo base_url('assets/upload/property/thumb/'.$grid->pid.'_'.$grid->url); else echo base_url('assets/upload/noimage.jpg')?>"/>
 											</a>
 											<span class="property-thumb-info-label">
 												<span class="label price">$<?php echo number_format($grid->price) ?></span>
@@ -1123,7 +1123,7 @@
 												</span>
 											</span>
 										</div>
-										<div class="property-thumb-info-content" style="height: 120px;">
+										<div class="property-thumb-info-content">
 											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$grid->pid)?>"><?php echo $grid->property_name;?></a></h3>
 											<address class="module line-clamp"><?php echo $grid->address;?></address>
 										</div>
