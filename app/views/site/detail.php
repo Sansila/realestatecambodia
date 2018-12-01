@@ -97,7 +97,7 @@
 									<div class="col-sm-4">
 										<ul class="list-unstyled amenities amenities-detail">
 											<li><strong>Type:</strong> <?php echo $detail->typename?></li>
-											<li><strong>Area:</strong> <?php echo $detail->housesize?><sup>m2</sup></li>
+											<li><strong>Area:</strong> <?php if($detail->housesize !="") echo $detail->housesize; else echo 0;?><sup>m2</sup></li>
 											<li><address><i class="icons icon-location"></i> <?php echo $detail->address;?></address></li>
 											<li class="<?php echo $bedroom?>"><i class="icons icon-bedroom"></i> <?php echo $detail->bedroom;?> Bedrooms</li>
 											<li class="<?php echo $bathroom?>"><i class="icons icon-bathroom"></i> <?php echo $detail->bathroom;?> Bathrooms</li>
@@ -211,6 +211,11 @@
 							<h2>Related Properties</h2>
 							<div class="row">
 								<div class="owl-carousel pgl-pro-slide" data-plugin-options='{"items": 3, "itemsDesktop": 3, "singleItem": false, "autoPlay": false, "pagination": false}'>
+									<?php 
+										foreach($this->getRelatedProperty($detail->pid,$detail->agent_id) as $related){
+
+										}
+									?>
 									<div class="col-md-12 animation">
 										<div class="pgl-property">
 											<div class="property-thumb-info">
@@ -323,7 +328,7 @@
 					</div>
 					<div class="col-md-3 sidebar">
 						<!-- Begin Advanced Search -->
-						<aside class="block pgl-advanced-search pgl-bg-light">
+						<!-- <aside class="block pgl-advanced-search pgl-bg-light hide">
 							<h3>Advance Search</h3>
 							<form name="advancedsearch">
 								<div class="form-group">
@@ -680,7 +685,7 @@
 								</div>
 								
 							</form>
-						</aside>
+						</aside> -->
 						<!-- End Advanced Search -->
 						
 						<!-- Begin Our Agents -->

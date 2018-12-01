@@ -117,11 +117,12 @@ class Site extends CI_Controller {
 
         if($category !="")
         {
+            $ar = urlencode('[]');
             foreach ($category as $cat) {
-                $return_cat .= "categories[]=".$cat."&";
+                $return_cat .= "categories".$ar."=".$cat."&";
             }
         }else{
-            $return_cat .= "&";
+            $return_cat .= "categories=&";
         }
 
         $page = 0;
@@ -238,6 +239,10 @@ class Site extends CI_Controller {
         $data = $this->site->getItemLocation();
         header('Content-Type: application/json');
         echo json_encode($data);
+    }
+    function getRelatedProperty($pid,$agent_id)
+    {
+        echo "hello";
     }
 }
 ?>

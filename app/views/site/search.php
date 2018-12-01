@@ -54,8 +54,9 @@
 	
 	if($category !="")
 	{
+		$ar = urlencode('[]');
 		foreach ($category as $cat) {
-			$return_cat .= "categories[]=".$cat."&";
+			$return_cat .= "categories".$ar."=".$cat."&";
 		}
 	}else{
 		$return_cat .= "categories=&";
@@ -1076,7 +1077,7 @@
 										<div class="property-thumb-info-content">
 											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$list->pid)?>"><?php echo $list->property_name;?></a></h3>
 											<address class="module line-clamp"><?php echo $list->address?></address>
-											<p><?php echo $list->description;?></p>
+											<p class="module line-clamps"><?php echo $list->description;?></p>
 										</div>
 										<div class="amenities clearfix">
 											<ul class="pull-left">
@@ -1122,7 +1123,7 @@
 												</span>
 											</span>
 										</div>
-										<div class="property-thumb-info-content">
+										<div class="property-thumb-info-content" style="height: 120px;">
 											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$grid->pid)?>"><?php echo $grid->property_name;?></a></h3>
 											<address class="module line-clamp"><?php echo $grid->address;?></address>
 										</div>
