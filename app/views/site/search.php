@@ -1029,7 +1029,7 @@
 								<li><label for="order-status">Order</label></li>
 								<li>
 									<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_by">
-										<option value="">-Select-</option>
+										<option value="">--Order By--</option>
 										<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
 										<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
 									</select>
@@ -1037,7 +1037,7 @@
 								<li><label for="sortby-status">Sort by</label></li>
 								<li>
 									<select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_by">
-										<option value="">-Select-</option>
+										<option value="">--Sort By--</option>
 										<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
 										<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
 										<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
@@ -1077,7 +1077,7 @@
 										<div class="property-thumb-info-content">
 											<h3><a class="module line-clamp" href="<?php echo site_url('site/site/detail/'.$list->pid)?>"><?php echo $list->property_name;?></a></h3>
 											<address class="module line-clamp"><?php echo $list->address?></address>
-											<p><?php echo $list->description;?></p>
+											<p class="module line-clamps"><?php echo $list->description;?></p>
 										</div>
 										<div class="amenities clearfix">
 											<ul class="pull-left">

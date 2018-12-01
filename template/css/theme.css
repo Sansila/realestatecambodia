@@ -356,3 +356,8 @@ body {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;  
 }
+.property-thumb-info-content > p{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+}

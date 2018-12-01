@@ -447,7 +447,7 @@
                             <label class='col-lg-2 control-label'>Content</label>
                             <div class=" col-lg-10"> 
                                 <div class="col-md-12">
-                                    <div class="tabbable inline">
+                                    <!-- <div class="tabbable inline">
                                       <ul id="myTab" class="nav nav-tabs tab-bricky">
                                           <li id='first' class='active'>
                                               <a href="#english" data-toggle="tab" onclick="session_tab('english');"> English </a>
@@ -458,14 +458,14 @@
                                           </li>
                                          
                                       </ul>
-                                    </div>
-                                    <div style="clear:both"></div>
+                                    </div> -->
+                                    <!-- <div style="clear:both"></div> -->
                                     <div class="tab-content">
                                         <div id="english" class="tab-pane active">
-                                            <div><textarea class="summernote" id='contents'><?php echo isset($row->description)?"$row->description":""; ?></textarea></div>
+                                            <div><textarea id='contents_pro' style="margin: 0px; width: 1010px; height: 275px;"><?php echo isset($row->description)?"$row->description":""; ?></textarea></div>
                                         </div>
                                         <div id="khmer" class="tab-pane ">
-                                            <textarea class="summernote" id='contents_kh'><?php echo isset($row->description_kh)?"$row->description_kh":""; ?></textarea>
+                                            <textarea id='contents_kh_pro'><?php echo isset($row->description_kh)?"$row->description_kh":""; ?></textarea>
                                         </div>
                                     </div>
                                 </div> 
@@ -637,10 +637,6 @@
           var urgent = 0;
             if($('#urgent').is(':checked'))
                 urgent = 1;
-          var data = CKEDITOR.instances.contents.getData();
-          $('#contents').text(data);
-          var data_kh= CKEDITOR.instances.contents_kh.getData();
-          $('#contents_kh').text(data_kh);
           $("body").toggleClass("wait");
           setTimeout(function(){
               $.ajax({
@@ -688,8 +684,8 @@
                     available: $('#available_pro').val(),
                     start_date: $('#start_date').val(),
                     end_date: $('#end_date').val(),
-                    content: $('#contents').val(),
-                    content_kh: $('#contents_kh').val(),
+                    content: $('#contents_pro').val(),
+                    content_kh: $('#contents_kh_pro').val(),
                     story: $('#story').val(),
                     pool: $('#pool').val(),
                     latitude: $('#latitude').val(), 
@@ -736,53 +732,8 @@
         }        
       }      
     });
-    CKEDITOR.replace( 'contents',
-    {
-        filebrowserBrowseUrl :"<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Connector=ckeditor/ckfinder/core/connectors/php/connector.php",
-        filebrowserImageBrowseUrl : "<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Type=Images&Connector=ckeditor/ckfinder/core/connectors/php/connector.php",
-        filebrowserFlashBrowseUrl :"<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Type=Flash&Connector=ckeditor/ckfinder/core/connector/php/connector.php",
-        filebrowserUploadUrl  :"<?php echo base_url();?>ckeditor/js/ckeditor/filemanager/connectors/php/upload.php?Type=File",
-        filebrowserImageUploadUrl : "<?php echo base_url();?>ckeditor/filemanager/connectors/php/upload.php?Type=Image",
-        filebrowserFlashUploadUrl : "<?php echo base_url();?>ckeditor/filemanager/connectors/php/upload.php?Type=Flash"
-            
-      }); 
-    CKEDITOR.replace( 'contents_kh',
-    {
-        filebrowserBrowseUrl :"<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Connector=ckeditor/ckfinder/core/connectors/php/connector.php",
-        filebrowserImageBrowseUrl : "<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Type=Images&Connector=ckeditor/ckfinder/core/connectors/php/connector.php",
-        filebrowserFlashBrowseUrl :"<?php echo base_url();?>ckeditor/ckfinder/ckfinder.html?Type=Flash&Connector=ckeditor/ckfinder/core/connector/php/connector.php",
-        filebrowserUploadUrl  :"<?php echo base_url();?>ckeditor/js/ckeditor/filemanager/connectors/php/upload.php?Type=File",
-        filebrowserImageUploadUrl : "<?php echo base_url();?>ckeditor/filemanager/connectors/php/upload.php?Type=Image",
-        filebrowserFlashUploadUrl : "<?php echo base_url();?>ckeditor/filemanager/connectors/php/upload.php?Type=Flash"
-            
-      }); 
-    // CKEDITOR.replace('contents',{
-    //   filebrowserBrowseUrl: "<?php echo base_url(); ?>ckfinder/ckfinder.html?resourceType=Files"
-    // });
-    // CKFinder.setupCKEditor();
-
-    // function loadEditor(id)
-    // {
-    //     var instance = CKEDITOR.instances[id];
-    //     if(instance)
-    //     {
-    //         CKEDITOR.remove(instance);
-    //     }
-       
-    // }
-    /*
-    $('input').on('ifChecked', function(event){      
-        $(this).val(1);          
-    });
-   $('input').on('ifUnchecked', function(event){
-      if(window.confirm("Are you sure ! Do you want to set Inactive for this stock.")){
-        $(this).val(0);
-      }else{
-        return false;
-      } 
-    });
-    */
-    });
+    
+});
 </script>
     
         
