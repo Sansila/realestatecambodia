@@ -14966,11 +14966,11 @@ input.range {
 }
 
 .panel {
-    background-color: #fff;
+    /* background-color: #fff;
     padding: 20px;
     padding: 1.25rem;
     margin-bottom: 30px;
-    margin-bottom: 1.875rem
+    margin-bottom: 1.875rem */
 }
 
 @media screen and (max-width:41.6875em) {
