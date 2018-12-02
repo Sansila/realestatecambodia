@@ -98,7 +98,7 @@
 										<ul class="list-unstyled amenities amenities-detail">
 											<li><strong>Type:</strong> <?php echo $detail->typename?></li>
 											<li><strong>Area:</strong> <?php if($detail->housesize !="") echo $detail->housesize;else echo 0;?><sup>m2</sup></li>
-											<li><address><i class="icons icon-location"></i> <?php echo $detail->address;?></address></li>
+											<li><address><i class="fa fa-map-marker"></i> <?php if($detail->locationname !="") echo $detail->locationname.' > '; else echo ""; echo $detail->address;?></address></li>
 											<li class="<?php echo $bedroom?>"><i class="icons icon-bedroom"></i> <?php echo $detail->bedroom;?> Bedrooms</li>
 											<li class="<?php echo $bathroom?>"><i class="icons icon-bathroom"></i> <?php echo $detail->bathroom;?> Bathrooms</li>
 										</ul>
@@ -197,7 +197,11 @@
 											</div>
 											<div id="collapseFive" class="panel-collapse collapse">
 												<div class="panel-body">
-													<p>Sed perspiciatis unde omnisiste natus error voluptatem remopa accusantium doloremque laudantium, totam rem aperiam.</p>
+													<ul>
+														<li><i class="fa fa-map-marker"></i> Address: <?php echo $profile->address?></li>
+														<li><i class="fa fa-phone"></i> Mobile : <?php echo $profile->phone?><br></li>
+														<li><i class="fa fa-envelope-o"></i> Mail: <?php echo $profile->email?></li>
+													</ul>
 												</div>
 											</div>
 										</div>
@@ -244,8 +248,8 @@
 														<li><strong>Area:</strong> <?php if($related->housesize !="") echo $related->housesize; else echo 0;?><sup>m2</sup></li>
 													</ul>
 													<ul class="pull-right">
-														<li><i class="icons icon-bedroom"></i> <?php if($related->bedroom !="") echo $related->bedroom; else echo 0;?></li>
-														<li><i class="icons icon-bathroom"></i> <?php if($related->bedroom !="") echo $related->bedroom; else echo 0;?></li>
+														<li class="<?php if($related->bedroom == "" ) echo "hide";?>"><i class="icons icon-bedroom"></i> <?php echo $related->bedroom;?></li>
+														<li class="<?php if($related->bedroom == "" ) echo "hide"?>"><i class="icons icon-bathroom"></i> <?php echo $related->bedroom;?></li>
 													</ul>
 												</div>
 											</div>
@@ -625,7 +629,7 @@
 						<!-- Begin Our Agents -->
 						<aside class="block pgl-agents pgl-bg-light">
 							<h3>Our Agents</h3>
-							<div class="owl-carousel pgl-pro-slide pgl-agent-item" data-plugin-options='{"items": 1, "pagination": false, "autoHeight": true}'>
+							<div class="owl-carousel pgl-pro-slide pgl-agent-item" data-plugin-options='{"items": false, "pagination": false, "autoHeight": true}'>
 
 								<div class="pgl-agent-item">
 									<div class="img-thumbnail-medium">
@@ -643,7 +647,7 @@
 									</div>	
 								</div>
 
-								<div class="pgl-agent-item">
+								<!-- <div class="pgl-agent-item">
 									<div class="img-thumbnail-medium">
 										<a href="agentprofile.html"><img src="<?php echo site_url('template')?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
 									</div>
@@ -657,7 +661,7 @@
 											<i class="fa fa-envelope-o"></i> Mail: <a href="mailto:MCCarthy@gmail.com">MCCarthy@gmail.com</a>
 										</address>
 									</div>	
-								</div>
+								</div> -->
 								
 							</div>
 						</aside>

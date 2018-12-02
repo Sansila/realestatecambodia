@@ -286,12 +286,14 @@
 					                type:"POST",
 					                datatype:"Json",
 					                async:false,
-					                data:{'last_name':last_name,
+					                data:{
+										'last_name':last_name,
 					                	'first_name':first_name,
 					                	'email':email,
 					                	'is_pwd':is_pwdchange,
 					                	'old_pwd':old_pwd,
-					                	'new_pwd':new_pwd },
+					                	'new_pwd':new_pwd 
+										},
 					                success:function(res) {
 					                	if(res=='Your Old password is incorrect.!'){
 					                		toasmsg('error',res);

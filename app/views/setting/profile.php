@@ -123,7 +123,7 @@
                                 <div class="form-group">
                                     <!-- <label class="col-lg-4 control-label"></label>                       -->
                                     <div class="col-md-10">
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-5">
                                             <button id="save" name="save" type="submit" class="btn btn-primary">Save</button>
                                             <a href="<?php echo site_url('sys/dashboard') ?>" id="cancel" name="cancel" type="button" class="btn btn-danger">Cancel</a>
                                         </div>

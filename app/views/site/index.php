@@ -66,11 +66,11 @@
 
 	                            <div class="search-field-wrapper search-type desktop-search-type">
 	                                <button data-toggle="search-type-dropdown" class="search-field  expanded desktop-search-field">
-	                                    <span class="text-label">Buy</span>
+	                                    <span class="text-label">Property Status</span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="all">All</div>
+	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="all">Property Status</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -469,7 +469,7 @@
 
 	                            <div class="search-field-wrapper search-location">
 	                                <div class="search-field">
-	                                    <span class="text-label"><input id="id_mobile_location_autocomplete" class="location-autocomplete" type="text" name="locations" placeholder="Enter any location   " value=""></span>
+	                                    <span class="text-label"><input id="id_mobile_location_autocomplete" class="location-autocomplete" type="text" name="locations" placeholder="Enter any location" value=""></span>
 	                                    <button data-toggle="mobile-location-dropdown" class="float-right icon-down"></button>
 	                                </div>
 	                                <div class="dropdown-pane" id="mobile-location-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
@@ -485,11 +485,11 @@
 	                            <div class="search-field-wrapper search-type mobile-search-type">
 	                                <button data-toggle="mobile-search-type-dropdown" class="search-field hollow expanded mobile-search-field">
 	                                    <span class="text-label">Looking to</span>
-	                                    <span class="text-label-selected">Buy</span>
+	                                    <span class="text-label-selected">Property Status</span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="mobile-search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="all">All</div>
+	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="all">Property Status</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -864,7 +864,7 @@
 
 		        <select multiple="multiple" id="id_property_type" name="status">
 		            <option value="">---------</option>
-		            <option value="all">All</option>
+		            <option value="all">Select Status</option>
 		            <option value="sale">Sale</option>
 		            <option value="rent">Rent</option>
 		            <option value="both">Both</option>
@@ -962,6 +962,11 @@
 				
 				<input id="list_type" name="list_type" value="lists"/>
 
+				<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_bys">
+					<option value="Desc">Descending</option>
+					<option value="Asc">Ascending</option>
+				</select>
+
 		    </form>
 			
 			<!-- Begin Properties -->
@@ -1014,8 +1019,8 @@
 													<li><strong>Area:</strong> <?php if($list->housesize !="") echo $list->housesize; else echo 0;?><sup>m2</sup></li>
 												</ul>
 												<ul class="pull-right">
-													<li><i class="icons icon-bedroom"></i> <?php if($list->bedroom !="") echo $list->bedroom; else echo 0;?></li>
-													<li><i class="icons icon-bathroom"></i> <?php if($list->bathroom !="") echo $list->bathroom; else echo 0;?></li>
+													<li class="<?php if($list->bedroom == "" ) echo "hide";?>"><i class="icons icon-bedroom"></i> <?php echo $list->bedroom; ?></li>
+													<li class="<?php if($list->bathroom == "" ) echo "hide";?>"><i class="icons icon-bathroom"></i> <?php echo $list->bathroom; ?></li>
 												</ul>
 											</div>
 										</div>

@@ -5,6 +5,7 @@
         {
             $sql = $this->db->query(" SELECT * FROM tblproperty as p
                 left join tblpropertytype as pt on p.type_id = pt.typeid
+                left join tblpropertylocation as lp on p.lp_id = lp.propertylocationid
                 WHERE p.p_status = 1 AND p.pid = '$pid' ")->row();
             return $sql;
         }
@@ -82,25 +83,49 @@
                 ")->result();
             return $query;
         }
-        // function get_items()
-        // {
-        //     $this->db->select('*');
-        //     $this->db->from('tblpropertylocation');
-        //     $this->db->order_by('lineage');
-        //     $query = $this->db->get();
-        //     return $query->result_array();
-        // }
-        // function generateTree($items = array(), $parent_id = null)
-        // {
-        //     $tree = array();
-        //     for($i=0, $ni=count($items); $i < $ni; $i++){
-        //         if($items[$i]['parent_id'] == $parent_id){
+        function get_menu()
+        {
+            $query = $this->db->query("SELECT * FROM tblmenus ORDER BY lineage asc");
+            $cat = array(
+                'items' => array(),
+                'parents' => array()
+            );
+            foreach ($query->result() as $cats) {
+                $cat['items'][$cats->menu_id] = $cats;
+                $cat['parents'][$cats->parentid][] = $cats->menu_id;
+            }
+            if ($cat) {
+                $result = $this->generateTree(0,$cat);
+                return $result;
+            } else {
+                return FALSE;
+            }
+        }
+        function generateTree($parent,$menu)
+        {
+            $html = "";
+            if (isset($menu['parents'][$parent])) {
+                $html .= "<ul class='nav navbar-nav pull-right'>";
+                foreach ($menu['parents'][$parent] as $menu_s) {
+                    if (!isset($menu['parents'][$menu_s])) {
+                        $html .= "<li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='" . $menu['items'][$menu_s]->menu_id . "'>" . $menu['items'][$menu_s]->menu_name . "</a>";
+                        $html .="<ul class='dropdown-menu'>";
+                        $html .= "<li><a href='ouragents.html'>Our Agents</a></li>";
+                        $html .= "<li><a href='agentprofile.html'>Agent Profile</a></li>";
+                        $html .= "</ul>";
+                        $html .= "</li>";
+                    }
+                    if (isset($menu['parents'][$menu_s])) {
+                        $html .= "<li><a href='" . $menu['items'][$menu_s]->menu_id . "'>" . $menu['items'][$menu_s]->menu_name . "</a>";
+                        $html .= $this->generateTree($menu_s,$menu);
+                        $html .= "</li>";
+                    }
+                }
+                $html .= "</ul>";
+            }
+            return $html;
 
-        //             $tree[]= $items[$i]['locationname'];
-        //             $tree[]= $this->generateTree($items, $items[$i]['propertylocationid']);
-        //         }
-        //     }
-        //     return $tree;
-        // }
-        
+        }   
 }
+
+

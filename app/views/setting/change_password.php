@@ -68,24 +68,24 @@
                           
                             <div class="col-sm-8">
                                 <div class="form-group">
-                                    <label class='col-lg-2 control-label'>Old-Password</label>
-                                    <div class=" col-lg-3"> 
+                                    <label class='col-lg-3 control-label'>Old-Password</label>
+                                    <div class=" col-lg-4"> 
                                         <div class="col-md-12">
                                             <input type="password"  class="form-control input-sm required" name="old_password" id="old_password">
                                         </div>                   
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class='col-lg-2 control-label'>New-Password</label>
-                                    <div class=" col-lg-3"> 
+                                    <label class='col-lg-3 control-label'>New-Password</label>
+                                    <div class=" col-lg-4"> 
                                         <div class="col-md-12">
                                             <input type="password"  class="form-control input-sm required" name="password" id="password">
                                         </div>                   
                                     </div>
                                 </div>
                                  <div class="form-group">
-                                    <label class='col-lg-2 control-label'>Confirm-Password</label>
-                                    <div class=" col-lg-3"> 
+                                    <label class='col-lg-3 control-label'>Confirm-Password</label>
+                                    <div class=" col-lg-4"> 
                                         <div class="col-md-12">
                                             <input type="password"  class="form-control input-sm required" name="password_again" id="password_again">
                                         </div>                   
@@ -95,7 +95,7 @@
                                 <div class="form-group">
                                     <!-- <label class="col-lg-4 control-label"></label>                       -->
                                     <div class="col-md-10">
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-5">
                                             <button id="save" name="save" type="submit" class="btn btn-primary">Save</button>
                                             <a href="<?php echo site_url('sys/dashboard') ?>" id="cancel" name="cancel" type="button" class="btn btn-danger">Cancel</a>
                                         </div>

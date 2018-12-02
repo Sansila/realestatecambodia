@@ -408,7 +408,7 @@
                             <label class='col-lg-2 control-label'>Address</label>
                             <div class="col-lg-4"> 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" id="address"><?php echo isset($row->address)?"$row->address":""; ?></textarea>
+                                    <textarea class="form-control" id="address" style="margin: 0px; width: 100%; height: 275px; resize: none;"><?php echo isset($row->address)?"$row->address":""; ?></textarea>
                                 </div>                   
                             </div>
                         </div>
@@ -462,7 +462,7 @@
                                     <!-- <div style="clear:both"></div> -->
                                     <div class="tab-content">
                                         <div id="english" class="tab-pane active">
-                                            <div><textarea id='contents_pro' style="margin: 0px; width: 1010px; height: 275px;"><?php echo isset($row->description)?"$row->description":""; ?></textarea></div>
+                                            <div><textarea id='contents_pro' style="margin: 0px; width: 100%; height: 275px; resize: none;"><?php echo isset($row->description)?"$row->description":""; ?></textarea></div>
                                         </div>
                                         <div id="khmer" class="tab-pane ">
                                             <textarea id='contents_kh_pro'><?php echo isset($row->description_kh)?"$row->description_kh":""; ?></textarea>

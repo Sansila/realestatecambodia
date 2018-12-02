@@ -11,7 +11,8 @@ class Site extends CI_Controller {
 	}
 	public function index()
 	{	
-		$datas['profile'] = $this->site->getSiteprofile();
+        $datas['profile'] = $this->site->getSiteprofile();
+        // $datas['menu'] = $this->site->get_menu();
         $data['type'] = $this->site->getPropertyType();
         $data['location'] = $this->site->getPropertyLocation();
         $data['data'] = $this->site->getItemLocation();
@@ -62,7 +63,8 @@ class Site extends CI_Controller {
     }
     function detail($pid)
     {
-    	$datas['profile'] = $this->site->getSiteprofile();
+        $datas['profile'] = $this->site->getSiteprofile();
+        $data['profile'] = $this->site->getSiteprofile();
     	$data['detail'] = $this->site->getPropertyByID($pid);
 		$data['image'] = $this->site->getImageByID($pid);
         $data['type'] = $this->site->getPropertyType();
@@ -155,44 +157,54 @@ class Site extends CI_Controller {
 
         if($status !="" || $location !="" || $category !="" || $firstprice !="" ||$lastprice !="")
         {
-                $where.= "AND (p.remark LIKE '%$available%' ";
+                $where.= " AND 1=1 ";
             if($firstprice !="" && $lastprice !=""){
-                $where.= " OR p.price BETWEEN $firstprice AND $lastprice";
+                $where.= " AND p.price BETWEEN $firstprice AND $lastprice";
             }else if($firstprice !=""){
-                $where.= " OR p.price BETWEEN 0 AND $firstprice";
+                $where.= " AND p.price BETWEEN 0 AND $firstprice";
             }else if($lastprice !=""){
-                $where.= " OR p.price BETWEEN 0 AND $lastprice";
+                $where.= " AND p.price BETWEEN 0 AND $lastprice";
             }
             if($status !="")
             {
                 if($status == "rent")
-                    $where.= " OR p.p_type = 2 ";
+                    $where.= " AND p.p_type = 2 ";
                 if($status == "sale")
-                    $where.= " OR p.p_type = 1 ";
+                    $where.= " AND p.p_type = 1 ";
                 if($status == "both")
-                    $where.= " OR p.p_type = 3 ";
-                if($status == "all")
-                    $where.= " OR p.p_type <> 0 ";
+                    $where.= " AND p.p_type = 3 ";
             }
             if($location != "")
             {
                 $location = trim($location, ';');
                 $arr = explode(';', $location);
+                $num = count($arr);$i=0;
+                $where.= " AND (";
                 foreach ($arr as $arr) {
-                    $where.= " OR lp.locationname = '$arr'";
+                    $or = "OR";
+                    if(++$i == $num)
+                    {
+                        $or = "";
+                    }
+                    $where.= " lp.locationname = '$arr' $or ";
                 }
+                $where.= ")";
             }
+            
             if($category !="")
             {
+                $where.= " AND (";
+                $num = count($category);$i=0;
                 foreach ($category as $cat) {
-                    $where.= " OR pt.typename = '$cat'";
-                    $return_cat .= "categories[]=".$cat."&";
+                    $or = "OR";
+                    if(++$i == $num)
+                    {
+                        $or = "";
+                    }
+                    $where.= " pt.typename = '$cat' $or ";
                 }
-            }else{
-                $return_cat .= "&";
+                $where.= ")";
             }
-
-            $where.= ")";
         }else{
             $where.= "";
         }
@@ -203,8 +215,8 @@ class Site extends CI_Controller {
         {
             $order_by.= " ORDER BY p.pid $order";
         }else if($sort !="" && $order != ""){
-            if($sort == "Name")
-                $order_by.= " ORDER BY p.property_name $order ";
+            if($sort == "Price")
+                $order_by.= " ORDER BY p.price $order ";
             if($sort == "Area")
                 $order_by.= " ORDER BY p.housesize $order ";
             if($sort == "Date")

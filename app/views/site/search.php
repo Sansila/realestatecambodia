@@ -83,11 +83,11 @@
 
 	                            <div class="search-field-wrapper search-type desktop-search-type">
 	                                <button data-toggle="search-type-dropdown" class="search-field  expanded desktop-search-field">
-	                                    <span class="text-label"><?php echo $status;?></span>
+	                                    <span class="text-label" style="text-transform: capitalize;"><?php if($status == "all") echo "Property Status"; else echo $status;?></span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="all">All</div>
+	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="all">Property Status</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".desktop-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -502,11 +502,11 @@
 	                             <div class="search-field-wrapper search-type mobile-search-type">
 	                                <button data-toggle="mobile-search-type-dropdown" class="search-field hollow expanded mobile-search-field">
 	                                    <span class="text-label">Looking to</span>
-	                                    <span class="text-label-selected"><?php echo $status;?></span>
+	                                    <span class="text-label-selected" style="text-transform: capitalize;"><?php if($status == "all") echo "Property Status"; else echo $status;?></span>
 	                                    <span class="icon-down"></span>
 	                                </button>
 	                                <div class="dropdown-pane search-type" id="mobile-search-type-dropdown" data-dropdown data-close-on-click="true" data-v-offset="10">
-	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="all">all</div>
+	                                	<div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="all">Property Status</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="rent">Rent</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="sale">Sale</div>
 	                                    <div class="dropdown-item" data-dropdown-changer data-target-button=".mobile-search-type" data-target-field="#id_property_type" data-target-value="both">Rent & Sale</div>
@@ -882,7 +882,7 @@
 
 		        <select multiple="multiple" method="get" id="id_property_type" name="status">
 		            <option value="">---------</option>
-		            <option <?php if($status == "all") echo "selected"; else echo "";?> value="all">All</option>
+		            <option <?php if($status == "all") echo "selected"; else echo "";?> value="all">Property Status</option>
 		            <option <?php if($status == "sale") echo "selected"; else echo "";?> value="sale">Sale</option>
 		            <option <?php if($status == "rent") echo "selected"; else echo "";?> value="rent">Rent</option>
 		            <option <?php if($status == "both") echo "selected"; else echo "";?> value="both">Both</option>
@@ -988,14 +988,13 @@
 				<input id="list_type" name="list_type" value="<?php echo $list_type?>"/>
 
 		        <select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_bys">
-		        	<option value="">-Select-</option>
 					<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
 					<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
 				</select>
 
 		        <select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_bys">
 		        	<option value="">-Select-</option>
-					<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
+					<option <?php if($sort == 'Price') echo "selected"; else echo "";?> value="Price">Price</option>
 					<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
 					<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
 				</select>
@@ -1007,7 +1006,7 @@
 			<!-- Begin Properties -->
 			<section class="pgl-properties pgl-bg-grey">
 				<div class="container">
-					<h2>Cambodia Rent Search</h2>
+					<h2>Search Result</h2>
 					<div class="properties-full properties-listing properties-listfull">
 						<div class="listing-header clearfix">
 							<ul class="list-inline list-icons pull-left">
@@ -1029,7 +1028,6 @@
 								<li><label for="order-status">Order</label></li>
 								<li>
 									<select id="order-status" name="order" data-placeholder="Order" class="chosen-select order_by">
-										<option value="">--Order By--</option>
 										<option <?php if($order == "Desc") echo "selected"; else echo "";?> value="Desc">Descending</option>
 										<option <?php if($order == "Asc") echo "selected"; else echo "";?> value="Asc">Ascending</option>
 									</select>
@@ -1038,7 +1036,7 @@
 								<li>
 									<select id="sortby-status" name="sort" data-placeholder="Sort by" class="chosen-select short_by">
 										<option value="">--Sort By--</option>
-										<option <?php if($sort == 'Name') echo "selected"; else echo "";?> value="Name">Name</option>
+										<option <?php if($sort == 'Price') echo "selected"; else echo "";?> value="Price">Price</option>
 										<option <?php if($sort == 'Area') echo "selected"; else echo "";?> value="Area">Area</option>
 										<option <?php if($sort == 'Date') echo "selected"; else echo "";?> value="Date">Date</option>
 									</select>
@@ -1084,8 +1082,8 @@
 												<li><strong>Area:</strong> <?php if($list->housesize !="") echo $list->housesize; else echo 0;?><sup>m2</sup></li>
 											</ul>
 											<ul class="pull-right">
-												<li><i class="icons icon-bedroom"></i> <?php if($list->bedroom !="") echo $list->bedroom; else echo 0;?></li>
-												<li><i class="icons icon-bathroom"></i> <?php if($list->bathroom !="") echo $list->bathroom; else echo 0;?></li>
+												<li class="<?php if($list->bedroom == "") echo "hide"; ?>"><i class="icons icon-bedroom"></i> <?php echo $list->bedroom;?></li>
+												<li class="<?php if($list->bathroom == "") echo "hide"; ?>"><i class="icons icon-bathroom"></i> <?php echo $list->bathroom;?></li>
 											</ul>
 										</div>
 									</div>
@@ -1102,7 +1100,7 @@
 								foreach($result as $grid)
 								{
 							?>
-							<div class="col-xs-6 col-md-3 animation">
+							<div class="col-xs-3 animation">
 								<div class="pgl-property">
 									<div class="property-thumb-info">
 										<div class="property-thumb-info-image">
@@ -1132,8 +1130,8 @@
 												<li><strong>Area:</strong> <?php if($grid->housesize !="") echo $grid->housesize; else echo 0;?><sup>m2</sup></li>
 											</ul>
 											<ul class="pull-right">
-												<li><i class="icons icon-bedroom"></i> <?php if($grid->bedroom !="") echo $grid->bedroom; else echo 0;?></li>
-												<li><i class="icons icon-bathroom"></i> <?php if($grid->bedroom !="") echo $grid->bedroom; else echo 0;?></li>
+												<li class="<?php if($grid->bedroom == "") echo "hide"; ?>"><i class="icons icon-bedroom"></i> <?php echo $grid->bedroom;?></li>
+												<li class="<?php if($grid->bedroom == "") echo "hide"; ?>"><i class="icons icon-bathroom"></i> <?php echo $grid->bedroom;?></li>
 											</ul>
 										</div>
 									</div>
