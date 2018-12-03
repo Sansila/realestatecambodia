@@ -161,7 +161,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="panel panel-default pgl-panel">
+										<div class="panel panel-default pgl-panel hide">
 											<div class="panel-heading">
 												<h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFouth" class="collapsed">Agent</a> </h4>
 											</div>
@@ -633,16 +633,19 @@
 
 								<div class="pgl-agent-item">
 									<div class="img-thumbnail-medium">
-										<a href="agentprofile.html"><img src="<?php echo site_url('template')?>/images/agents/temp-agent.png" class="img-responsive" alt=""></a>
+										<a href="#">
+											<!-- <img src="<?php echo site_url('template')?>/images/agents/temp-agent.png" class="img-responsive" alt=""> -->
+											<img aly="" class="img-responsive" src="<?php if(@ file_get_contents(base_url('assets/upload/adminuser/'.$detail->userid.'.png'))) echo base_url('assets/upload/adminuser/'.$detail->userid.'.png'); else echo base_url('assets/upload/noimage.jpg')?>"/>
+										</a>
 									</div>
 									<div class="pgl-agent-info">
-										<small>NO.1</small>
-										<h4><a href="agentprofile.html">John Smith</a></h4>
+										<!-- <small>NO.1</small> -->
+										<h4><a href="#"><?php echo $detail->user_name?></a></h4>
 										<address>
-											<i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br>
-											<i class="fa fa-phone"></i> Mobile : 0800-666-6666<br>
-											<i class="fa fa-fax"></i> Fax : 1-800-666-8888<br>
-											<i class="fa fa-envelope-o"></i> Mail: <a href="mailto:JohnSmith@gmail.com">JohnSmith@gmail.com</a>
+											<!-- <i class="fa fa-map-marker"></i> Office : 1-800-666-8888<br> -->
+											<i class="fa fa-phone"></i> Mobile : <?php echo $detail->phone;?><br>
+											<!-- <i class="fa fa-fax"></i> Fax : 1-800-666-8888<br> -->
+											<i class="fa fa-envelope-o"></i> Mail: <?php echo $detail->email;?>
 										</address>
 									</div>	
 								</div>

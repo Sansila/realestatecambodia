@@ -187,6 +187,7 @@ class Site extends CI_Controller {
                         $or = "";
                     }
                     $where.= " lp.locationname = '$arr' $or ";
+
                 }
                 $where.= ")";
             }

@@ -6,6 +6,7 @@
             $sql = $this->db->query(" SELECT * FROM tblproperty as p
                 left join tblpropertytype as pt on p.type_id = pt.typeid
                 left join tblpropertylocation as lp on p.lp_id = lp.propertylocationid
+                left join admin_user as u on p.agent_id = u.userid
                 WHERE p.p_status = 1 AND p.pid = '$pid' ")->row();
             return $sql;
         }
